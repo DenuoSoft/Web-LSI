@@ -4,7 +4,6 @@ import {people} from './people-data';
 import {
 	ItemBadge,
 	ItemBadgeWrap,
-	ItemIcon,
 	ItemTitle,
 	ItemWrap,
 	PeopleBlock,
@@ -12,6 +11,7 @@ import {
 	PeopleItem,
 	PeopleWrap,
 } from './PeopleView.styled';
+import { ItemIcon } from '../../styles/shared';
 
 export const PeopleView = () => {
 	const navigate = useNavigate();

@@ -1,9 +1,8 @@
 import {useParams, useNavigate} from 'react-router-dom';
 import {people} from '../PeopleView/people-data';
 import {
-  Description,
+	Description,
 	InfoBlock,
-	ItemIcon,
 	ItemTitle,
 	NavBack,
 	NavBackText,
@@ -13,6 +12,7 @@ import {
 } from './PersonView.styled';
 import {ItemBadge, ItemBadgeWrap} from '../PeopleView/PeopleView.styled';
 import {ArrowLeft} from '../../assets/img/arrow-left';
+import { ItemIcon } from '../../styles/shared';
 
 export const PersonView = () => {
 	const {id} = useParams();
@@ -27,10 +27,10 @@ export const PersonView = () => {
 	return (
 		<PersonBlock>
 			<NavBack onClick={() => navigate(-1)}>
-				<ItemIcon >
+				<ItemIcon>
 					<ArrowLeft />
-        </ItemIcon>
-        <NavBackText>Back to people</NavBackText>
+				</ItemIcon>
+				<NavBackText>Back to people</NavBackText>
 			</NavBack>
 
 			<PersonWrap>
@@ -42,10 +42,8 @@ export const PersonView = () => {
 						{person.badge.map((badge, index) => (
 							<ItemBadge key={index}>{badge}</ItemBadge>
 						))}
-          </ItemBadgeWrap>
-          <Description>
-            {person.about}
-          </Description>
+					</ItemBadgeWrap>
+					<Description>{person.about}</Description>
 				</InfoBlock>
 			</PersonWrap>
 

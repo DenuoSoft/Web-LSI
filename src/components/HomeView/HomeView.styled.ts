@@ -57,7 +57,7 @@ export const HomeText = styled.p`
 `;
 export const ImgBlock = styled.div`
 	width: 50%;
-	height: 50%;
+	height: 100%;
 	background-image: url(${image});
 	background-size: cover;
 	background-position: center center;

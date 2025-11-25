@@ -16,6 +16,7 @@ export const HeaderBlock = styled.header`
 `;
 export const HeaderContainer = styled.div`
 	max-width: 140rem;
+	width: 100%;
 	display: flex;
 	gap: 3.2rem;
 	align-items: center;
@@ -67,6 +68,12 @@ export const HeaderLink = styled(NavLink)`
 		color: #fff;
 	}
 `;
+export const HeaderContact = styled.div`
+margin-right: 0;
+@media (max-width: ${breakpoints.lg}) {
+		display: none;
+	}
+`
 export const MobileMenuButton = styled.button<{isOpen: boolean}>`
 	display: none;
 	background: none;

@@ -16,6 +16,7 @@ export const Main = styled.main`
   grid-area: main;
  padding-bottom: 1.6rem;
  display: flex;
+ flex-grow: 1;
  flex-direction: column;
  align-items: center;
 

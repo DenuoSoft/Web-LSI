@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-
+import Graphik from '../assets/fonts/GraphikLC-Regular.woff2'
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -24,7 +24,7 @@ html {
 
   @font-face {
     font-family: 'Graphik';
-    src: url('/fonts/GraphikLC-Regular.woff2') format('woff2');
+    src: url('${Graphik}') format('woff2');
     font-style: normal;
     font-display: swap;
   }

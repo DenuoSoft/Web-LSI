@@ -35,18 +35,7 @@ export const InfoBlock = styled.div`
 export const ItemTitle = styled.h2`
 	font-size: clamp(1.8rem, 0.388vw + 1.654rem, 2.4rem);
 `;
-export const ItemIcon = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: 0.5px solid #555a69;
-	border-radius: 10rem;
-	padding: 0.6rem;
-	width: 3rem;
-	height: 3rem;
-	
-  
-`;
+
 export const Description = styled.div`
   text-align: justify;
   padding: 2.4rem 0; 

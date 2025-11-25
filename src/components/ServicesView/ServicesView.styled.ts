@@ -40,6 +40,7 @@ export const ItemText = styled.p`
 export const ItemNav = styled.div`
 	width: 100%;
 	display: flex;
+	align-items: center;
 	justify-content: flex-end;
 	gap: 2rem;
 	cursor: pointer;

@@ -28,7 +28,7 @@ export const HeaderContainer = styled.div`
 export const HeaderLogo = styled.img`
 	width: 15rem;
 	object-fit: contain;
-	background-color: #555a69;
+	
 `;
 export const HeaderNav = styled.div<{isOpen: boolean}>`
 	display: flex;

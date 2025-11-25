@@ -64,8 +64,8 @@ export const router = createBrowserRouter([
 		path: '*',
 		element: <NotFound />,
 	},
-]/* ,
+] ,
 	{
-  basename: "/denuo-ip/lsi"
-} */
+  basename: "/Web-Lsi/"
+} 
 );

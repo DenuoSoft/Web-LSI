@@ -3,7 +3,7 @@ import { keyframes } from 'styled-components';
 export const fadeInY = keyframes`
   from {
     opacity: 0;
-    transform: translateY(150px);
+    transform: translateY(2rem);
   }
   to {
     opacity: 1;
@@ -14,7 +14,7 @@ export const fadeInY = keyframes`
 export const fadeInX = keyframes`
   from {
     opacity: 0;
-    transform: translateX(500px);
+    transform: translateX(2rem);
   }
   to {
     opacity: 1;

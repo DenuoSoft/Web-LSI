@@ -1,5 +1,6 @@
 export interface servicesProps { 
     id: number,
     title: string,
-    text: string
+    text: string,
+    description: string
 }

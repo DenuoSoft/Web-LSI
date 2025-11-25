@@ -1,3 +1,4 @@
+import { ArrowRight } from '../../assets/img/arrow-right';
 import {services} from './services-data';
 
 import {
@@ -5,6 +6,7 @@ import {
 	ItemTitle,
 	ItemText,
 	ServicesItem,
+	ItemNav,
 } from './ServicesView.styled';
 
 export const ServicesView = () => {
@@ -20,7 +22,11 @@ export const ServicesView = () => {
 						<ItemTitle>{service.title}</ItemTitle>
 						<ItemText>
 							{service.text}
-						</ItemText>
+					</ItemText>
+					<ItemNav>
+						<ItemText>See more</ItemText>
+						<ArrowRight />
+					</ItemNav>
 					</ServicesItem>
 				))}
 			</ServicesBlock>

@@ -37,3 +37,10 @@ export const ItemTitle = styled.h2`
 export const ItemText = styled.p`
 	font-size: clamp(1.4rem, 0.129vw + 1.351rem, 1.6rem);
 `;
+export const ItemNav = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	gap: 2rem;
+	cursor: pointer;
+`

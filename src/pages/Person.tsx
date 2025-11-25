@@ -1,4 +1,4 @@
-import { PersonView } from '../components/PersonView/PerosnView';
+import { PersonView } from '../components/PersonView/PersonView';
 
 export const Person = () => {
 	

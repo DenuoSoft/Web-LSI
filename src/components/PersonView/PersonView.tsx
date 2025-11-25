@@ -12,7 +12,7 @@ import {
 } from './PersonView.styled';
 import {ItemBadge, ItemBadgeWrap} from '../PeopleView/PeopleView.styled';
 import {ArrowLeft} from '../../assets/img/arrow-left';
-import { ItemIcon } from '../../styles/shared';
+import {ItemIcon} from '../../styles/shared';
 
 export const PersonView = () => {
 	const {id} = useParams();

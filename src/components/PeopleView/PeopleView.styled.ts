@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
+import { fadeInY } from '../../styles/animation';
 
 export const PeopleBlock = styled.div`
 	display: flex;
@@ -7,12 +8,15 @@ export const PeopleBlock = styled.div`
 	row-gap: 4rem;
 	margin-top: 4rem;
 	color: #555a69;
+	animation: ${fadeInY} 0.5s ease-in;
+	
 	@media (max-width: ${breakpoints.md}) {
 		row-gap: 2rem;
 	}
 	@media (max-width: ${breakpoints.xs}) {
 		row-gap: 1rem;
 	}
+	
 `;
 export const PeopleWrap = styled.div`
     width: 100%;
@@ -48,7 +52,7 @@ export const ItemWrap = styled.button`
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	align-content: center;
+	align-items: center;
 	cursor: pointer;
 `;
 export const ItemTitle = styled.h2`
@@ -60,10 +64,16 @@ export const PeopleImg = styled.div`
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-	height: 30rem;
-	box-shadow: 0.5rem 0.5rem 1rem 0.1rem #555a69;
+	box-shadow: 0.2rem 0.2rem 0.3rem 0.05rem rgba(85, 90, 105, 0.5);
+	height: 27.2rem;
 	@media (max-width: ${breakpoints.lg}) {
 		width: 100%;
+	}
+	
+	@media (max-width: ${breakpoints.sm}) {
+		box-shadow: none;
+		background-size: contain;
+		background-position: left;
 	}
 	
 `;
@@ -80,4 +90,5 @@ export const ItemBadge = styled.div`
 	border-radius: 0.4rem;
 	font-size: 1.2rem;
 	line-height: 167%;
+	
 `;

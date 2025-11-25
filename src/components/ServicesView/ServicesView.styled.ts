@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
+import { fadeInY } from '../../styles/animation';
 
 export const ServicesBlock = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	row-gap: 4rem;
 	margin-top: 4rem;
+	animation: ${fadeInY} 0.5s ease-in;
 `;
 export const ServicesItem = styled.div`
 	width: calc(100% / 3);
@@ -44,4 +46,4 @@ export const ItemNav = styled.div`
 	justify-content: flex-end;
 	gap: 2rem;
 	cursor: pointer;
-`
+`;

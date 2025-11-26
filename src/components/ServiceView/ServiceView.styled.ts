@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeInX} from "../../styles/animation";
 
 export const ServiceBlock = styled.div`
 width: 100%;
@@ -6,6 +7,7 @@ width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 4rem;
+  animation: ${fadeInX} 0.5s ease-in;
 `
 
 export const NavBack = styled.button`

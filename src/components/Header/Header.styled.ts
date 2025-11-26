@@ -31,14 +31,14 @@ export const HeaderLogo = styled.img`
 	object-fit: contain;
 	
 `;
-export const HeaderNav = styled.div<{isOpen: boolean}>`
+export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	display: flex;
 	flex: 1;
 	gap: 1.6rem;
 	@media (max-width: ${breakpoints.md}) {
 		position: fixed;
 		top: 0;
-		left: ${(props) => (props.isOpen ? '0' : '100%')};
+		left: ${(props) => (props.$isOpen ? '0' : '100%')};
 		width: 100%;
 		height: 40vh;
 		background-color: rgba(85, 90, 105, 0.9);
@@ -74,11 +74,11 @@ margin-right: 0;
 		display: none;
 	}
 `
-export const MobileMenuButton = styled.button<{isOpen: boolean}>`
+export const MobileMenuButton = styled.button<{$isOpen: boolean}>`
 	display: none;
 	background: none;
 	border: none;
-	color: ${(props) => (props.isOpen ? '#fff' : '#000')};
+	color: ${(props) => (props.$isOpen ? '#fff' : '#000')};
 	font-size: 2rem;
 	cursor: pointer;
 	z-index: 100;
@@ -87,11 +87,11 @@ export const MobileMenuButton = styled.button<{isOpen: boolean}>`
 		display: block;
 	}
 `;
-export const MobileOverlay = styled.div<{isOpen: boolean}>`
+export const MobileOverlay = styled.div<{$isOpen: boolean}>`
 	display: none;
 
 	@media (max-width: ${breakpoints.md}) {
-		display: ${(props) => (props.isOpen ? 'block' : 'none')};
+		display: ${(props) => (props.$isOpen ? 'block' : 'none')};
 		position: fixed;
 		top: 0;
 		left: 0;

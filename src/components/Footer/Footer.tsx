@@ -34,10 +34,12 @@ export const Footer = () => {
 					</ItemsBlock>
 					<ItemsBlock>
 						<ItemsTitle>Legal:</ItemsTitle>
-						<FooterLink to="/policy">Privacy Policy</FooterLink>
-						<FooterLink to="/terms">Terms & Conditions</FooterLink>
-						<FooterLink to="/cookie">Cookie Policy</FooterLink>
-						<FooterLink to="/legal">Legal Notice</FooterLink>
+						<LinksBlock>
+							<FooterLink to="/policy">Privacy Policy</FooterLink>
+							<FooterLink to="/terms">Terms & Conditions</FooterLink>
+							<FooterLink to="/cookie">Cookie Policy</FooterLink>
+							<FooterLink to="/legal">Legal Notice</FooterLink>
+						</LinksBlock>
 					</ItemsBlock>
 				</ContentBlock>
 

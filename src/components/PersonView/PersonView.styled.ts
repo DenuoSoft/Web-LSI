@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
-import { fadeInX } from '../../styles/animation';
+import {fadeInX} from '../../styles/animation';
 
 export const PersonBlock = styled.div`
 	width: 100%;
@@ -8,14 +8,16 @@ export const PersonBlock = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 4rem;
-
- 
 `;
 export const PersonWrap = styled.div`
 	width: 100%;
 	display: flex;
 	gap: 8rem;
- animation: ${fadeInX} 0.5s ease-in;
+	animation: ${fadeInX} 0.5s ease-in;
+	@media (max-width: ${breakpoints.lg}) {
+		flex-direction: column;
+		gap: 2rem;
+	}
 `;
 export const PersonImg = styled.div`
 	width: 50rem;
@@ -23,7 +25,7 @@ export const PersonImg = styled.div`
 	background-position: center center;
 	background-repeat: no-repeat;
 	height: 50rem;
-   
+
 	@media (max-width: ${breakpoints.lg}) {
 		width: 40rem;
 		height: 40rem;
@@ -40,7 +42,7 @@ export const InfoBlock = styled.div`
 	justify-content: flex-start;
 	align-items: flex-start;
 	gap: 2.4rem;
-	@media (max-width: ${breakpoints.md}) {
+	@media (max-width: ${breakpoints.lg}) {
 		width: 100%;
 	}
 `;

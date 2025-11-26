@@ -25,11 +25,11 @@ export const HomeView = () => {
 					<LabelText>Professional Legal Expertise</LabelText>
 				</HomeLabel>
 				<HomeText>
-					The Denuo office in UAE offers the full scope of legal services
+					The LSI office in UAE offers the full scope of legal services
 					covering all legal issues that may arise at any stage of a project.
 					Our lawyers in Dubai are well versed in local legislation and business
 					practices, and are committed to the highest standards of quality. As
-					an integral part of Denuo’s wider international practice, Dubai is an
+					an integral part of LSI’s wider international practice, Dubai is an
 					important destination in our firm’s platform allowing us to handle
 					complex international projects.
 				</HomeText>

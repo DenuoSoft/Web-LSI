@@ -8,6 +8,7 @@ export const FooterBlock = styled.footer`
 	justify-content: center;
 	background-color: #555a69;
 	color: #c8c8c8;
+	
 `;
 export const FooterWrap = styled.div`
 	max-width: 140rem;
@@ -20,17 +21,13 @@ export const FooterWrap = styled.div`
 export const ContentBlock = styled.div`
 	display: flex;
 	justify-content: space-between;
-	@media (max-width: ${breakpoints.md}) {
-		flex-direction: column;
-		justify-content: center;
-		gap: 2.4rem;
-	}
+
 `;
 export const ItemsBlock = styled.div`
 	width: calc(100% / 3);
 	display: flex;
 	flex-direction: column;
-	gap: 1.2rem;
+	gap: 1rem;
 	padding: 0 2rem;
 	border-left: 1px solid #c8c8c8;
 
@@ -47,14 +44,19 @@ export const ItemsBlock = styled.div`
 	}
 	@media (max-width: ${breakpoints.md}) {
 		flex-direction: row;
+		gap: 1.2rem;
+		justify-content: center;
 		align-items: center;
 		border-left: none;
 		width: 100%;
+		&:nth-child(-n + 2) {
+			display: none;
+		}
 	}
 `;
 export const ItemsTitle = styled.h2`
 	font-weight: 300;
-	font-size: 2.2rem;
+	font-size: 1.8rem;
      @media (max-width: ${breakpoints.md}) {
 		font-size: 1.6rem;
 	}
@@ -80,16 +82,19 @@ export const RightsBlock = styled.div`
     color: #c8c8c8;
      @media (max-width: ${breakpoints.md}) {
 		font-size: 1.2rem;
+		margin-top: 1.2rem;
 	}
 `;
 export const LinksBlock = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 1.2rem;
+	
 	@media (max-width: ${breakpoints.md}) {
 		flex-direction: row;
+		
 		align-items: center;
+		gap: 2rem;
 	}
 `;
 export const FooterLink = styled(NavLink)`
@@ -99,6 +104,7 @@ export const FooterLink = styled(NavLink)`
 	outline: none;
 	cursor: pointer;
 	font-size: 1.6rem;
+	font-weight: 300;
     @media (max-width: ${breakpoints.md}) {
 		font-size: 1.4rem;
 	}

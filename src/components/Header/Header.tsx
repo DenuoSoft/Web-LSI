@@ -26,7 +26,7 @@ export const Header = () => {
 		<HeaderBlock>
 			<HeaderContainer>
 				<HeaderLogo src={logo} />
-				<HeaderNav isOpen={isMobileMenuOpen}>
+				<HeaderNav $isOpen={isMobileMenuOpen}>
 					<HeaderLink to="/" onClick={closeMobileMenu}>
 						Home
 					</HeaderLink>
@@ -48,11 +48,11 @@ export const Header = () => {
 					Central Park Towers,
 					<br /> DIFC Dubai, United Arab Emirates
 				</HeaderContact>
-				<MobileMenuButton onClick={toggleMobileMenu} isOpen={isMobileMenuOpen}>
+				<MobileMenuButton onClick={toggleMobileMenu} $isOpen={isMobileMenuOpen}>
 					{isMobileMenuOpen ? '✕' : '☰'}
 				</MobileMenuButton>
 			</HeaderContainer>
-			<MobileOverlay isOpen={isMobileMenuOpen} onClick={closeMobileMenu} />
+			<MobileOverlay $isOpen={isMobileMenuOpen} onClick={closeMobileMenu} />
 		</HeaderBlock>
 	);
 };

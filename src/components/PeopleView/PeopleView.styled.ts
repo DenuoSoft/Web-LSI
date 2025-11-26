@@ -6,7 +6,7 @@ export const PeopleBlock = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	row-gap: 4rem;
-	margin-top: 4rem;
+	margin-top: 2rem;
 	color: #555a69;
 	animation: ${fadeInY} 0.5s ease-in;
 	

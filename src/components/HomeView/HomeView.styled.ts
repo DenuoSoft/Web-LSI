@@ -15,7 +15,7 @@ export const HomeTextBlock = styled.div`
 	width: 50%;
 	display: flex;
 	flex-direction: column;
-    gap: 2.4rem;
+    gap: 4rem;
     @media (max-width: ${breakpoints.lg}) {
 		width: 100%;
 		

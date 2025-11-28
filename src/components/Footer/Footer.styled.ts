@@ -56,21 +56,21 @@ export const ItemsBlock = styled.div`
 `;
 export const ItemsTitle = styled.h2`
 	font-weight: 300;
-	font-size: 1.8rem;
-     @media (max-width: ${breakpoints.md}) {
-		font-size: 1.6rem;
-	}
-     @media (max-width: ${breakpoints.sm}) {
-		font-size: 1.4rem;
-	}
-`;
-export const ItemsText = styled.p`
 	font-size: 1.6rem;
      @media (max-width: ${breakpoints.md}) {
 		font-size: 1.4rem;
 	}
      @media (max-width: ${breakpoints.sm}) {
 		font-size: 1.2rem;
+	}
+`;
+export const ItemsText = styled.p`
+	font-size: 1.4rem;
+     @media (max-width: ${breakpoints.md}) {
+		font-size: 1.2rem;
+	}
+     @media (max-width: ${breakpoints.sm}) {
+		font-size: 1rem;
 	}
 `;
 export const RightsBlock = styled.div`
@@ -103,12 +103,15 @@ export const FooterLink = styled(NavLink)`
 	border: none;
 	outline: none;
 	cursor: pointer;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 	font-weight: 300;
     @media (max-width: ${breakpoints.md}) {
 		font-size: 1.4rem;
 	}
     @media (max-width: ${breakpoints.sm}) {
 		font-size: 1.2rem;
+	}
+	 @media (max-width: ${breakpoints.xs}) {
+		font-size: 1rem;
 	}
 `;

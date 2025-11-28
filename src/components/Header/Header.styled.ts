@@ -29,12 +29,16 @@ export const HeaderContainer = styled.div`
 export const HeaderLogo = styled.img`
 	width: 15rem;
 	object-fit: contain;
-	
+	@media (max-width: ${breakpoints.xs}) {
+		width: 10rem;
+	}
 `;
 export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	display: flex;
+	justify-content: flex-end;
 	flex: 1;
 	gap: 1.6rem;
+	margin-right: 0;
 	@media (max-width: ${breakpoints.md}) {
 		position: fixed;
 		top: 0;
@@ -53,10 +57,10 @@ export const HeaderNav = styled.div<{$isOpen: boolean}>`
 export const HeaderLink = styled(NavLink)`
 	position: relative;
 	text-decoration: none;
-	padding: 1rem;
+	//padding: 1rem;
 	color: #000f;
 	width: 10rem;
-	text-align: center;
+	text-align: right;
 	border: none;
 	outline: none;
 	font-size: var(--text-size-normal);
@@ -69,9 +73,15 @@ export const HeaderLink = styled(NavLink)`
 	}
 `;
 export const HeaderContact = styled.div`
-margin-right: 0;
+
 @media (max-width: ${breakpoints.lg}) {
 		display: none;
+	}
+@media (max-width: ${breakpoints.md}) {
+		display: flex;
+	}
+	@media (max-width: ${breakpoints.xs}) {
+		font-size: 0.8rem;
 	}
 `
 export const MobileMenuButton = styled.button<{$isOpen: boolean}>`

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
-import { fluidTypography } from '../../styles/fluidTypography';
+import {fluidTypography} from '../../styles/fluidTypography';
 
 export const FooterBlock = styled.footer`
 	grid-area: footer;
@@ -9,7 +9,6 @@ export const FooterBlock = styled.footer`
 	justify-content: center;
 	background-color: #555a69;
 	color: #c8c8c8;
-	
 `;
 export const FooterWrap = styled.div`
 	max-width: 140rem;
@@ -22,7 +21,6 @@ export const FooterWrap = styled.div`
 export const ContentBlock = styled.div`
 	display: flex;
 	justify-content: space-between;
-
 `;
 export const ItemsBlock = styled.div`
 	width: calc(100% / 3);
@@ -62,37 +60,27 @@ export const ItemsBlock = styled.div`
 export const ItemsTitle = styled.h2`
 	font-weight: 300;
 	${fluidTypography({max: 18, min: 14})}
-    
 `;
 export const ItemsText = styled.p`
 	${fluidTypography({max: 16, min: 12})}
-    
 `;
-export const ItemsText = styled.p`
-	font-size: 1.4rem;
-     @media (max-width: ${breakpoints.md}) {
-		font-size: 1.2rem;
-	}
-     @media (max-width: ${breakpoints.sm}) {
-		font-size: 1rem;
-	}
-`;
+
 export const RightsBlock = styled.div`
 	margin-top: 3.2rem;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	${fluidTypography({max: 14, min: 12})}
-    color: #c8c8c8;
-     @media (max-width: ${breakpoints.md}) {
-				margin-top: 1.2rem;
+	color: #c8c8c8;
+	@media (max-width: ${breakpoints.md}) {
+		margin-top: 1.2rem;
 	}
 `;
 export const LinksBlock = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	
+
 	@media (max-width: ${breakpoints.md}) {
 		flex-direction: row;
 		align-items: center;
@@ -110,10 +98,10 @@ export const FooterLink = styled(NavLink)`
 	cursor: pointer;
 	${fluidTypography({max: 16, min: 12})}
 	font-weight: 300;
-    @media (max-width: ${breakpoints.md}) {
+	@media (max-width: ${breakpoints.md}) {
 		font-size: 1.4rem;
 	}
-    @media (max-width: ${breakpoints.sm}) {
+	@media (max-width: ${breakpoints.sm}) {
 		font-size: 1.2rem;
 	}
 `;

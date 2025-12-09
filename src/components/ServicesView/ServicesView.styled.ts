@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
 import { fadeInY } from '../../styles/animation';
+import { fluidTypography } from '../../styles/fluidTypography';
 
 export const ServicesBlock = styled.div`
 	display: flex;
@@ -33,11 +34,11 @@ export const ServicesItem = styled.div`
 		border-right: 1px solid #c8c8c8;
 	}
 `;
-export const ItemTitle = styled.h2`
-	font-size: clamp(1.8rem, 0.388vw + 1.654rem, 2rem);
+export const ItemTitle = styled.h5`
+	
 `;
 export const ItemText = styled.p`
-	font-size: clamp(1.4rem, 0.129vw + 1.351rem, 1.6rem);
+	${fluidTypography({max: 16, min: 14})}
 `;
 export const ItemNav = styled.div`
 	width: 100%;

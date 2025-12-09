@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
 import image from '../../assets/img/dubai-2.webp';
+import { fluidTypography } from '../../styles/fluidTypography';
 
 export const HomeBlock = styled.div`
 	display: flex;
@@ -49,7 +50,8 @@ export const LabelText = styled.div`
 `
 export const HomeText = styled.p`
 	text-align: justify;
-	font-size: clamp(1.6rem, 2vw + 0.5rem, 2.4rem);
+	${fluidTypography({max: 24, min: 16})}
+	//font-size: clamp(1.6rem, 2vw + 0.5rem, 2.4rem);
 	@media (max-width: ${breakpoints.lg}) {
 		width: 100%;
 		font-size: clamp(1.2rem, 3vw + 0.5rem, 1.8rem);

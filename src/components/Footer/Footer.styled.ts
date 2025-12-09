@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
+import { fluidTypography } from '../../styles/fluidTypography';
 
 export const FooterBlock = styled.footer`
 	grid-area: footer;
@@ -53,35 +54,29 @@ export const ItemsBlock = styled.div`
 			display: none;
 		}
 	}
+	@media (max-width: ${breakpoints.xs}) {
+		padding: 0 1rem;
+		gap: 0.8rem;
+	}
 `;
 export const ItemsTitle = styled.h2`
 	font-weight: 300;
-	font-size: 1.8rem;
-     @media (max-width: ${breakpoints.md}) {
-		font-size: 1.6rem;
-	}
-     @media (max-width: ${breakpoints.sm}) {
-		font-size: 1.4rem;
-	}
+	${fluidTypography({max: 18, min: 14})}
+    
 `;
 export const ItemsText = styled.p`
-	font-size: 1.6rem;
-     @media (max-width: ${breakpoints.md}) {
-		font-size: 1.4rem;
-	}
-     @media (max-width: ${breakpoints.sm}) {
-		font-size: 1.2rem;
-	}
+	${fluidTypography({max: 16, min: 12})}
+    
 `;
 export const RightsBlock = styled.div`
 	margin-top: 3.2rem;
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	font-size: 1.4rem;
+	${fluidTypography({max: 14, min: 12})}
     color: #c8c8c8;
      @media (max-width: ${breakpoints.md}) {
-		font-size: 1.2rem;
+		
 		margin-top: 1.2rem;
 	}
 `;
@@ -92,9 +87,11 @@ export const LinksBlock = styled.div`
 	
 	@media (max-width: ${breakpoints.md}) {
 		flex-direction: row;
-		
 		align-items: center;
 		gap: 2rem;
+	}
+	@media (max-width: ${breakpoints.xs}) {
+		gap: 1rem;
 	}
 `;
 export const FooterLink = styled(NavLink)`
@@ -103,12 +100,7 @@ export const FooterLink = styled(NavLink)`
 	border: none;
 	outline: none;
 	cursor: pointer;
-	font-size: 1.6rem;
+	${fluidTypography({max: 16, min: 12})}
 	font-weight: 300;
-    @media (max-width: ${breakpoints.md}) {
-		font-size: 1.4rem;
-	}
-    @media (max-width: ${breakpoints.sm}) {
-		font-size: 1.2rem;
-	}
+   
 `;

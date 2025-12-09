@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { fadeInX} from "../../styles/animation";
+import { fluidTypography } from "../../styles/fluidTypography";
 
 export const ServiceBlock = styled.div`
 width: 100%;
@@ -18,5 +19,5 @@ export const NavBack = styled.button`
 `
 export const NavBackText = styled.span`
   color: #555a69;
-  font-size: clamp(1.4rem, 0.388vw + 1.654rem, 1.8rem);
+  ${fluidTypography({max: 18, min: 14})}
 `

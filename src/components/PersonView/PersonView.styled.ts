@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
 import {fadeInX} from '../../styles/animation';
+import { fluidTypography } from '../../styles/fluidTypography';
 
 export const PersonBlock = styled.div`
 	width: 100%;
@@ -46,15 +47,15 @@ export const InfoBlock = styled.div`
 		width: 100%;
 	}
 `;
-export const ItemTitle = styled.h2`
-	font-size: clamp(1.8rem, 0.388vw + 1.654rem, 2.4rem);
+export const ItemTitle = styled.h5`
+	
 `;
 
 export const Description = styled.div`
 	text-align: justify;
 	padding: 2.4rem 0;
 	border-top: 0.5px solid rgba(0, 0, 0, 0.5);
-	font-size: 1.8rem;
+	${fluidTypography({max: 18, min: 16})}
 	@media (max-width: ${breakpoints.md}) {
 		font-size: 1.6rem;
 	}

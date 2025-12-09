@@ -55,8 +55,8 @@ export const ItemWrap = styled.button`
 	align-items: center;
 	cursor: pointer;
 `;
-export const ItemTitle = styled.h2`
-	font-size: clamp(1.8rem, 0.388vw + 1.654rem, 2.4rem);
+export const ItemTitle = styled.h5`
+	
 `;
 
 export const PeopleImg = styled.div`

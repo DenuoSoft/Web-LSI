@@ -26,6 +26,11 @@ export const Header = () => {
 		<HeaderBlock>
 			<HeaderContainer>
 				<HeaderLogo src={logo} />
+				<HeaderContact>
+					Unit No. 31–44, <br />
+					Central Park Towers,
+					<br /> DIFC Dubai, United Arab Emirates
+				</HeaderContact>
 				<HeaderNav $isOpen={isMobileMenuOpen}>
 					<HeaderLink to="/" onClick={closeMobileMenu}>
 						Home
@@ -43,11 +48,7 @@ export const Header = () => {
 						Alerts
 					</HeaderLink>
 				</HeaderNav>
-				<HeaderContact>
-					Unit No. 31–44, <br />
-					Central Park Towers,
-					<br /> DIFC Dubai, United Arab Emirates
-				</HeaderContact>
+				
 				<MobileMenuButton onClick={toggleMobileMenu} $isOpen={isMobileMenuOpen}>
 					{isMobileMenuOpen ? '✕' : '☰'}
 				</MobileMenuButton>

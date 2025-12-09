@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
+import {fluidTypography} from '../../styles/fluidTypography';
 
 export const HeaderBlock = styled.header`
 	grid-area: header;
 	position: sticky;
-	top:0;
+	top: 0;
 	left: 0;
 	width: 100%;
 	display: flex;
@@ -20,7 +21,7 @@ export const HeaderContainer = styled.div`
 	display: flex;
 	gap: 3.2rem;
 	align-items: center;
-	
+
 	@media (max-width: ${breakpoints.md}) {
 		justify-content: space-between;
 		width: 100%;
@@ -29,12 +30,13 @@ export const HeaderContainer = styled.div`
 export const HeaderLogo = styled.img`
 	width: 15rem;
 	object-fit: contain;
-	
 `;
 export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	display: flex;
 	flex: 1;
 	gap: 1.6rem;
+	margin-right: 0;
+	justify-content: flex-end;
 	@media (max-width: ${breakpoints.md}) {
 		position: fixed;
 		top: 0;
@@ -59,7 +61,7 @@ export const HeaderLink = styled(NavLink)`
 	text-align: center;
 	border: none;
 	outline: none;
-	font-size: var(--text-size-normal);
+	${fluidTypography({max: 16, min: 14})}
 
 	&.active {
 		font-weight: bold;
@@ -69,11 +71,18 @@ export const HeaderLink = styled(NavLink)`
 	}
 `;
 export const HeaderContact = styled.div`
-margin-right: 0;
-@media (max-width: ${breakpoints.lg}) {
+	margin-right: 0;
+	${fluidTypography({ max: 14, min: 10 })}
+	@media (max-width: ${breakpoints.lg}) {
 		display: none;
 	}
-`
+	@media (max-width: ${breakpoints.md}) {
+		display: block;
+	}
+	@media (max-width: ${breakpoints.xs}) {
+		display: none;
+	}
+`;
 export const MobileMenuButton = styled.button<{$isOpen: boolean}>`
 	display: none;
 	background: none;

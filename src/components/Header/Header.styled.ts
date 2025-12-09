@@ -33,6 +33,7 @@ export const HeaderLogo = styled.img`
 `;
 export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	display: flex;
+	justify-content: flex-end;
 	flex: 1;
 	gap: 1.6rem;
 	margin-right: 0;
@@ -58,7 +59,7 @@ export const HeaderLink = styled(NavLink)`
 	padding: 1rem;
 	color: #000f;
 	width: 10rem;
-	text-align: center;
+	text-align: right;
 	border: none;
 	outline: none;
 	${fluidTypography({max: 16, min: 14})}

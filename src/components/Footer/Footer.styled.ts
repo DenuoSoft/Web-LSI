@@ -68,6 +68,15 @@ export const ItemsText = styled.p`
 	${fluidTypography({max: 16, min: 12})}
     
 `;
+export const ItemsText = styled.p`
+	font-size: 1.4rem;
+     @media (max-width: ${breakpoints.md}) {
+		font-size: 1.2rem;
+	}
+     @media (max-width: ${breakpoints.sm}) {
+		font-size: 1rem;
+	}
+`;
 export const RightsBlock = styled.div`
 	margin-top: 3.2rem;
 	width: 100%;
@@ -101,5 +110,10 @@ export const FooterLink = styled(NavLink)`
 	cursor: pointer;
 	${fluidTypography({max: 16, min: 12})}
 	font-weight: 300;
-   
+    @media (max-width: ${breakpoints.md}) {
+		font-size: 1.4rem;
+	}
+    @media (max-width: ${breakpoints.sm}) {
+		font-size: 1.2rem;
+	}
 `;

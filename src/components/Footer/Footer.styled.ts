@@ -76,8 +76,7 @@ export const RightsBlock = styled.div`
 	${fluidTypography({max: 14, min: 12})}
     color: #c8c8c8;
      @media (max-width: ${breakpoints.md}) {
-		
-		margin-top: 1.2rem;
+				margin-top: 1.2rem;
 	}
 `;
 export const LinksBlock = styled.div`

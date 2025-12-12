@@ -14,7 +14,7 @@ export const fadeInY = keyframes`
 export const fadeInX = keyframes`
   from {
     opacity: 0;
-    transform: translateX(50rem);
+    transform: translateX(2rem);
   }
   to {
     opacity: 1;

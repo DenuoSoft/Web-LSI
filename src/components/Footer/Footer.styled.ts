@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
-import {fluidTypography} from '../../styles/fluidTypography';
+import { fluidTypography } from '../../styles/fluidTypography';
+
 
 export const FooterBlock = styled.footer`
 	grid-area: footer;
@@ -18,6 +19,9 @@ export const FooterWrap = styled.div`
 	flex: 1;
 	padding: 2rem 0;
 `;
+export const FooterContact = styled.a`
+	cursor: pointer;
+`
 export const ContentBlock = styled.div`
 	display: flex;
 	justify-content: space-between;

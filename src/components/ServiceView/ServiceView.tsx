@@ -1,8 +1,8 @@
 import {useNavigate, useParams} from 'react-router-dom';
 import {services} from '../ServicesView/services-data';
-import { NavBack, NavBackText, ServiceBlock } from './ServiceView.styled';
-import { ArrowLeft } from '../../assets/img/arrow-left';
-import { ItemIcon } from '../../styles/shared';
+import {NavBack, NavBackText, ServiceBlock, ServiceContent} from './ServiceView.styled';
+import {ArrowLeft} from '../../assets/img/arrow-left';
+import {ItemIcon} from '../../styles/shared';
 
 export const ServiceView = () => {
 	const {id} = useParams();
@@ -20,10 +20,11 @@ export const ServiceView = () => {
 					<ArrowLeft />
 				</ItemIcon>
 				<NavBackText>Back to services</NavBackText>
-      </NavBack>
-      <h1>{service.title}</h1>
-      <span>{service.text}</span>
-      
+			</NavBack>
+			<ServiceContent>
+				<h1>{service.title}</h1>
+				<span>{service.text}</span>
+			</ServiceContent>
 		</ServiceBlock>
 	);
 };

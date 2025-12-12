@@ -1,4 +1,5 @@
 import {
+	ContactLink,
 	HeaderBlock,
 	HeaderContact,
 	HeaderContainer,
@@ -8,7 +9,6 @@ import {
 	MobileMenuButton,
 	MobileOverlay,
 } from './Header.styled';
-//import { Link } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import {useState} from 'react';
 
@@ -25,11 +25,15 @@ export const Header = () => {
 	return (
 		<HeaderBlock>
 			<HeaderContainer>
-				<HeaderLogo src={logo} />
-				<HeaderContact>
-					Unit No. 31–44, <br />
-					Central Park Towers,
-					<br /> DIFC Dubai, United Arab Emirates
+				<HeaderContact href="https://maps.app.goo.gl/igdU3UxCed96Yu9s6"
+						target="_blank">
+					<HeaderLogo src={logo} />
+					<ContactLink
+					>
+						Unit No. 31–44, <br />
+						Central Park Towers,
+						<br /> DIFC Dubai, United Arab Emirates
+					</ContactLink>
 				</HeaderContact>
 				<HeaderNav $isOpen={isMobileMenuOpen}>
 					<HeaderLink to="/" onClick={closeMobileMenu}>
@@ -48,7 +52,7 @@ export const Header = () => {
 						Alerts
 					</HeaderLink>
 				</HeaderNav>
-				
+
 				<MobileMenuButton onClick={toggleMobileMenu} $isOpen={isMobileMenuOpen}>
 					{isMobileMenuOpen ? '✕' : '☰'}
 				</MobileMenuButton>

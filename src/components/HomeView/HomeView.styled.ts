@@ -2,12 +2,14 @@ import styled from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
 import image from '../../assets/img/dubai-2.webp';
 import { fluidTypography } from '../../styles/fluidTypography';
+import { fadeInY } from '../../styles/animation';
 
 export const HomeBlock = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 3rem;
 	height: 100%;
+	animation: ${fadeInY} 0.5s ease-in;
 	@media (max-width: ${breakpoints.lg}) {
 		flex-direction: column;
 	}
@@ -65,9 +67,11 @@ export const ImgBlock = styled.div`
 	background-position: center center;
 	background-repeat: no-repeat;
 	position: relative;
+	box-shadow: rgba(85, 90, 105, 0.25) 0rem 1.9rem 3.8rem,
+		rgba(85, 90, 105, 0.22) 0rem 1.5rem 1.2rem;
 	@media (max-width: ${breakpoints.lg}) {
 		width: 100%;
-		height: 300px;
+		height: 30rem;
 	}
 
 	&::before {

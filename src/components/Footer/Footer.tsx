@@ -1,6 +1,7 @@
 import {
 	ContentBlock,
 	FooterBlock,
+	FooterContact,
 	FooterLink,
 	FooterWrap,
 	ItemsBlock,
@@ -18,9 +19,14 @@ export const Footer = () => {
 					<ItemsBlock>
 						<ItemsTitle>Contact:</ItemsTitle>
 						<ItemsText>
-							Unit No. 31–44, <br />
-							Central Park Towers,
-							<br /> DIFC Dubai, United Arab Emirates
+							<FooterContact
+								href="https://maps.app.goo.gl/igdU3UxCed96Yu9s6"
+								target="_blank"
+							>
+								Unit No. 31–44, <br />
+								Central Park Towers,
+								<br /> DIFC Dubai, United Arab Emirates
+							</FooterContact>
 						</ItemsText>
 					</ItemsBlock>
 					<ItemsBlock>

@@ -4,7 +4,7 @@ export const LayoutBlock = styled.div`
     display: grid;
     height: 100vh;
     grid-template-columns: minmax(0, auto) minmax(30rem, 140rem) minmax(0, auto);
-    grid-template-rows: 10rem 1fr auto;
+    grid-template-rows: 7rem 1fr auto;
     grid-template-areas: 
     ". header ." 
     ". main ."

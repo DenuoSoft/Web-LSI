@@ -12,7 +12,7 @@ export const HeaderBlock = styled.header`
 	display: flex;
 	background-color: #fff;
 	border-bottom: 1px solid #000;
-	padding: 1rem 0;
+	
 	z-index: 99;
 `;
 export const HeaderContainer = styled.div`
@@ -30,6 +30,10 @@ export const HeaderContainer = styled.div`
 export const HeaderLogo = styled.img`
 	width: 15rem;
 	object-fit: contain;
+`;
+export const ContactLink = styled.a`
+	cursor: pointer;
+	font-size: 12px;
 `;
 export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	display: flex;
@@ -71,9 +75,11 @@ export const HeaderLink = styled(NavLink)`
 		color: #fff;
 	}
 `;
-export const HeaderContact = styled.div`
+export const HeaderContact = styled.a`
 	margin-right: 0;
-	${fluidTypography({ max: 14, min: 10 })}
+	display: flex;
+	gap: 2rem;
+	${fluidTypography({max: 14, min: 10})}
 	@media (max-width: ${breakpoints.lg}) {
 		display: none;
 	}

@@ -8,8 +8,9 @@ width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 5rem;
   animation: ${fadeInX} 0.5s ease-in;
+  z-index: 1;
 `
 
 export const NavBack = styled.button`
@@ -20,7 +21,10 @@ export const NavBack = styled.button`
 `
 export const NavBackText = styled.span`
   color: #555a69;
-  ${fluidTypography({max: 18, min: 14})}
+  ${fluidTypography({ max: 18, min: 14 })}
+  &:hover {
+  color: #8237FF;
+}
 `
 export const ServiceContent = styled.div`
   display: flex;
@@ -30,4 +34,14 @@ export const ServiceContent = styled.div`
   width: 100%;
   gap: 2rem;
   font-size: 1.6rem;
+`
+export const ServiceListBlock = styled.div`
+
+`
+export const ServiceList = styled.ul`
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+
+${fluidTypography({max: 18, min: 14})}
 `

@@ -8,6 +8,7 @@ export const PeopleBlock = styled.div`
 	row-gap: 4rem;
 	margin-top: 2rem;
 	color: #555a69;
+	z-index: 1;
 	animation: ${fadeInY} 0.5s ease-in;
 	
 	@media (max-width: ${breakpoints.md}) {
@@ -64,10 +65,10 @@ export const PeopleImg = styled.div`
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-	//box-shadow: 0.2rem 0.2rem 0.3rem 0.05rem rgba(85, 90, 105, 0.5);
+	/* box-shadow: 0.2rem 0.2rem 0.3rem 0.05rem rgba(85, 90, 105, 0.5);
 	box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
 		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem;
-	height: 30rem;
+	 */height: 30rem;
 	border-radius: 3rem;
 	@media (max-width: ${breakpoints.lg}) {
 		width: 100%;

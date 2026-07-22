@@ -1,5 +1,6 @@
 import {
 	ContactLink,
+	// ContactLink,
 	HeaderBlock,
 	HeaderContact,
 	HeaderContainer,
@@ -9,8 +10,9 @@ import {
 	MobileMenuButton,
 	MobileOverlay,
 } from './Header.styled';
-import logo from '../../assets/img/logo.png';
+import logo from '../../assets/img/logo.svg';
 import {useState} from 'react';
+import { IconWhatsapp } from '../../shared/whatsapp';
 
 export const Header = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -25,16 +27,9 @@ export const Header = () => {
 	return (
 		<HeaderBlock>
 			<HeaderContainer>
-				<HeaderContact href="https://maps.app.goo.gl/igdU3UxCed96Yu9s6"
-						target="_blank">
+				<HeaderContact to="/">
 					<HeaderLogo src={logo} />
-					<ContactLink
-					>
-						Unit No. 31–44, <br />
-						Central Park Towers,
-						<br /> DIFC Dubai, United Arab Emirates
-					</ContactLink>
-				</HeaderContact>
+		    	</HeaderContact>
 				<HeaderNav $isOpen={isMobileMenuOpen}>
 					<HeaderLink to="/" onClick={closeMobileMenu}>
 						Home
@@ -45,14 +40,16 @@ export const Header = () => {
 					<HeaderLink to="/people" onClick={closeMobileMenu}>
 						People
 					</HeaderLink>
-					<HeaderLink to="/articles" onClick={closeMobileMenu}>
-						Articles
+					<HeaderLink to="/insights" onClick={closeMobileMenu}>
+						Insights
 					</HeaderLink>
-					<HeaderLink to="/alerts" onClick={closeMobileMenu}>
-						Alerts
-					</HeaderLink>
+					
 				</HeaderNav>
-
+				 <ContactLink>
+					<IconWhatsapp width={40} height={40} />
+					<div>+975 123 45 67</div>
+					</ContactLink>
+					
 				<MobileMenuButton onClick={toggleMobileMenu} $isOpen={isMobileMenuOpen}>
 					{isMobileMenuOpen ? '✕' : '☰'}
 				</MobileMenuButton>

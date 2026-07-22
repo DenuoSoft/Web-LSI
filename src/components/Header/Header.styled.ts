@@ -1,47 +1,73 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
-import {fluidTypography} from '../../styles/fluidTypography';
+import { fluidTypography } from '../../styles/fluidTypography';
 
 export const HeaderBlock = styled.header`
 	grid-area: header;
 	position: sticky;
-	top: 0;
-	left: 0;
 	width: 100%;
 	display: flex;
-	background-color: #fff;
-	border-bottom: 1px solid #000;
-	
+	justify-content: center;
+	padding-bottom: 2rem;
+	//background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 50%, transparent 100%);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	z-index: 99;
+	
+	/* Адаптация градиента под разные разрешения */
+	@media (max-width: ${breakpoints.xxl}) {
+		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 55%, transparent 100%);
+	}
+	
+	@media (max-width: ${breakpoints.xl}) {
+		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 60%, transparent 100%);
+	}
+	
+	@media (max-width: ${breakpoints.lg}) {
+		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 65%, transparent 100%);
+	}
+	
+	@media (max-width: ${breakpoints.md}) {
+		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 70%, transparent 100%);
+	}
+	
+	@media (max-width: ${breakpoints.sm}) {
+		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 80%, transparent 100%);
+	}
 `;
+
 export const HeaderContainer = styled.div`
 	max-width: 140rem;
 	width: 100%;
+	height: 100%;
 	display: flex;
-	gap: 3.2rem;
-	align-items: center;
-
+	//gap: 3.2rem;
+	justify-content: space-between;
 	@media (max-width: ${breakpoints.md}) {
 		justify-content: space-between;
 		width: 100%;
 	}
 `;
-export const HeaderLogo = styled.img`
-	width: 15rem;
-	object-fit: contain;
-`;
-export const ContactLink = styled.a`
-	cursor: pointer;
-	font-size: 12px;
+
+export const ContactLink = styled.div`
+display: flex;
+justify-content: center;
+align-items: flex-end;
+color: #64358c;
+gap: 1rem;
+${fluidTypography({max: 20, min: 14})}
+padding-right: 2rem;
+
+@media (max-width: ${breakpoints.md}) {
+		display: none;
+	}
 `;
 export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	display: flex;
-	justify-content: flex-end;
-	flex: 1;
-	gap: 1.6rem;
+	//justify-content: flex-start;
+	align-items: flex-end;
+	gap: 6rem;
 	margin-right: 0;
-	justify-content: flex-end;
 	@media (max-width: ${breakpoints.md}) {
 		position: fixed;
 		top: 0;
@@ -58,15 +84,17 @@ export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	}
 `;
 export const HeaderLink = styled(NavLink)`
-	position: relative;
+     display: flex;	
+	
+//position: relative;
 	text-decoration: none;
-	padding: 1rem;
-	color: #000f;
-	width: 10rem;
-	text-align: right;
+	//padding: 1rem;
+	//color: #000f;
+	color:#c8d2e6;
+	//width: 10rem;
 	border: none;
 	outline: none;
-	${fluidTypography({max: 16, min: 14})}
+	${fluidTypography({max: 20, min: 14})}
 
 	&.active {
 		font-weight: bold;
@@ -75,11 +103,14 @@ export const HeaderLink = styled(NavLink)`
 		color: #fff;
 	}
 `;
-export const HeaderContact = styled.a`
-	margin-right: 0;
+export const HeaderContact = styled(NavLink)`
+	height: 100%;
+	width: auto;
+	flex-shrink: 0;
 	display: flex;
-	gap: 2rem;
-	${fluidTypography({max: 14, min: 10})}
+	align-items: flex-end;
+	overflow: hidden;
+	//${fluidTypography({max: 14, min: 10})}
 	@media (max-width: ${breakpoints.lg}) {
 		display: none;
 	}
@@ -88,6 +119,15 @@ export const HeaderContact = styled.a`
 	}
 	@media (max-width: ${breakpoints.xs}) {
 		display: none;
+	}
+`;
+export const HeaderLogo = styled.img`
+    height: 100%;
+	width: auto;
+	display: block;
+	
+	@media (max-width: ${breakpoints.md}) {
+		height: 80%;
 	}
 `;
 export const MobileMenuButton = styled.button<{$isOpen: boolean}>`

@@ -8,8 +8,9 @@ export const FooterBlock = styled.footer`
 	grid-area: footer;
 	display: flex;
 	justify-content: center;
-	background-color: #555a69;
-	color: #c8c8c8;
+	background-color: #fff;
+	color: #555a69;
+	z-index: 1;
 `;
 export const FooterWrap = styled.div`
 	max-width: 140rem;
@@ -32,10 +33,10 @@ export const ItemsBlock = styled.div`
 	flex-direction: column;
 	gap: 1rem;
 	padding: 0 2rem;
-	border-left: 1px solid #c8c8c8;
+	border-left: 1px solid #555a69;
 
 	&:nth-child(3n) {
-		border-right: 1px solid #c8c8c8;
+		border-right: 1px solid #555a69;
 	}
 	@media (max-width: ${breakpoints.xl}) {
 		&:first-child {
@@ -75,7 +76,7 @@ export const RightsBlock = styled.div`
 	display: flex;
 	justify-content: center;
 	${fluidTypography({max: 14, min: 12})}
-	color: #c8c8c8;
+	color: #555a69;
 	@media (max-width: ${breakpoints.md}) {
 		margin-top: 1.2rem;
 	}
@@ -96,7 +97,7 @@ export const LinksBlock = styled.div`
 `;
 export const FooterLink = styled(NavLink)`
 	text-decoration: none;
-	color: #c8c8c8;
+	color: #555a69;
 	border: none;
 	outline: none;
 	cursor: pointer;

@@ -1,41 +1,48 @@
 import {
 	HomeBlock,
-	HomeLabel,
 	HomeText,
 	HomeTextBlock,
+	HomeTitle,
 	ImgBlock,
-	LabelText,
-	Stars,
-	StarsBlock,
+	ImgContainer,
+
 } from './HomeView.styled';
-import star from '../../assets/img/star.png';
+
 
 export const HomeView = () => {
+	
 	return (
 		<HomeBlock>
 			<HomeTextBlock>
-				<HomeLabel>
-					<StarsBlock>
-						<Stars src={star} />
-						<Stars src={star} />
-						<Stars src={star} />
-						<Stars src={star} />
-						<Stars src={star} />
-					</StarsBlock>
-					<LabelText>Professional Legal Expertise</LabelText>
-				</HomeLabel>
+				
+				<HomeTitle>
+					Denuo is a full-service law firm 
+				</HomeTitle>
+				    
 				<HomeText>
-					The LSI office in UAE offers the full scope of legal services
-					covering all legal issues that may arise at any stage of a project.
-					Our lawyers in Dubai are well versed in local legislation and business
-					practices, and are committed to the highest standards of quality. As
-					an integral part of LSI’s wider international practice, Dubai is an
-					important destination in our firm’s platform allowing us to handle
-					complex international projects.
+					<p>
+					We are headquartered in Dubai,
+					providing high-quality legal and tax advice to international businesses,
+					investors and private clients.
+					</p>
+					<p>
+						Our team has extensive international experience, including 17 years as part of the global law firm DLA Piper, and continues to deliver legal services to the same high standards.
+					</p>
+					<p>
+						We combine lawyers with strong international and local backgrounds, advising clients on complex legal and tax matters across corporate, tax, regulatory and dispute resolution.
+					</p>
+					<p>
+						Our approach is centered on developing practical and legally robust solutions tailored to our clients’ commercial objectives.
+						We work closely with our clients to understand their business, identify key risks and opportunities, and deliver clear, pragmatic and outcome-driven advice.
+					</p>
+					
+
 				</HomeText>
 			</HomeTextBlock>
 
-			<ImgBlock></ImgBlock>
+			<ImgContainer>
+				<ImgBlock />
+			</ImgContainer>
 		</HomeBlock>
 	);
 };

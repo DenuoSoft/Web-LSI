@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import {ViteImageOptimizer} from 'vite-plugin-image-optimizer'
 
-// https://vite.dev/config/ /Web-LSI/
+//https://vite.dev/config/ /Web-LSI/
 export default defineConfig({
   plugins: [
     react(),
@@ -13,7 +13,7 @@ export default defineConfig({
             webp: { quality: 80 }
         })
   ],
-  //base: '/Web-LSI/' 
+  base: '/Web-LSI/' 
   
 })
 

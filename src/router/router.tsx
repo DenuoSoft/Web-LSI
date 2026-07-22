@@ -3,7 +3,7 @@ import {Home} from '../pages/Home';
 import {Layout} from '../layout/Layout';
 import {Services} from '../pages/Services';
 import {People} from '../pages/People';
-import {Articles} from '../pages/Articles';
+import {Insights} from '../pages/Insights';
 import {Alerts} from '../pages/Alerts';
 import {NotFound} from '../pages/NotFound';
 import {Person} from '../pages/Person';
@@ -41,8 +41,8 @@ export const router = createBrowserRouter(
 					element: <Person />,
 				},
 				{
-					path: '/articles',
-					element: <Articles />,
+					path: '/insights',
+					element: <Insights />,
 				},
 				{
 					path: '/alerts',
@@ -71,7 +71,7 @@ export const router = createBrowserRouter(
 			element: <NotFound />,
 		},
 	],
-	//  {
-	//	basename: '/Web-LSI',
-	//}   
+	  {
+		basename: '/Web-LSI',
+	}   
 );

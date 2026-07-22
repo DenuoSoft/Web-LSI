@@ -9,6 +9,7 @@ export const PersonBlock = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 4rem;
+	z-index: 1;
 `;
 export const PersonWrap = styled.div`
 	width: 100%;
@@ -27,8 +28,8 @@ export const PersonImg = styled.div`
 	background-repeat: no-repeat;
 	height: 50rem;
 	border-radius: 5rem;
-	box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
-		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem;
+	/* box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
+		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem; */
 	@media (max-width: ${breakpoints.lg}) {
 		width: 40rem;
 		height: 40rem;
@@ -54,9 +55,9 @@ export const ItemTitle = styled.h5`
 `;
 
 export const Description = styled.div`
-	text-align: justify;
+	//text-align: justify;
 	padding: 2.4rem 0;
-	border-top: 0.5px solid rgba(0, 0, 0, 0.5);
+	border-top: 0.5px solid #8237FF;
 	${fluidTypography({max: 18, min: 16})}
 	@media (max-width: ${breakpoints.md}) {
 		font-size: 1.6rem;
@@ -71,4 +72,7 @@ export const NavBack = styled.button`
 export const NavBackText = styled.span`
 	color: #555a69;
 	font-size: clamp(1.4rem, 0.388vw + 1.654rem, 1.8rem);
+	&:hover {
+	color: #8237FF;
+	}
 `;

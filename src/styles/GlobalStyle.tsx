@@ -68,7 +68,7 @@ h1 {
 //  }
 
   h3 {
-    ${fluidTypography({max: 32, min: 24})}
+    ${fluidTypography({max: 30, min: 22})}
     margin: 0;
     line-height: 1.3;
   }

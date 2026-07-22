@@ -50,7 +50,7 @@ export const Footer = () => {
 				</ContentBlock>
 
 				<RightsBlock>
-					© 2025 Legal Services International. All rights reserved.
+					© 2026 Denuo. All rights reserved.
 				</RightsBlock>
 			</FooterWrap>
 		</FooterBlock>

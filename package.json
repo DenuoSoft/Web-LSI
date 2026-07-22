@@ -1,6 +1,6 @@
 {
   "name": "web-lsi",
-  "homepage": ".",
+  "homepage": "https://denuosoft.github.io/Web-LSI/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },
   "dependencies": {

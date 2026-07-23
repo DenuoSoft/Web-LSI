@@ -10,6 +10,7 @@ export const PersonBlock = styled.div`
 	align-items: flex-start;
 	gap: 4rem;
 	z-index: 1;
+	
 `;
 export const PersonWrap = styled.div`
 	width: 100%;
@@ -28,7 +29,7 @@ export const PersonImg = styled.div`
 	background-position: center center;
 	background-repeat: no-repeat;
 	height: 50rem;
-	border-radius: 5rem;
+	//border-radius: 5rem;
 	/* box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
 		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem; */
 	@media (max-width: ${breakpoints.lg}) {
@@ -39,6 +40,7 @@ export const PersonImg = styled.div`
 		width: 30rem;
 		height: 30rem;
 	}
+	
 `;
 export const InfoBlock = styled.div`
 	width: 50%;

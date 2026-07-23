@@ -23,12 +23,15 @@ export const LayoutBlock = styled.div`
     " footer footer footer ";
     gap: 3rem;
   
-@media (max-width: ${breakpoints.xl}) {
+@media (max-width: ${breakpoints.xxl}) {
         grid-template-areas:
         ". header ."
         ". main ."
     " footer footer footer ";
     }
+@media (max-width: ${breakpoints.md}) {
+       grid-template-rows: 7rem 1fr auto;
+    }    
 `
 export const Main = styled.main`
  grid-area: main;

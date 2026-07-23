@@ -22,8 +22,7 @@ export const PeopleView = () => {
 
 	return (
 		<>
-			<h1>Our Legal Experts</h1>
-
+			
 			<PeopleBlock>
 				{people.map((lawer) => (
 					<PeopleItem key={lawer.id}>

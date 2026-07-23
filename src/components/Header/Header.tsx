@@ -9,11 +9,11 @@ import {
 	HeaderNav,
 	MobileMenuButton,
 	MobileOverlay,
+	WhatsAppIcon,
 } from './Header.styled';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { IconWhatsapp } from '../../shared/whatsapp';
-import Logo from '../../shared/logo';
+import { Logo } from '../../shared/logo';
 
 export const Header = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -57,9 +57,9 @@ export const Header = () => {
 					
 				</HeaderNav>
 				 <ContactLink>
-					<IconWhatsapp width={40} height={40} />
+					<WhatsAppIcon />
 					<div>+975 123 45 67</div>
-					</ContactLink>
+				</ContactLink>
 					
 				<MobileMenuButton onClick={toggleMobileMenu} $isOpen={isMobileMenuOpen}>
 					{isMobileMenuOpen ? '✕' : '☰'}

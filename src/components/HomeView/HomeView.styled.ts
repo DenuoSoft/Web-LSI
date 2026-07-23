@@ -36,6 +36,7 @@ export const HomeBlock = styled.div`
 		height: auto;
 		min-height: 80vh;
 		//padding: clamp(1rem, 2vw, 1.5rem);
+		padding-top: 0;
 		align-items: top;
 		justify-content: top;
 	&::before {
@@ -78,15 +79,14 @@ export const HomeTitle = styled.h1`
 	margin: 0;
 	font-weight: 700;
 	color: #c8d2e6;
-	text-align: left
+	text-align: left;
 	
 	@media (max-width: ${breakpoints.lg}) {
 	    color: #555a69;
 		font-size: clamp(1.3rem, 3vw, 2.2rem);
-		text-align: center;
-		border: 5px solid red; // 👈 добавьте для проверки
-        background: yellow; 
+	
 	}
+	
 	@media (max-width: ${breakpoints.md}) {
 	   	font-size: clamp(1.1rem, 2.5vw, 1.8rem);
 	}
@@ -122,11 +122,10 @@ export const HomeLabel = styled.div`
 `;
 
 
-export const HomeText = styled.p`
+export const HomeText = styled.div`
     display: flex;
 	flex-direction: column;
     gap: clamp(2.4rem, 1.5vw, 3.3rem);
-	// text-align: justify;
 	${fluidTypography({ max: 18, min: 14 })}
 	line-height: 1.6;
 	margin: 0;

@@ -14,11 +14,10 @@ export const HomeView = () => {
 	return (
 		<HomeBlock>
 			<HomeTextBlock>
-				
 				<HomeTitle>
 					Full-service law firm 
 				</HomeTitle>
-				    
+				  
 				<HomeText>
 					<p>
 					Denuo is headquartered in Dubai,

@@ -19,6 +19,7 @@ export const InsightsItem = styled.div`
     align-content: flex-start;
     gap: 1.2rem;
     padding: 2rem;
+    color: #555a69;
     h2 {
     ${fluidTypography({max: 20, min: 16})}
     }
@@ -40,6 +41,7 @@ export const SelectedItem = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    color: #555a69;
     h2 {
     ${fluidTypography({max: 20, min: 16})}
     }

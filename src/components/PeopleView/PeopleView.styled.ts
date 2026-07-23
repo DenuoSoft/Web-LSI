@@ -6,8 +6,6 @@ export const PeopleBlock = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	row-gap: 4rem;
-	margin-top: 2rem;
-
 	z-index: 1;
 	animation: ${fadeInY} 0.5s ease-in;
 	
@@ -69,7 +67,7 @@ export const PeopleImg = styled.div`
 	box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
 		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem;
 	 */height: 30rem;
-	border-radius: 3rem;
+	//border-radius: 3rem;
 	@media (max-width: ${breakpoints.lg}) {
 		width: 100%;
 	}
@@ -77,7 +75,7 @@ export const PeopleImg = styled.div`
 	@media (max-width: ${breakpoints.sm}) {
 		box-shadow: none;
 		background-size: contain;
-		background-position: left;
+		
 	}
 	
 `;
@@ -87,6 +85,10 @@ export const ItemBadgeWrap = styled.div`
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	gap: 1.2rem;
+	color: #555a69;
+	@media (max-width: ${breakpoints.sm}) {
+		justify-content: center;
+	}
 `
 export const ItemBadge = styled.div`
 	padding: 0.2rem 0.8rem;

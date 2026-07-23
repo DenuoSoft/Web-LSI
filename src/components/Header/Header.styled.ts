@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
 import { fluidTypography } from '../../styles/fluidTypography';
+import { IconWhatsapp } from '../../shared/whatsapp';
 
 export const HeaderBlock = styled.header<{ $isHomePage?: boolean }>`
 	grid-area: header;
@@ -21,7 +22,7 @@ export const HeaderContainer = styled.div<{ $isHomePage?: boolean }>`
 	justify-content: space-between;
 	padding-bottom: 2rem;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	
+	align-items: flex-end;
 	@media (max-width: ${breakpoints.md}) {
 		justify-content: space-between;
 		width: 100%;
@@ -36,11 +37,24 @@ color: #64358c;
 gap: 1rem;
 ${fluidTypography({max: 20, min: 14})}
 padding-right: 2rem;
-
-@media (max-width: ${breakpoints.md}) {
-		display: none;
-	}
 `;
+export const WhatsAppIcon = styled(IconWhatsapp)`
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  transition: width 0.2s ease, height 0.2s ease;
+
+  @media (max-width: ${breakpoints.md}) {
+    width: 32px;
+    height: 32px;
+  }
+
+  @media (max-width: ${breakpoints.xs}) {
+    width: 28px;
+    height: 28px;
+  }
+`
+
 export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	display: flex;
 	//justify-content: flex-start;
@@ -52,18 +66,18 @@ export const HeaderNav = styled.div<{$isOpen: boolean}>`
 		top: 0;
 		left: ${(props) => (props.$isOpen ? '0' : '100%')};
 		width: 100%;
-		height: 40vh;
+		height: 15vh;
 		background-color: rgba(85, 90, 105, 0.9);
-		color: #fff;
-		flex-direction: column;
+		color: #c8d2e6;
+		align-items: flex-start;
 		padding: 6rem 2rem 2rem;
 		transition: left 0.3s ease;
-		gap: 0;
+		gap: 3rem;
 		z-index: 98;
 	}
 `;
 export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean }>`
-     display: flex;	
+    display: flex;	
 	text-decoration: none;
 	color:${props => props.$isHomePage ? '#c8d2e6' : '#555a69'};
 	border: none;
@@ -77,7 +91,7 @@ export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean }>`
 		color: #555a69;
 	}	
 	@media (max-width: ${breakpoints.md}) {
-		color: #fff;
+		color: #c8d2e6;
 	}
 `;
 export const HeaderContact = styled(NavLink)`
@@ -88,12 +102,7 @@ export const HeaderContact = styled(NavLink)`
 	align-items: flex-end;
 	overflow: hidden;
 	//${fluidTypography({max: 14, min: 10})}
-	@media (max-width: ${breakpoints.lg}) {
-		display: none;
-	}
-	@media (max-width: ${breakpoints.md}) {
-		display: block;
-	}
+	
 	@media (max-width: ${breakpoints.xs}) {
 		display: none;
 	}
@@ -103,21 +112,25 @@ export const HeaderLogo = styled.div`
 	width: auto;
 	display: block;
 	
+	@media (max-width: ${breakpoints.lg}) {
+		height: 90%;
+	}
 	@media (max-width: ${breakpoints.md}) {
 		height: 80%;
-	}
+	}	
 `;
 export const MobileMenuButton = styled.button<{$isOpen: boolean}>`
 	display: none;
 	background: none;
 	border: none;
-	color: ${(props) => (props.$isOpen ? '#fff' : '#000')};
-	font-size: 2rem;
+	color: ${(props) => (props.$isOpen ? '#c8d2e6' : '#000')};
+	font-size: 3.2rem;
 	cursor: pointer;
 	z-index: 100;
 
 	@media (max-width: ${breakpoints.md}) {
 		display: block;
+		font-size: 2.2rem;
 	}
 `;
 export const MobileOverlay = styled.div<{$isOpen: boolean}>`

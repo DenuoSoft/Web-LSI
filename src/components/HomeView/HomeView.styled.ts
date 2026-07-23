@@ -12,7 +12,7 @@ export const HomeBlock = styled.div`
 	height: 100vh;
 	min-height: 600px;
 	padding-right: clamp(1rem, 2vw, 2rem);
-	animation: ${fadeInY} 0.5s ease-in;
+	
 	z-index: 1;
 	max-width: 1440px;
 	margin: 0 auto;
@@ -56,6 +56,7 @@ export const HomeTextBlock = styled.div`
 	gap: clamp(3.4rem, 1.5vw, 4.3rem);
 	//justify-content: center;
 	//padding: clamp(0.5rem, 1vw, 1.5rem);
+	animation: ${fadeInY} 0.5s ease-in;
 	z-index: 1;
 	@media (max-width: ${breakpoints.lg}) {
 		gap: clamp(0.8rem, 1.5vw, 1.5rem);

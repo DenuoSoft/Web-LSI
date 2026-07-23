@@ -9,6 +9,7 @@ width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 5rem;
+  color: #555a69;
   animation: ${fadeInX} 0.5s ease-in;
   z-index: 1;
 `

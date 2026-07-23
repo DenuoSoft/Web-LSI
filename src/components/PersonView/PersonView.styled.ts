@@ -15,6 +15,7 @@ export const PersonWrap = styled.div`
 	width: 100%;
 	display: flex;
 	gap: 8rem;
+	color: #555a69;
 	animation: ${fadeInX} 0.5s ease-in;
 	@media (max-width: ${breakpoints.lg}) {
 		flex-direction: column;

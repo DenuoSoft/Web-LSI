@@ -7,7 +7,7 @@ export const PeopleBlock = styled.div`
 	flex-wrap: wrap;
 	row-gap: 4rem;
 	margin-top: 2rem;
-	color: #555a69;
+
 	z-index: 1;
 	animation: ${fadeInY} 0.5s ease-in;
 	
@@ -57,7 +57,7 @@ export const ItemWrap = styled.button`
 	cursor: pointer;
 `;
 export const ItemTitle = styled.h5`
-	
+	color: #555a69;
 `;
 
 export const PeopleImg = styled.div`

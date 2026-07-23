@@ -6,25 +6,26 @@ import {fluidTypography} from '../../styles/fluidTypography';
 export const ServicesBlock = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	row-gap: 8rem;
+	row-gap: 15rem;
 	margin-top: 4rem;
 	animation: ${fadeInY} 0.5s ease-in;
 	z-index: 1;
 `;
 export const ServicesItem = styled.div`
-	width: calc(100% / 3);
+	width: calc(100% / 4);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: space-between;
 	gap: 3rem;
-	padding: 0 3.2rem;
+	padding: 0 3rem;
+	color: #555a69;
 	border-left: 1px solid #8237ff;
-	&:nth-child(3n) {
+	/* &:nth-child(3n) {
 		border-right: 1px solid #8237ff;
-	}
+	} */
 	@media (max-width: ${breakpoints.lg}) {
-		width: calc(100% / 2);
+		width: calc(100% / 3);
 		&:nth-child(2n) {
 			border-right: 1px solid #8237ff;
 		}

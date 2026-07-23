@@ -6,7 +6,7 @@ import {fluidTypography} from '../../styles/fluidTypography';
 export const InsightsBlock = styled.div`
     width: 100%;
     display: flex;
-   flex-wrap: wrap;
+    flex-wrap: wrap;
     gap: 2rem;
     margin-top: 2rem;
     animation: ${fadeInY} 0.5s ease-in;

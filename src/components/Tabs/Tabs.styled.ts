@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Theme} from '../../models/theme';
+import type {Theme} from '../../models/theme';
 
 export const TabsWrap = styled.div`
    display: flex;

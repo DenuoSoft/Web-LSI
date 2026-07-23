@@ -77,16 +77,18 @@ export const HomeTitle = styled.h1`
 	line-height: 1.2;
 	margin: 0;
 	font-weight: 700;
-	color:#c8d2e6;
+	color: #c8d2e6;
 	text-align: left
 	
 	@media (max-width: ${breakpoints.lg}) {
 	    color: #555a69;
 		font-size: clamp(1.3rem, 3vw, 2.2rem);
 		text-align: center;
+		border: 5px solid red; // 👈 добавьте для проверки
+        background: yellow; 
 	}
 	@media (max-width: ${breakpoints.md}) {
-		font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+	   	font-size: clamp(1.1rem, 2.5vw, 1.8rem);
 	}
 `;
 

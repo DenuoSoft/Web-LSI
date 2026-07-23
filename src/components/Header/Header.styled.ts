@@ -64,13 +64,8 @@ export const HeaderNav = styled.div<{$isOpen: boolean}>`
 `;
 export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean }>`
      display: flex;	
-	
-//position: relative;
 	text-decoration: none;
-	//padding: 1rem;
-	//color: #000f;
 	color:${props => props.$isHomePage ? '#c8d2e6' : '#555a69'};
-	//width: 10rem;
 	border: none;
 	outline: none;
 	${fluidTypography({max: 20, min: 14})}
@@ -78,6 +73,9 @@ export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean }>`
 	&.active {
 		font-weight: bold;
 	}
+	@media (max-width: ${breakpoints.lg}) {
+		color: #555a69;
+	}	
 	@media (max-width: ${breakpoints.md}) {
 		color: #fff;
 	}

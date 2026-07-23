@@ -12,7 +12,6 @@ export const HomeBlock = styled.div`
 	height: 100vh;
 	min-height: 600px;
 	padding-right: clamp(1rem, 2vw, 2rem);
-	
 	z-index: 1;
 	max-width: 1440px;
 	margin: 0 auto;
@@ -36,14 +35,14 @@ export const HomeBlock = styled.div`
 		gap: clamp(1.5rem, 2vw, 2.5rem);
 		height: auto;
 		min-height: 80vh;
-		padding: clamp(1rem, 2vw, 1.5rem);
+		//padding: clamp(1rem, 2vw, 1.5rem);
 		align-items: top;
 		justify-content: top;
-	}
 	&::before {
-	    height: 200vh;
+	    display: none;
 	}     
 	}
+	
 	@media (max-width: ${breakpoints.md}) {
 		gap: 1.5rem;
 		padding: 1rem;
@@ -64,7 +63,7 @@ export const HomeTextBlock = styled.div`
 	@media (max-width: ${breakpoints.lg}) {
 		gap: clamp(0.8rem, 1.5vw, 1.5rem);
 		
-		padding: 0.5rem;
+		
 	}
 	
 	@media (max-width: ${breakpoints.md}) {
@@ -78,15 +77,14 @@ export const HomeTitle = styled.h1`
 	line-height: 1.2;
 	margin: 0;
 	font-weight: 700;
-	//color: #1a1a2e;
 	color:#c8d2e6;
 	text-align: left
-	//text-align-last: justify;
+	
 	@media (max-width: ${breakpoints.lg}) {
+	    color: #555a69;
 		font-size: clamp(1.3rem, 3vw, 2.2rem);
 		text-align: center;
 	}
-	
 	@media (max-width: ${breakpoints.md}) {
 		font-size: clamp(1.1rem, 2.5vw, 1.8rem);
 	}
@@ -130,10 +128,10 @@ export const HomeText = styled.p`
 	${fluidTypography({ max: 18, min: 14 })}
 	line-height: 1.6;
 	margin: 0;
-	//color: #2d2d44;
 	color: #c8d2e6;
+	
 	@media (max-width: ${breakpoints.lg}) {
-		text-align: justify;
+	    color: #555a69;
 		${fluidTypography({ max: 16, min: 13 })}
 	}
 	

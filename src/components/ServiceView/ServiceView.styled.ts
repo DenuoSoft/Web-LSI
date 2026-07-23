@@ -42,7 +42,7 @@ color: #555a69;
 export const ServiceList = styled.ul`
 display: flex;
 flex-direction: column;
-gap: 0.5rem;
+gap: 1rem;
 list-style: none;
   padding: 0;
   margin: 0;
@@ -51,7 +51,6 @@ ${fluidTypography({max: 18, min: 14})}
 export const ServiceListItem = styled.li`
   position: relative;
   padding-left: 24px;
-  
   &::before {
     content: "•";
     position: absolute;

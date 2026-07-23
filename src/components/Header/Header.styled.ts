@@ -3,46 +3,25 @@ import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
 import { fluidTypography } from '../../styles/fluidTypography';
 
-export const HeaderBlock = styled.header`
+export const HeaderBlock = styled.header<{ $isHomePage?: boolean }>`
 	grid-area: header;
 	position: sticky;
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	padding-bottom: 2rem;
-	//background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 50%, transparent 100%);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	z-index: 99;
-	
-	/* Адаптация градиента под разные разрешения */
-	@media (max-width: ${breakpoints.xxl}) {
-		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 55%, transparent 100%);
-	}
-	
-	@media (max-width: ${breakpoints.xl}) {
-		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 60%, transparent 100%);
-	}
-	
-	@media (max-width: ${breakpoints.lg}) {
-		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 65%, transparent 100%);
-	}
-	
-	@media (max-width: ${breakpoints.md}) {
-		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 70%, transparent 100%);
-	}
-	
-	@media (max-width: ${breakpoints.sm}) {
-		background: linear-gradient(to right, #c8d2e6 0%, #c8d2e6 80%, transparent 100%);
-	}
 `;
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div<{ $isHomePage?: boolean }>`
 	max-width: 140rem;
 	width: 100%;
 	height: 100%;
 	display: flex;
 	//gap: 3.2rem;
 	justify-content: space-between;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	
 	@media (max-width: ${breakpoints.md}) {
 		justify-content: space-between;
 		width: 100%;
@@ -83,14 +62,14 @@ export const HeaderNav = styled.div<{$isOpen: boolean}>`
 		z-index: 98;
 	}
 `;
-export const HeaderLink = styled(NavLink)`
+export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean }>`
      display: flex;	
 	
 //position: relative;
 	text-decoration: none;
 	//padding: 1rem;
 	//color: #000f;
-	color:#c8d2e6;
+	color:${props => props.$isHomePage ? '#c8d2e6' : '#555a69'};
 	//width: 10rem;
 	border: none;
 	outline: none;
@@ -121,7 +100,7 @@ export const HeaderContact = styled(NavLink)`
 		display: none;
 	}
 `;
-export const HeaderLogo = styled.img`
+export const HeaderLogo = styled.div`
     height: 100%;
 	width: auto;
 	display: block;
@@ -158,3 +137,4 @@ export const MobileOverlay = styled.div<{$isOpen: boolean}>`
 		color: #fff;
 	}
 `;
+

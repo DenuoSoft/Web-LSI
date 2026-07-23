@@ -9,7 +9,6 @@ width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 5rem;
-  color: #555a69;
   animation: ${fadeInX} 0.5s ease-in;
   z-index: 1;
 `
@@ -35,14 +34,29 @@ export const ServiceContent = styled.div`
   width: 100%;
   gap: 2rem;
   font-size: 1.6rem;
+  color: #555a69;
 `
 export const ServiceListBlock = styled.div`
-
+color: #555a69;
 `
 export const ServiceList = styled.ul`
 display: flex;
 flex-direction: column;
 gap: 0.5rem;
-
+list-style: none;
+  padding: 0;
+  margin: 0;
 ${fluidTypography({max: 18, min: 14})}
+`
+export const ServiceListItem = styled.li`
+  position: relative;
+  padding-left: 24px;
+  
+  &::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #555a69; 
+  }
 `

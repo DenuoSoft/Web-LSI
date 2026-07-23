@@ -40,7 +40,10 @@ export const HomeBlock = styled.div`
 		align-items: top;
 		justify-content: top;
 	}
-	
+	&::before {
+	    height: 200vh;
+	}     
+	}
 	@media (max-width: ${breakpoints.md}) {
 		gap: 1.5rem;
 		padding: 1rem;

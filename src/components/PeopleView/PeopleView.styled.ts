@@ -21,10 +21,10 @@ export const PeopleWrap = styled.div`
     width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 2.4rem
+	gap: 2.5rem
 `
 export const PeopleItem = styled.div`
-	width: calc(100% / 4);
+	width: calc(100% / 3);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -50,7 +50,7 @@ export const PeopleItem = styled.div`
 export const ItemWrap = styled.button`
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	cursor: pointer;
 `;
@@ -60,7 +60,7 @@ export const ItemTitle = styled.h5`
 
 export const PeopleImg = styled.div`
 	width: 100%;
-	background-size: cover;
+	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
 	/* box-shadow: 0.2rem 0.2rem 0.3rem 0.05rem rgba(85, 90, 105, 0.5);
@@ -83,7 +83,7 @@ export const ItemBadgeWrap = styled.div`
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
+	justify-content: center;
 	gap: 1.2rem;
 	color: #555a69;
 	@media (max-width: ${breakpoints.sm}) {

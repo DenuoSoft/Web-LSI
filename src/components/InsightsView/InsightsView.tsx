@@ -25,6 +25,12 @@ export const InsightsView = () => {
     setSelectedInsight(null);
   };
 
+  // Функция для обрезки текста до 300 символов
+  const truncateText = (text: string, maxLength: number = 300) => {
+    if (text.length <= maxLength) return text;
+    return text.slice(0, maxLength) + '...';
+  };
+
   return (
     <>
       <InsightsBlock>
@@ -37,7 +43,7 @@ export const InsightsView = () => {
             <h2>{insight.title}</h2>
             <p>{insight.date}</p>
            
-            <p>{insight.text}</p>
+            <p>{truncateText(insight.text)}</p>
           </InsightsItem>
         ))}
       </InsightsBlock>

@@ -10,12 +10,12 @@ export const HomeBlock = styled.div`
 	gap: clamp(1rem, 3vw, 3rem);
 	align-items: stretch;
 	height: 100vh;
-	min-height: 600px;
+	min-height: 500px;
 	padding-right: clamp(1rem, 2vw, 2rem);
 	z-index: 1;
 	max-width: 1440px;
 	margin: 0 auto;
-	padding-top: 3rem;
+	//padding-top: 3rem;
 	padding-bottom: 3rem;
 	&::before {
         content: '';
@@ -45,12 +45,15 @@ export const HomeBlock = styled.div`
 	}
 	
 	@media (max-width: ${breakpoints.md}) {
-		gap: 1.5rem;
-		padding: 1rem;
+		
 		&::before {
 		height: 100vh;
 		}
 	}
+	@media (max-width: ${breakpoints.sm}) {
+		grid-template-rows: 1fr;
+		
+	}	
 `;
 
 export const HomeTextBlock = styled.div`
@@ -63,18 +66,15 @@ export const HomeTextBlock = styled.div`
 	z-index: 1;
 	@media (max-width: ${breakpoints.lg}) {
 		gap: clamp(0.8rem, 1.5vw, 1.5rem);
-		
-		
 	}
-	
 	@media (max-width: ${breakpoints.md}) {
-		gap: 0.8rem;
+		gap: 2rem;
 	}
 `;
 
 export const HomeTitle = styled.h1`
      width: 100%;
-	font-size: clamp(1.5rem, 3.5vw, 3.5rem);
+	${fluidTypography({ max: 32, min: 28 })}
 	line-height: 1.2;
 	margin: 0;
 	font-weight: 700;
@@ -83,12 +83,12 @@ export const HomeTitle = styled.h1`
 	
 	@media (max-width: ${breakpoints.lg}) {
 	    color: #555a69;
-		font-size: clamp(1.3rem, 3vw, 2.2rem);
+		${fluidTypography({ max: 30, min: 26 })};
 	
 	}
 	
 	@media (max-width: ${breakpoints.md}) {
-	   	font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+	   	${fluidTypography({ max: 24, min: 22 })}
 	}
 `;
 
@@ -126,20 +126,17 @@ export const HomeText = styled.div`
     display: flex;
 	flex-direction: column;
     gap: clamp(2.4rem, 1.5vw, 3.3rem);
-	${fluidTypography({ max: 18, min: 14 })}
+	${fluidTypography({ max: 18, min: 16 })}
 	line-height: 1.6;
 	margin: 0;
 	color: #c8d2e6;
 	
 	@media (max-width: ${breakpoints.lg}) {
 	    color: #555a69;
-		${fluidTypography({ max: 16, min: 13 })}
+		${fluidTypography({ max: 16, min: 14 })}
 	}
 	
-	@media (max-width: ${breakpoints.md}) {
-		${fluidTypography({ max: 14, min: 12 })}
-		line-height: 1.5;
-	}
+	
 `;
 
 export const ImgContainer = styled.div`
@@ -171,6 +168,10 @@ export const ImgContainer = styled.div`
 		max-height: 300px;
 		border-radius: 8px;
 	}
+	@media (max-width: ${breakpoints.sm}) {
+		display: none;
+		height: 0;
+	}	
 `;
 
 export const ImgBlock = styled.div`

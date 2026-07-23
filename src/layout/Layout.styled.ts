@@ -40,5 +40,8 @@ export const Main = styled.main`
  flex-grow: 1;
  flex-direction: column;
  align-items: center;
-
+@media (max-width: ${breakpoints.md}) {
+      padding-top: 0;
+    }    
+  
 `

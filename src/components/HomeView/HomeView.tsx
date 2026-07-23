@@ -34,11 +34,8 @@ export const HomeView = () => {
 						Our approach is centered on developing practical and legally robust solutions tailored to our clients’ commercial objectives.
 						We work closely with our clients to understand their business, identify key risks and opportunities, and deliver clear, pragmatic and outcome-driven advice.
 					</p>
-					
-
 				</HomeText>
 			</HomeTextBlock>
-
 			<ImgContainer>
 				<ImgBlock />
 			</ImgContainer>

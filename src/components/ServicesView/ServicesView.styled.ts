@@ -8,6 +8,7 @@ export const ServicesBlock = styled.div`
 	flex-wrap: wrap;
 	row-gap: 8rem;
 	margin-top: 4rem;
+	color: #555a69;
 	animation: ${fadeInY} 0.5s ease-in;
 	z-index: 1;
 `;

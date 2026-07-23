@@ -16,12 +16,12 @@ export const HomeView = () => {
 			<HomeTextBlock>
 				
 				<HomeTitle>
-					Denuo is a full-service law firm 
+					Full-service law firm 
 				</HomeTitle>
 				    
 				<HomeText>
 					<p>
-					We are headquartered in Dubai,
+					Denuo is headquartered in Dubai,
 					providing high-quality legal and tax advice to international businesses,
 					investors and private clients.
 					</p>

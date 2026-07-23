@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../styles/breakpoints";
 
 export const BackgroundLayer = styled.div`
     position: fixed;
@@ -23,7 +24,12 @@ export const LayoutBlock = styled.div`
     ". main ."
     " footer footer footer ";
     gap: 3rem;
-  
+  @media (max-width: ${breakpoints.xl}) {
+        grid-template-areas:
+        ". header ."
+        ". main ."
+    " footer footer footer ";
+    }
 
 `
 export const Main = styled.main`

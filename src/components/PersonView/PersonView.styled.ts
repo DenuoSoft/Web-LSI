@@ -9,6 +9,7 @@ export const PersonBlock = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 4rem;
+	color: #555a69;
 	z-index: 1;
 `;
 export const PersonWrap = styled.div`

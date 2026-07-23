@@ -1,8 +1,9 @@
-import { ServicesView } from "../components/ServicesView/ServicesView"
+import { ServicesTabs } from "../components/ServicesView/ServicesTabs"
 
 export const Services = () => {
   return (
-    <ServicesView />
+    //<ServicesView />
+    <ServicesTabs />
   );
 }
 

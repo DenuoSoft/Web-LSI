@@ -7,6 +7,7 @@ import {
 	ServiceContent,
 	ServiceList,
 	ServiceListBlock,
+	ServiceListItem,
 } from './ServiceView.styled';
 import {ArrowLeft} from '../../assets/img/arrow-left';
 import {ItemIcon} from '../../styles/shared';
@@ -30,12 +31,11 @@ export const ServiceView = () => {
 			</NavBack>
 			<ServiceContent>
 				<h1>{service.title}</h1>
-				
 			</ServiceContent>
 			<ServiceListBlock>
 				<ServiceList>
 					{service.list.map((list, index) => (
-						<li key={index}>{list}</li>
+						<ServiceListItem key={index}>{list}</ServiceListItem>
 					))}
 				</ServiceList>
 			</ServiceListBlock>

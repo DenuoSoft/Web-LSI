@@ -57,7 +57,7 @@ export const ItemWrap = styled.button`
 	cursor: pointer;
 `;
 export const ItemTitle = styled.h5`
-	
+	color: #555a69;
 `;
 
 export const PeopleImg = styled.div`

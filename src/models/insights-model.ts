@@ -3,6 +3,6 @@ export interface insightsProps {
     title: string,
     date: string,
     text: string,
-
+    fullText?: string;
    
 }

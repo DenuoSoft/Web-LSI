@@ -8,7 +8,10 @@ export const ModalOverlay = styled.div<{ $isVisible: boolean }>`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(98, 121, 167);
+  background-color: rgba(98, 121, 167, 0.1);
+   backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +24,7 @@ export const ModalOverlay = styled.div<{ $isVisible: boolean }>`
   ${({ $isVisible }) =>
     $isVisible &&
     css`
-      background-color: rgba(98, 121, 167, 0.6);
+      background-color: rgba(98, 121, 167, 0.1);
       opacity: 1;
       pointer-events: auto;
     `}
@@ -49,8 +52,11 @@ export const ModalOverlay = styled.div<{ $isVisible: boolean }>`
 `;
 
 export const ModalContent = styled.div<{ $isVisible: boolean }>`
-  background: white;
-  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
   max-width: 800px;
   width: fit-content;
   min-width: 500px;
@@ -69,8 +75,7 @@ export const ModalContent = styled.div<{ $isVisible: boolean }>`
       opacity: 1;
     `}
 
-  // Адаптация ширины для разных экранов
-  @media (max-width: ${breakpoints.xxl}) {
+    @media (max-width: ${breakpoints.xxl}) {
     max-width: 750px;
   }
 

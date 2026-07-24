@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { insights } from './insights-data';
-import { InsightsBlock, InsightsItem, SelectedItem } from './InsightsView.styled';
+import { events } from './Events-data';
+import { EventsBlock, EventsItem, SelectedItem } from './EventsView.styled';
 import { Modal } from '../Modal/modal'; // Путь к вашему Modal компоненту
 
 interface InsightDetail {
@@ -11,18 +11,18 @@ interface InsightDetail {
   fullText?: string; // Добавьте, если есть полный текст
 }
 
-export const InsightsView = () => {
+export const EventsView = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState<InsightDetail | null>(null);
+  const [selectedInsight, setSelectedInsight] = useState<InsightDetail | null>(null);
 
   const handleOpenModal = (insight: InsightDetail) => {
-    setSelectedEvent(insight);
+    setSelectedInsight(insight);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setSelectedEvent(null);
+    setSelectedInsight(null);
   };
 
   // Функция для обрезки текста до 300 символов
@@ -33,28 +33,28 @@ export const InsightsView = () => {
 
   return (
     <>
-      <InsightsBlock>
-        {insights.map((insight) => (
-          <InsightsItem 
-            key={insight.id} 
-            onClick={() => handleOpenModal(insight)}
+      <EventsBlock>
+        {events.map((event) => (
+          <EventsItem 
+            key={event.id} 
+            onClick={() => handleOpenModal(event)}
             style={{ cursor: 'pointer' }} // Добавляем курсор для указания кликабельности
           >
-            <h2>{insight.title}</h2>
-            <p>{insight.date}</p>
+            <h2>{event.title}</h2>
+            <p>{event.date}</p>
            
-            <p>{truncateText(insight.text)}</p>
-          </InsightsItem>
+            <p>{truncateText(event.text)}</p>
+          </EventsItem>
         ))}
-      </InsightsBlock>
+      </EventsBlock>
 
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        {selectedEvent && (
+        {selectedInsight && (
           <SelectedItem>
-            <h2 >{selectedEvent.title}</h2>
-            <p><strong>Date:</strong> {selectedEvent.date}</p>
+            <h2 >{selectedInsight.title}</h2>
+            <p><strong>Date:</strong> {selectedInsight.date}</p>
             
-            <p>{selectedEvent.fullText || selectedEvent.text}</p>
+            <p>{selectedInsight.fullText || selectedInsight.text}</p>
             {/* Добавьте дополнительный контент по необходимости */}
           </SelectedItem>
         )}

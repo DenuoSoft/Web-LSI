@@ -25,7 +25,7 @@ export const PersonWrap = styled.div`
 `;
 export const PersonImg = styled.div`
 	width: 50rem;
-	background-size: cover;
+	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
 	height: 50rem;

@@ -21,7 +21,7 @@ export const HeaderContainer = styled.div<{ $isHomePage?: boolean }>`
 	//gap: 3.2rem;
 	justify-content: space-between;
 	padding-bottom: 2rem;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(130, 55, 255, 0.5);
 	align-items: flex-end;
 	@media (max-width: ${breakpoints.md}) {
 		justify-content: space-between;

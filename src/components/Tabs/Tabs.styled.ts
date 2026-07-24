@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { fluidTypography } from '../../styles/fluidTypography';
+import { breakpoints } from '../../styles/breakpoints';
 
 export const TabsWrap = styled.div`
 	width: 100%;
@@ -12,15 +14,17 @@ export const TabsWrap = styled.div`
 export const TabsBlock = styled.div`
 	display: flex;
     gap: 5rem;
-    width: 25rem;
-	
+    width: 20rem;
+	@media (max-width: ${breakpoints.sm}) {
+		 width: 18rem;
+		}
 `;
 export const TabsItem = styled.div<{$isActive: boolean}>`
 	display: flex;
 	width: calc(100% / 2);
 	justify-content: flex-start;
 	padding-bottom: 0.5rem;
-	font-size: 2rem;
+	${fluidTypography({max: 20, min: 16})};
 	cursor: pointer;
 	color: ${({$isActive}) =>
 		$isActive ? '#8237FF' : '#555a69'};
@@ -34,7 +38,6 @@ export const TabsItem = styled.div<{$isActive: boolean}>`
 		color: #8237FF;
 		border-bottom: 1px solid #8237FF;
 	}
-	
 `;
 
 export const TabContent = styled.div`

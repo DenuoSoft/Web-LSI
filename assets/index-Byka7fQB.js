@@ -34,7 +34,7 @@ Please change the parent <Route path="${Q}"> to <Route path="${Q==="/"?"*":`${Q}
     opacity: 1;
     transform: translateX(0);
   }
-`,dx="/Web-LSI/assets/dubai-1-CvTBfHMS.jpg",hx=I.div`
+`,dx="/Web-LSI/assets/background-DSpdS_te.jpg",hx=I.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: clamp(1rem, 3vw, 3rem);

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { breakpoints } from '../../styles/breakpoints';
 import { fluidTypography } from '../../styles/fluidTypography';
 import { fadeInY } from '../../styles/animation';
-import image from '../../assets/img/dubai-1.jpg'
+import image from '../../assets/img/background.jpg'
 
 export const HomeBlock = styled.div`
 	display: grid;

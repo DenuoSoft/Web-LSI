@@ -60,10 +60,10 @@ const FootnoteLink = ({
       onMouseLeave={onMouseLeave}
     >
       <sup style={{ 
-        color: '#0066cc', 
+        color: '#8237FF', 
         fontWeight: 'bold', 
         fontSize: '0.8em',
-        textDecoration: footnoteText ? 'underline dotted #0066cc' : 'none'
+        textDecoration: footnoteText ? 'underline dotted #8237FF' : 'none'
       }}>
         {text}
       </sup>
@@ -119,7 +119,7 @@ const TooltipPortal = ({ text, x, y, visible, position }: TooltipPortalProps) =>
             transform: 'translateX(-50%)',
             borderLeft: '8px solid transparent',
             borderRight: '8px solid transparent',
-            borderTop: '8px solid #1a1a2e'
+            borderTop: '8px solid #555a69'
           }
         };
       case 'bottom':
@@ -133,7 +133,7 @@ const TooltipPortal = ({ text, x, y, visible, position }: TooltipPortalProps) =>
             transform: 'translateX(-50%)',
             borderLeft: '8px solid transparent',
             borderRight: '8px solid transparent',
-            borderBottom: '8px solid #1a1a2e'
+            borderBottom: '8px solid #555a69'
           }
         };
       case 'left':
@@ -147,7 +147,7 @@ const TooltipPortal = ({ text, x, y, visible, position }: TooltipPortalProps) =>
             transform: 'translateY(-50%)',
             borderTop: '8px solid transparent',
             borderBottom: '8px solid transparent',
-            borderLeft: '8px solid #1a1a2e'
+            borderLeft: '8px solid #555a69'
           }
         };
       case 'right':
@@ -161,7 +161,7 @@ const TooltipPortal = ({ text, x, y, visible, position }: TooltipPortalProps) =>
             transform: 'translateY(-50%)',
             borderTop: '8px solid transparent',
             borderBottom: '8px solid transparent',
-            borderRight: '8px solid #1a1a2e'
+            borderRight: '8px solid #555a69'
           }
         };
       default:
@@ -175,7 +175,7 @@ const TooltipPortal = ({ text, x, y, visible, position }: TooltipPortalProps) =>
             transform: 'translateX(-50%)',
             borderLeft: '8px solid transparent',
             borderRight: '8px solid transparent',
-            borderTop: '8px solid #1a1a2e'
+            borderTop: '8px solid #555a69'
           }
         };
     }
@@ -190,11 +190,11 @@ const TooltipPortal = ({ text, x, y, visible, position }: TooltipPortalProps) =>
         top: styles.top,
         left: styles.left,
         transform: styles.transform,
-        backgroundColor: '#1a1a2e',
-        color: '#fff',
+        backgroundColor: '#555a69',
+        color: '#C8D2E6',
         padding: '10px 16px',
         borderRadius: '8px',
-        fontSize: '0.85em',
+        fontSize: '1.2em',
         maxWidth: '280px',
         minWidth: '100px',
         wordWrap: 'break-word',
@@ -237,78 +237,112 @@ const FormattedTextView = ({ formattedText, footnoteTexts }: FormattedTextViewPr
     return document.getElementById('modal-content');
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLElement>, text: string, element: HTMLElement) => {
-    const rect = element.getBoundingClientRect();
-    const modalElement = getModalElement();
+const handleMouseEnter = (_e: React.MouseEvent<HTMLElement>, text: string, element: HTMLElement) => {
+  const rect = element.getBoundingClientRect();
+  const modalElement = getModalElement();
+  
+  if (!modalElement) return;
+  
+  const modalRect = modalElement.getBoundingClientRect();
+  const tooltipWidth = 280;
+  const tooltipHeight = 80;
+  
+  const paddingTop = 10;
+  const paddingBottom = 15;
+  const minPadding = 5;
+  
+  const footnoteX = rect.left - modalRect.left + rect.width / 2;
+  const footnoteY = rect.top - modalRect.top;
+  const footnoteBottom = rect.bottom - modalRect.top;
+  
+  // Проверяем, помещается ли тултип сверху
+  const fitsAbove = footnoteY - paddingTop - tooltipHeight >= minPadding;
+  // Проверяем, помещается ли тултип снизу
+  const fitsBelow = footnoteBottom + paddingBottom + tooltipHeight <= modalRect.height - minPadding;
+  
+  // 🔧 ИСПРАВЛЕННЫЕ РАСЧЕТЫ ДЛЯ LEFT И RIGHT
+  // Для позиции справа: тултип находится справа от сноски, его левый край = footnoteX + padding
+  const fitsRight = footnoteX + paddingTop + rect.width / 2 + tooltipWidth <= modalRect.width - minPadding;
+  // Для позиции слева: тултип находится слева от сноски, его правый край = footnoteX - padding
+  const fitsLeft = footnoteX - paddingTop - rect.width / 2 - tooltipWidth >= minPadding;
+  
+  let x = footnoteX;
+  let y = footnoteY - paddingTop;
+  let position: 'top' | 'bottom' | 'left' | 'right' = 'top';
+  
+  // 🔧 ИСПРАВЛЕННЫЙ ПРИОРИТЕТ ВЫБОРА ПОЗИЦИИ
+  if (fitsAbove) {
+    // Приоритет: сверху
+    y = footnoteY - paddingTop;
+    position = 'top';
+  } else if (fitsBelow) {
+    // Затем снизу
+    y = footnoteBottom + paddingBottom;
+    position = 'bottom';
+  } else if (fitsRight) {
+    // Затем справа (для маленьких экранов)
+    x = footnoteX + paddingTop + rect.width / 2 + tooltipWidth / 2;
+    y = footnoteY + rect.height / 2;
+    position = 'right';
+  } else if (fitsLeft) {
+    // Затем слева
+    x = footnoteX - paddingTop - rect.width / 2 - tooltipWidth / 2;
+    y = footnoteY + rect.height / 2;
+    position = 'left';
+  } else {
+    // Fallback: сверху с принудительной корректировкой
+    y = minPadding;
+    position = 'top';
+  }
+  
+  // Плавная корректировка для позиций TOP и BOTTOM
+  if (position === 'top' || position === 'bottom') {
+    const leftEdge = minPadding;
+    const rightEdge = modalRect.width - minPadding;
+    const halfWidth = tooltipWidth / 2;
     
-    if (!modalElement) return;
+    const leftOverflow = leftEdge - (x - halfWidth);
+    const rightOverflow = (x + halfWidth) - rightEdge;
     
-    const modalRect = modalElement.getBoundingClientRect();
-    const tooltipWidth = 280;
-    const tooltipHeight = 80;
+    const maxShift = Math.min(rect.width / 2);
     
-    const paddingTop = 10;
-    const paddingBottom = 10;
-    const minPadding = 5;
-    
-    const footnoteX = rect.left - modalRect.left + rect.width / 2;
-    const footnoteY = rect.top - modalRect.top;
-    const footnoteBottom = rect.bottom - modalRect.top;
-    
-    const fitsAbove = footnoteY - paddingTop - tooltipHeight >= minPadding;
-    const fitsBelow = footnoteBottom + paddingBottom + tooltipHeight <= modalRect.height - minPadding;
-    const fitsLeft = footnoteX - paddingTop - tooltipWidth >= minPadding;
-    const fitsRight = footnoteX + paddingTop + tooltipWidth <= modalRect.width - minPadding;
-    
-    let x = footnoteX;
-    let y = footnoteY - paddingTop;
-    let position: 'top' | 'bottom' | 'left' | 'right' = 'top';
-    
-    if (fitsAbove) {
-      y = footnoteY - paddingTop;
-      position = 'top';
-    } else if (fitsBelow) {
-      y = footnoteBottom + paddingBottom;
-      position = 'bottom';
-    } else if (fitsRight) {
-      x = footnoteX + paddingTop;
-      y = footnoteY + rect.height / 2;
-      position = 'right';
-    } else if (fitsLeft) {
-      x = footnoteX - paddingTop;
-      y = footnoteY + rect.height / 2;
-      position = 'left';
-    } else {
-      y = minPadding;
-      position = 'top';
+    if (leftOverflow > 0) {
+      const shift = Math.min(leftOverflow + 2, maxShift);
+      x = x + shift;
+    } else if (rightOverflow > 0) {
+      const shift = Math.min(rightOverflow + 2, maxShift);
+      x = x - shift;
     }
+  }
+  
+  // Плавная корректировка для позиций LEFT и RIGHT
+  if (position === 'left' || position === 'right') {
+    const topEdge = minPadding;
+    const bottomEdge = modalRect.height - minPadding;
+    const halfHeight = tooltipHeight / 2;
     
-    if (position === 'top' || position === 'bottom') {
-      if (x - tooltipWidth / 2 < minPadding) {
-        x = tooltipWidth / 2 + minPadding;
-      }
-      if (x + tooltipWidth / 2 > modalRect.width - minPadding) {
-        x = modalRect.width - tooltipWidth / 2 - minPadding;
-      }
+    const topOverflow = topEdge - (y - halfHeight);
+    const bottomOverflow = (y + halfHeight) - bottomEdge;
+    
+    const maxShift = Math.min(rect.height / 2, 30);
+    
+    if (topOverflow > 0) {
+      const shift = Math.min(topOverflow + 2, maxShift);
+      y = y + shift;
+    } else if (bottomOverflow > 0) {
+      const shift = Math.min(bottomOverflow + 2, maxShift);
+      y = y - shift;
     }
-    
-    if (position === 'left' || position === 'right') {
-      if (y - tooltipHeight / 2 < minPadding) {
-        y = tooltipHeight / 2 + minPadding;
-      }
-      if (y + tooltipHeight / 2 > modalRect.height - minPadding) {
-        y = modalRect.height - tooltipHeight / 2 - minPadding;
-      }
-    }
-    
-    setTooltip({
-      text,
-      x,
-      y,
-      visible: true,
-      position
-    });
-  };
+  }
+  
+  setTooltip({
+    text,
+    x,
+    y,
+    visible: true,
+    position
+  });
+};
 
   const handleMouseLeave = () => {
     setTooltip(prev => ({ ...prev, visible: false }));
@@ -354,7 +388,7 @@ const FormattedTextView = ({ formattedText, footnoteTexts }: FormattedTextViewPr
             <a
               key={idx}
               href="#"
-              style={{ color: '#0066cc', textDecoration: 'underline' }}
+              style={{ color: '#8237FF', textDecoration: 'underline' }}
               onClick={(e) => e.preventDefault()}
             >
               {element}

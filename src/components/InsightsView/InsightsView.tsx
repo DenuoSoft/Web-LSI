@@ -1,4 +1,5 @@
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { insights } from './insights-data';
 import { InsightsBlock, InsightsItem, SelectedItem } from './InsightsView.styled';
 import { Modal } from '../Modal/modal';
@@ -14,6 +15,7 @@ import {
   isHeading,
   isList,
   isTable,
+
 } from '../../models/insights-model';
 
 // ===== ПРОПСЫ ДЛЯ КОМПОНЕНТОВ =====
@@ -21,22 +23,13 @@ import {
 interface FormattedTextViewProps {
   formattedText: FormattedText[];
   footnoteTexts?: Record<string, string>;
-  modalRef?: React.RefObject<HTMLDivElement | null>;
-}
-
-interface TextContentProps {
-  text: string;
-  formattedText?: FormattedText[];
-  footnoteTexts?: Record<string, string>;
-  modalRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 interface ContentRendererProps {
   content: ContentItem[];
-  modalRef?: React.RefObject<HTMLDivElement | null>;
 }
 
-// ===== КОМПОНЕНТ ДЛЯ ОДНОЙ ССЫЛКИ НА СНОСКУ С ТУЛТИПОМ =====
+// ===== КОМПОНЕНТ ДЛЯ ОДНОЙ ССЫЛКИ НА СНОСКУ =====
 interface FootnoteLinkProps {
   text: string;
   footnoteText?: string;
@@ -78,61 +71,233 @@ const FootnoteLink = ({
   );
 };
 
-// ===== КОМПОНЕНТ ДЛЯ ОТОБРАЖЕНИЯ ФОРМАТИРОВАННОГО ТЕКСТА С ТУЛТИПАМИ =====
-const FormattedTextView = ({ formattedText, footnoteTexts, modalRef }: FormattedTextViewProps) => {
+// ===== КОМПОНЕНТ ДЛЯ ОТОБРАЖЕНИЯ ЗАГОЛОВКА =====
+const HeadingRenderer = ({ level, children }: { level: number; children: React.ReactNode }) => {
+  switch (level) {
+    case 1:
+      return <h1 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h1>;
+    case 2:
+      return <h2 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h2>;
+    case 3:
+      return <h3 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h3>;
+    case 4:
+      return <h4 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h4>;
+    case 5:
+      return <h5 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h5>;
+    case 6:
+      return <h6 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h6>;
+    default:
+      return <h2 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h2>;
+  }
+};
+
+// ===== ТУЛТИП =====
+interface TooltipPortalProps {
+  text: string;
+  x: number;
+  y: number;
+  visible: boolean;
+  position: 'top' | 'bottom' | 'left' | 'right';
+}
+
+const TooltipPortal = ({ text, x, y, visible, position }: TooltipPortalProps) => {
+  if (!visible || !text) return null;
+
+  const modalElement = document.getElementById('modal-content');
+  if (!modalElement) return null;
+
+  const getPositionStyles = () => {
+    switch (position) {
+      case 'top':
+        return {
+          transform: 'translateX(-50%) translateY(-100%)',
+          top: y,
+          left: x,
+          triangle: {
+            bottom: '-8px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            borderLeft: '8px solid transparent',
+            borderRight: '8px solid transparent',
+            borderTop: '8px solid #1a1a2e'
+          }
+        };
+      case 'bottom':
+        return {
+          transform: 'translateX(-50%) translateY(0)',
+          top: y,
+          left: x,
+          triangle: {
+            top: '-8px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            borderLeft: '8px solid transparent',
+            borderRight: '8px solid transparent',
+            borderBottom: '8px solid #1a1a2e'
+          }
+        };
+      case 'left':
+        return {
+          transform: 'translateX(-100%) translateY(-50%)',
+          top: y,
+          left: x,
+          triangle: {
+            right: '-8px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            borderTop: '8px solid transparent',
+            borderBottom: '8px solid transparent',
+            borderLeft: '8px solid #1a1a2e'
+          }
+        };
+      case 'right':
+        return {
+          transform: 'translateX(0) translateY(-50%)',
+          top: y,
+          left: x,
+          triangle: {
+            left: '-8px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            borderTop: '8px solid transparent',
+            borderBottom: '8px solid transparent',
+            borderRight: '8px solid #1a1a2e'
+          }
+        };
+      default:
+        return {
+          transform: 'translateX(-50%) translateY(-100%)',
+          top: y,
+          left: x,
+          triangle: {
+            bottom: '-8px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            borderLeft: '8px solid transparent',
+            borderRight: '8px solid transparent',
+            borderTop: '8px solid #1a1a2e'
+          }
+        };
+    }
+  };
+
+  const styles = getPositionStyles();
+
+  return createPortal(
+    <div
+      style={{
+        position: 'absolute',
+        top: styles.top,
+        left: styles.left,
+        transform: styles.transform,
+        backgroundColor: '#1a1a2e',
+        color: '#fff',
+        padding: '10px 16px',
+        borderRadius: '8px',
+        fontSize: '0.85em',
+        maxWidth: '280px',
+        minWidth: '100px',
+        wordWrap: 'break-word',
+        boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+        pointerEvents: 'none',
+        border: '1px solid rgba(255,255,255,0.1)',
+        lineHeight: '1.5',
+        zIndex: 10000
+      }}
+    >
+      {text}
+      <div
+        style={{
+          position: 'absolute',
+          ...styles.triangle
+        }}
+      />
+    </div>,
+    modalElement
+  );
+};
+
+// ===== КОМПОНЕНТ ДЛЯ ОТОБРАЖЕНИЯ ФОРМАТИРОВАННОГО ТЕКСТА =====
+const FormattedTextView = ({ formattedText, footnoteTexts }: FormattedTextViewProps) => {
   const [tooltip, setTooltip] = useState<{
     text: string;
     x: number;
     y: number;
     visible: boolean;
+    position: 'top' | 'bottom' | 'left' | 'right';
   }>({
     text: '',
     x: 0,
     y: 0,
-    visible: false
+    visible: false,
+    position: 'top'
   });
+
+  const getModalElement = (): HTMLElement | null => {
+    return document.getElementById('modal-content');
+  };
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLElement>, text: string, element: HTMLElement) => {
     const rect = element.getBoundingClientRect();
+    const modalElement = getModalElement();
     
-    // Получаем границы модального окна
-    let modalRect = null;
-    if (modalRef?.current) {
-      modalRect = modalRef.current.getBoundingClientRect();
+    if (!modalElement) return;
+    
+    const modalRect = modalElement.getBoundingClientRect();
+    const tooltipWidth = 280;
+    const tooltipHeight = 80;
+    
+    const paddingTop = 10;
+    const paddingBottom = 10;
+    const minPadding = 5;
+    
+    const footnoteX = rect.left - modalRect.left + rect.width / 2;
+    const footnoteY = rect.top - modalRect.top;
+    const footnoteBottom = rect.bottom - modalRect.top;
+    
+    const fitsAbove = footnoteY - paddingTop - tooltipHeight >= minPadding;
+    const fitsBelow = footnoteBottom + paddingBottom + tooltipHeight <= modalRect.height - minPadding;
+    const fitsLeft = footnoteX - paddingTop - tooltipWidth >= minPadding;
+    const fitsRight = footnoteX + paddingTop + tooltipWidth <= modalRect.width - minPadding;
+    
+    let x = footnoteX;
+    let y = footnoteY - paddingTop;
+    let position: 'top' | 'bottom' | 'left' | 'right' = 'top';
+    
+    if (fitsAbove) {
+      y = footnoteY - paddingTop;
+      position = 'top';
+    } else if (fitsBelow) {
+      y = footnoteBottom + paddingBottom;
+      position = 'bottom';
+    } else if (fitsRight) {
+      x = footnoteX + paddingTop;
+      y = footnoteY + rect.height / 2;
+      position = 'right';
+    } else if (fitsLeft) {
+      x = footnoteX - paddingTop;
+      y = footnoteY + rect.height / 2;
+      position = 'left';
+    } else {
+      y = minPadding;
+      position = 'top';
     }
     
-    // Размеры тултипа
-    const tooltipHeight = 80;
-    const tooltipWidth = 300;
+    if (position === 'top' || position === 'bottom') {
+      if (x - tooltipWidth / 2 < minPadding) {
+        x = tooltipWidth / 2 + minPadding;
+      }
+      if (x + tooltipWidth / 2 > modalRect.width - minPadding) {
+        x = modalRect.width - tooltipWidth / 2 - minPadding;
+      }
+    }
     
-    // Базовая позиция - над элементом
-    let x = rect.left + rect.width / 2;
-    let y = rect.top - 15;
-    
-    // Если есть модальное окно - ограничиваем его границами
-    if (modalRect) {
-      // Границы модального окна с отступами
-      const modalLeft = modalRect.left + 30;
-      const modalRight = modalRect.right - 30;
-      const modalTop = modalRect.top + 20;
-      const modalBottom = modalRect.bottom - 20;
-      
-      // Ограничиваем X
-      if (x - tooltipWidth / 2 < modalLeft) {
-        x = modalLeft + tooltipWidth / 2;
+    if (position === 'left' || position === 'right') {
+      if (y - tooltipHeight / 2 < minPadding) {
+        y = tooltipHeight / 2 + minPadding;
       }
-      if (x + tooltipWidth / 2 > modalRight) {
-        x = modalRight - tooltipWidth / 2;
-      }
-      
-      // Если не помещается сверху - показываем снизу
-      if (y - tooltipHeight < modalTop) {
-        y = rect.bottom + 15;
-      }
-      
-      // Проверяем, не выходит ли тултип за нижнюю границу
-      if (y + tooltipHeight > modalBottom) {
-        y = modalBottom - tooltipHeight;
+      if (y + tooltipHeight / 2 > modalRect.height - minPadding) {
+        y = modalRect.height - tooltipHeight / 2 - minPadding;
       }
     }
     
@@ -140,7 +305,8 @@ const FormattedTextView = ({ formattedText, footnoteTexts, modalRef }: Formatted
       text,
       x,
       y,
-      visible: true
+      visible: true,
+      position
     });
   };
 
@@ -169,7 +335,7 @@ const FormattedTextView = ({ formattedText, footnoteTexts, modalRef }: Formatted
           );
         }
 
-        let element = <span key={idx}>{part.text}</span>;
+        let element: React.ReactNode = <span key={idx}>{part.text}</span>;
 
         if (part.formatting.bold) {
           element = <strong key={idx}>{element}</strong>;
@@ -199,70 +365,18 @@ const FormattedTextView = ({ formattedText, footnoteTexts, modalRef }: Formatted
         return element;
       })}
 
-      {tooltip.visible && (
-        <div
-          style={{
-            position: 'fixed',
-            top: tooltip.y,
-            left: tooltip.x,
-            transform: 'translateX(-50%) translateY(-100%)',
-            backgroundColor: '#1a1a2e',
-            color: '#fff',
-            padding: '10px 16px',
-            borderRadius: '8px',
-            fontSize: '0.85em',
-            maxWidth: '300px',
-            minWidth: '100px',
-            wordWrap: 'break-word',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-            zIndex: 9999,
-            pointerEvents: 'none',
-            border: '1px solid rgba(255,255,255,0.1)',
-            lineHeight: '1.5'
-          }}
-        >
-          {tooltip.text}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '-8px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 0,
-              height: 0,
-              borderLeft: '8px solid transparent',
-              borderRight: '8px solid transparent',
-              borderTop: '8px solid #1a1a2e'
-            }}
-          />
-        </div>
-      )}
+      <TooltipPortal 
+        text={tooltip.text}
+        x={tooltip.x}
+        y={tooltip.y}
+        visible={tooltip.visible}
+        position={tooltip.position}
+      />
     </>
   );
 };
 
-// ===== КОМПОНЕНТ ДЛЯ ОТОБРАЖЕНИЯ ТЕКСТА =====
-const TextContent = ({ text, formattedText, footnoteTexts, modalRef }: TextContentProps) => {
-  if (formattedText && formattedText.length > 0) {
-    return <FormattedTextView formattedText={formattedText} footnoteTexts={footnoteTexts} modalRef={modalRef} />;
-  }
-  return <>{text}</>;
-};
-
-// ===== КОМПОНЕНТ ДЛЯ ОТОБРАЖЕНИЯ ЗАГОЛОВКА =====
-const HeadingRenderer = ({ level, children }: { level: number; children: React.ReactNode }) => {
-  switch (level) {
-    case 1: return <h1 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h1>;
-    case 2: return <h2 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h2>;
-    case 3: return <h3 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h3>;
-    case 4: return <h4 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h4>;
-    case 5: return <h5 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h5>;
-    case 6: return <h6 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h6>;
-    default: return <h2 style={{ marginTop: '20px', marginBottom: '10px' }}>{children}</h2>;
-  }
-};
-
-// ===== ФУНКЦИЯ ДЛЯ ПРОВЕРКИ, ЯВЛЯЕТСЯ ЛИ СПИСОК СПИСКОМ СНОСОК =====
+// ===== ФУНКЦИЯ ДЛЯ ПРОВЕРКИ СПИСКА СНОСОК =====
 const isFootnoteList = (item: ListContent): boolean => {
   if (item.items.length > 5) {
     return true;
@@ -280,17 +394,11 @@ const isFootnoteList = (item: ListContent): boolean => {
 };
 
 // ===== КОМПОНЕНТ ДЛЯ ОТОБРАЖЕНИЯ КОНТЕНТА =====
-const ContentRenderer = ({ content, modalRef }: ContentRendererProps) => {
+const ContentRenderer = ({ content }: ContentRendererProps) => {
   const filteredContent = useMemo(() => {
     return content.filter((item: ContentItem) => {
-      if (item.type === 'footnotes') {
-        return false;
-      }
-      
-      if (isList(item) && isFootnoteList(item)) {
-        return false;
-      }
-      
+      if (item.type === 'footnotes') return false;
+      if (isList(item) && isFootnoteList(item)) return false;
       return true;
     });
   }, [content]);
@@ -310,10 +418,9 @@ const ContentRenderer = ({ content, modalRef }: ContentRendererProps) => {
                   <FormattedTextView 
                     formattedText={formattedText} 
                     footnoteTexts={footnoteTexts}
-                    modalRef={modalRef}
                   />
                 ) : (
-                  <TextContent text={item.text} modalRef={modalRef} />
+                  <span>{item.text}</span>
                 )}
               </p>
             </div>
@@ -326,26 +433,21 @@ const ContentRenderer = ({ content, modalRef }: ContentRendererProps) => {
           const footnoteTexts = item.footnote_texts;
           
           return (
-            <div key={index}>
-              <HeadingRenderer level={item.level || 2}>
-                {hasFormatted ? (
-                  <FormattedTextView 
-                    formattedText={formattedText} 
-                    footnoteTexts={footnoteTexts}
-                    modalRef={modalRef}
-                  />
-                ) : (
-                  <TextContent text={item.text} modalRef={modalRef} />
-                )}
-              </HeadingRenderer>
-            </div>
+            <HeadingRenderer key={index} level={item.level || 2}>
+              {hasFormatted ? (
+                <FormattedTextView 
+                  formattedText={formattedText} 
+                  footnoteTexts={footnoteTexts}
+                />
+              ) : (
+                <span>{item.text}</span>
+              )}
+            </HeadingRenderer>
           );
         }
 
         if (isList(item)) {
-          if (isFootnoteList(item)) {
-            return null;
-          }
+          if (isFootnoteList(item)) return null;
           
           return (
             <div key={index} style={{ marginBottom: '15px' }}>
@@ -355,30 +457,28 @@ const ContentRenderer = ({ content, modalRef }: ContentRendererProps) => {
                 const footnoteTexts = listItem.footnote_texts;
                 
                 return (
-                  <div key={idx}>
-                    <div
-                      style={{
-                        paddingLeft: `${(listItem.level || 0) * 20}px`,
-                        marginBottom: '5px',
-                        display: 'flex',
-                        alignItems: 'flex-start'
-                      }}
-                    >
-                      <span style={{ marginRight: '8px' }}>
-                        {item.list_type === 'bullet' ? '•' : `${idx + 1}.`}
-                      </span>
-                      <span>
-                        {hasFormatted ? (
-                          <FormattedTextView 
-                            formattedText={formattedText} 
-                            footnoteTexts={footnoteTexts}
-                            modalRef={modalRef}
-                          />
-                        ) : (
-                          <TextContent text={listItem.text} modalRef={modalRef} />
-                        )}
-                      </span>
-                    </div>
+                  <div 
+                    key={idx} 
+                    style={{ 
+                      paddingLeft: `${(listItem.level || 0) * 20}px`, 
+                      marginBottom: '5px', 
+                      display: 'flex', 
+                      alignItems: 'flex-start' 
+                    }}
+                  >
+                    <span style={{ marginRight: '8px' }}>
+                      {item.list_type === 'bullet' ? '•' : `${idx + 1}.`}
+                    </span>
+                    <span>
+                      {hasFormatted ? (
+                        <FormattedTextView 
+                          formattedText={formattedText} 
+                          footnoteTexts={footnoteTexts}
+                        />
+                      ) : (
+                        <span>{listItem.text}</span>
+                      )}
+                    </span>
                   </div>
                 );
               })}
@@ -388,26 +488,12 @@ const ContentRenderer = ({ content, modalRef }: ContentRendererProps) => {
 
         if (isTable(item)) {
           return (
-            <table
-              key={index}
-              style={{
-                width: '100%',
-                borderCollapse: 'collapse',
-                marginBottom: '20px'
-              }}
-            >
+            <table key={index} style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '20px' }}>
               <tbody>
                 {item.data.map((row, rowIdx) => (
                   <tr key={rowIdx}>
                     {row.map((cell, cellIdx) => (
-                      <td
-                        key={cellIdx}
-                        style={{
-                          border: '1px solid #ddd',
-                          padding: '8px',
-                          verticalAlign: 'top'
-                        }}
-                      >
+                      <td key={cellIdx} style={{ border: '1px solid #ddd', padding: '8px', verticalAlign: 'top' }}>
                         {cell.map((cellContent, idx) => {
                           const formattedText = cellContent.formatted_text;
                           const hasFormatted = formattedText && formattedText.length > 0;
@@ -419,10 +505,9 @@ const ContentRenderer = ({ content, modalRef }: ContentRendererProps) => {
                                 <FormattedTextView 
                                   formattedText={formattedText} 
                                   footnoteTexts={footnoteTexts}
-                                  modalRef={modalRef}
                                 />
                               ) : (
-                                <TextContent text={cellContent.text} modalRef={modalRef} />
+                                <span>{cellContent.text}</span>
                               )}
                             </div>
                           );
@@ -446,7 +531,6 @@ const ContentRenderer = ({ content, modalRef }: ContentRendererProps) => {
 export const InsightsView = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<insightsProps | null>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleOpenModal = (insight: insightsProps) => {
     setSelectedEvent(insight);
@@ -466,12 +550,8 @@ export const InsightsView = () => {
   const getPreviewText = (fullText: ContentItem[]): string => {
     if (!fullText || fullText.length === 0) return '';
     for (const item of fullText) {
-      if (isParagraph(item) && item.text) {
-        return item.text;
-      }
-      if (isHeading(item) && item.text) {
-        return item.text;
-      }
+      if (isParagraph(item) && item.text) return item.text;
+      if (isHeading(item) && item.text) return item.text;
     }
     return '';
   };
@@ -483,14 +563,12 @@ export const InsightsView = () => {
           let previewText = insight.text;
           if (insight.fullText && insight.fullText.length > 0) {
             const extractedText = getPreviewText(insight.fullText);
-            if (extractedText) {
-              previewText = extractedText;
-            }
+            if (extractedText) previewText = extractedText;
           }
           return (
-            <InsightsItem
-              key={insight.id}
-              onClick={() => handleOpenModal(insight)}
+            <InsightsItem 
+              key={insight.id} 
+              onClick={() => handleOpenModal(insight)} 
               style={{ cursor: 'pointer' }}
             >
               <h2>{insight.title}</h2>
@@ -501,13 +579,13 @@ export const InsightsView = () => {
         })}
       </InsightsBlock>
 
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} ref={modalRef}>
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         {selectedEvent && (
           <SelectedItem>
             <h2>{selectedEvent.title}</h2>
             <p><strong>Date:</strong> {selectedEvent.date}</p>
             {selectedEvent.fullText && selectedEvent.fullText.length > 0 ? (
-              <ContentRenderer content={selectedEvent.fullText} modalRef={modalRef} />
+              <ContentRenderer content={selectedEvent.fullText} />
             ) : (
               <p>{selectedEvent.text}</p>
             )}

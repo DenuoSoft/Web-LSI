@@ -57,7 +57,7 @@ export const ModalContent = styled.div<{ $isVisible: boolean }>`
     -webkit-backdrop-filter: blur10px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   border-radius: 16px;
-  max-width: 810px;
+  max-width: 800px;
   width: fit-content;
   min-width: 500px;
   max-height: 70vh;

@@ -1,11 +1,12 @@
-import type {insightsProps} from '../../models/insights-model';
+import type { eventsProps } from '../../models/events-model';
 
-export const events: insightsProps[] = [
+export const events: eventsProps[] = [
   	{
 		id: 1,
 		title: 'BRICS+ New Economy Legal Forum',
 		text: 'This week, as part of the BRICS+ New Economy Legal Forum in Dubai, we will hold a roundtable to discuss the prospects for arbitration disputes involving Russian parties given present-day developments. The round table will be moderated by Andrey Panov, Denuo Partner and Head of International Arbitration and Litigation.',
-		date: '10.11.2025',		
+		date: '10.11.2025',
+		
     },
    {
 		id: 2,

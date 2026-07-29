@@ -57,17 +57,17 @@ export const ModalContent = styled.div<{ $isVisible: boolean }>`
     -webkit-backdrop-filter: blur10px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   border-radius: 16px;
-  max-width: 800px;
+  max-width: 810px;
   width: fit-content;
   min-width: 500px;
-  max-height: 90vh;
+  max-height: 70vh;
   transform: scale(0.9) translateY(-20px);
   opacity: 0;
   transition: transform 0.8s ease, opacity 0.8s ease;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-
+  z-index:1000; 
   ${({ $isVisible }) =>
     $isVisible &&
     css`

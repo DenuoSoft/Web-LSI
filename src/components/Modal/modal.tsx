@@ -94,7 +94,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
       $isVisible={isVisible}
       onClick={handleClickOutside as unknown as (event: MouseEvent<HTMLDivElement>) => void}
     >
-      <ModalContent $isVisible={isVisible} ref={modalRef} role="dialog" aria-modal="true">
+      <ModalContent className="modal-content" $isVisible={isVisible} ref={modalRef} role="dialog" aria-modal="true">
         <ModalHeader>
           <CloseButton onClick={onClose} aria-label="Close modal">
             &times;

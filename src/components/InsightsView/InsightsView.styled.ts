@@ -49,3 +49,5 @@ export const SelectedItem = styled.div`
     ${fluidTypography({max: 16, min: 14})}
     }
 `
+export const HeadingTag = styled.div`
+`

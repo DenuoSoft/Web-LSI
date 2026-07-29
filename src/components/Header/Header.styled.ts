@@ -10,7 +10,7 @@ export const HeaderBlock = styled.header<{ $isHomePage?: boolean }>`
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	z-index: 99;
+	z-index: 5;
 `;
 
 export const HeaderContainer = styled.div<{ $isHomePage?: boolean }>`

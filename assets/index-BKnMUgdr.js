@@ -34,7 +34,7 @@ Please change the parent <Route path="${X}"> to <Route path="${X==="/"?"*":`${X}
     opacity: 1;
     transform: translateX(0);
   }
-`,v2="/Web-LSI/assets/background-FvIB6DkZ.jpg",b2=I.div`
+`,v2="/Web-LSI/assets/background-BmP9L8ux.jpg",b2=I.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: clamp(1rem, 3vw, 3rem);
@@ -166,6 +166,19 @@ Please change the parent <Route path="${X}"> to <Route path="${X==="/"?"*":`${X}
 	
 	clip-path: polygon(40% 0, 100% 0, 60% 100%, 0 100%);
 	
+	&::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 125vh;
+        background-color: rgba(85, 90, 105, 0.4);
+        //clip-path: polygon(73% 0, 100% 0, 100% 100%, 50% 100%);
+		clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+    }	
+
+
 	@media (max-width: ${W.xxl}) {
 		clip-path: polygon(32% 0, 100% 0, 70% 100%, 0 100%);
 	}

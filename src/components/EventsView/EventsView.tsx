@@ -28,7 +28,7 @@ export const EventsView = () => {
 	};
 
 	// Функция для обрезки текста до 300 символов
-	const truncateText = (text: string, maxLength: number = 300) => {
+	const truncateText = (text: string, maxLength: number = 100) => {
 		if (text.length <= maxLength) return text;
 		return text.slice(0, maxLength) + '...';
 	};

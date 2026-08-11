@@ -21,7 +21,8 @@ export const LayoutBlock = styled.div`
     "header header header" 
     ". main ."
     " footer footer footer ";
-    gap: 3rem;
+    column-gap: 3rem;
+    row-gap: 3rem; 
   
 @media (max-width: ${breakpoints.xxl}) {
         grid-template-areas:
@@ -29,8 +30,13 @@ export const LayoutBlock = styled.div`
         ". main ."
     " footer footer footer ";
     }
+@media (max-width: ${breakpoints.lg}) {
+       gap: 3rem;
+      
+    }      
 @media (max-width: ${breakpoints.md}) {
        grid-template-rows: 7rem 1fr auto;
+      
     }    
 `
 export const Main = styled.main`
@@ -38,8 +44,9 @@ export const Main = styled.main`
  padding-top: 1.6rem;
  display: flex;
  flex-grow: 1;
- flex-direction: column;
+ flex-direction: column; 
  align-items: center;
+
 @media (max-width: ${breakpoints.md}) {
       padding-top: 0;
     }    

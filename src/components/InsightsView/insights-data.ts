@@ -30,7 +30,7 @@ export const insights: insightsProps[] = [
 	},
 	{
 		id: 4,
-		title: 'Insight',
+		title: 'Denuo lawyer passes UAE Corporate Tax exam',
 		text: "Senior Tax Associate, Julia Naberezhnaya, has successfully passed the UAE Corporate Tax exam and is now undergoing registration as a UAE Tax Agent. This achievement highlights Julia's high level of professionalism and will also allow us to provide even more effective support on tax matters in the UAE and offer our clients a broader range of services. We congratulate Julia and wish her continued success and professional achievements!",
 		date: '05.02.2025',
 		fullText: []
@@ -42,12 +42,5 @@ export const insights: insightsProps[] = [
 		date: '14.11.2024',	
 		fullText: normalizeFullText(arbitraryDismissal?.content || [])
 	},
-	{
-		id: 6,
-		title: 'Insight',
-		text: "The Ministry of Finance has made a list of countries whose brokers and banks will be able to participate in on-exchange currency trading in Russia. A draft resolution of the Russian Government has been published on the federal portal of draft regulations. In total, the Ministry of Finance’s list includes 44 states that are not recognised as unfriendly, in particular, it includes: - all CIS member states; - a number of Gulf states (the UAE, Oman, Saudi Arabia, Quatar, Iran and Bahrain); and - Russia's major trade partners:  China, India, Türkiye, etc. As we can see from the list and explanatory note to the draft, banks and brokers from unfriendly jurisdictions will not be allowed to trade in foreign exchange. However, we note that the list is not final and is currently being brought up for public discourse, which will continue until 2 August 2023.",
-		date: '20.07.2023',	
-		fullText: []
-		
-    },
+	
 ];

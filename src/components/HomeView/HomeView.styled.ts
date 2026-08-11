@@ -12,23 +12,26 @@ export const HomeBlock = styled.div`
 	height: 100vh;
 	min-height: 500px;
 	padding-right: clamp(1rem, 2vw, 2rem);
-	z-index: 1;
+	z-index: 0;
 	max-width: 1440px;
 	margin: 0 auto;
-	//padding-top: 3rem;
-	padding-bottom: 3rem;
+	padding-top: 3rem;
+	//padding-bottom: 3rem;
 	&::before {
         content: '';
         position: absolute;
         top: 0;
         right: 0;
         width: 100%;
-        height: 125vh;
+        height: 130vh;
         background-color: #555A69;
         //clip-path: polygon(73% 0, 100% 0, 100% 100%, 50% 100%);
-		clip-path: polygon(0% 0%, 75% 0%, 50% 100%, 0% 100%);
+		clip-path: polygon(0% 0%, 75% 0%, 55% 100%, 0% 100%);
+		
     }
-	
+	@media (max-width: ${breakpoints.xxl}) {
+	    padding-botton: 3rem;
+	}
 	@media (max-width: ${breakpoints.lg}) {
 		grid-template-columns: 1fr;
 		grid-template-rows: auto auto;
@@ -45,7 +48,6 @@ export const HomeBlock = styled.div`
 	}
 	
 	@media (max-width: ${breakpoints.md}) {
-		
 		&::before {
 		height: 100vh;
 		}
@@ -142,25 +144,39 @@ export const HomeText = styled.div`
 export const ImgContainer = styled.div`
 	position: relative;
 	width: 100%;
-	height: 72vh;
+	height: 75vh;
 	min-height: 400px;
+	clip-path: polygon(50% 0, 100% 0, 65% 100%, 15% 100%);
 	
-	clip-path: polygon(40% 0, 100% 0, 60% 100%, 0 100%);
-	
+	  &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(85, 90, 105, 0.3);
+       
+		clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+    }	 
+
+
 	@media (max-width: ${breakpoints.xxl}) {
-		clip-path: polygon(32% 0, 100% 0, 70% 100%, 0 100%);
+		clip-path: polygon(40% 0, 95% 0, 75% 100%, 15% 100%);
 	}
 	
-	@media (max-width: ${breakpoints.xl}) {
-		clip-path: polygon(32% 0, 90% 0, 60% 100%, 0 100%);
-	}
+	/* @media (max-width: ${breakpoints.xl}) {
+		clip-path: polygon(40% 0, 95% 0, 75% 100%, 15% 100%);
+	} */
 	
 	@media (max-width: ${breakpoints.lg}) {
-	  
-		clip-path: none;
+	  	clip-path: none;
 		border-radius: 12px;
 		min-height: 280px;
 		max-height: 400px;
+		&::after {
+		clip-path: none;
+		}
 	}
 	
 	@media (max-width: ${breakpoints.md}) {

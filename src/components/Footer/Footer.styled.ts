@@ -10,7 +10,7 @@ export const FooterBlock = styled.footer`
 	justify-content: center;
 	background-color: #fff;
 	color: #555a69;
-	z-index: 1;
+	z-index: 0;
 `;
 export const FooterWrap = styled.div`
 	max-width: 140rem;

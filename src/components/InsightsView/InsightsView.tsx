@@ -91,7 +91,6 @@ const HeadingRenderer = ({ level, children }: { level: number; children: React.R
   }
 };
 
-// ===== ТУЛТИП =====
 interface TooltipPortalProps {
   text: string;
   x: number;
@@ -217,7 +216,6 @@ const TooltipPortal = ({ text, x, y, visible, position }: TooltipPortalProps) =>
   );
 };
 
-// ===== КОМПОНЕНТ ДЛЯ ОТОБРАЖЕНИЯ ФОРМАТИРОВАННОГО ТЕКСТА =====
 const FormattedTextView = ({ formattedText, footnoteTexts }: FormattedTextViewProps) => {
   const [tooltip, setTooltip] = useState<{
     text: string;
@@ -260,7 +258,7 @@ const handleMouseEnter = (_e: React.MouseEvent<HTMLElement>, text: string, eleme
   // Проверяем, помещается ли тултип снизу
   const fitsBelow = footnoteBottom + paddingBottom + tooltipHeight <= modalRect.height - minPadding;
   
-  // 🔧 ИСПРАВЛЕННЫЕ РАСЧЕТЫ ДЛЯ LEFT И RIGHT
+ 
   // Для позиции справа: тултип находится справа от сноски, его левый край = footnoteX + padding
   const fitsRight = footnoteX + paddingTop + rect.width / 2 + tooltipWidth <= modalRect.width - minPadding;
   // Для позиции слева: тултип находится слева от сноски, его правый край = footnoteX - padding
@@ -270,7 +268,6 @@ const handleMouseEnter = (_e: React.MouseEvent<HTMLElement>, text: string, eleme
   let y = footnoteY - paddingTop;
   let position: 'top' | 'bottom' | 'left' | 'right' = 'top';
   
-  // 🔧 ИСПРАВЛЕННЫЙ ПРИОРИТЕТ ВЫБОРА ПОЗИЦИИ
   if (fitsAbove) {
     // Приоритет: сверху
     y = footnoteY - paddingTop;
@@ -576,7 +573,7 @@ export const InsightsView = () => {
     setSelectedEvent(null);
   };
 
-  const truncateText = (text: string, maxLength: number = 300) => {
+  const truncateText = (text: string, maxLength: number = 100) => {
     if (text.length <= maxLength) return text;
     return text.slice(0, maxLength) + '...';
   };

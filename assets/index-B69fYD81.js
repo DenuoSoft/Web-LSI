@@ -42,23 +42,26 @@ Please change the parent <Route path="${X}"> to <Route path="${X==="/"?"*":`${X}
 	height: 100vh;
 	min-height: 500px;
 	padding-right: clamp(1rem, 2vw, 2rem);
-	z-index: 1;
+	z-index: 0;
 	max-width: 1440px;
 	margin: 0 auto;
-	//padding-top: 3rem;
-	padding-bottom: 3rem;
+	padding-top: 3rem;
+	//padding-bottom: 3rem;
 	&::before {
         content: '';
         position: absolute;
         top: 0;
         right: 0;
         width: 100%;
-        height: 125vh;
+        height: 130vh;
         background-color: #555A69;
         //clip-path: polygon(73% 0, 100% 0, 100% 100%, 50% 100%);
-		clip-path: polygon(0% 0%, 75% 0%, 50% 100%, 0% 100%);
+		clip-path: polygon(0% 0%, 75% 0%, 55% 100%, 0% 100%);
+		
     }
-	
+	@media (max-width: ${W.xxl}) {
+	    padding-botton: 3rem;
+	}
 	@media (max-width: ${W.lg}) {
 		grid-template-columns: 1fr;
 		grid-template-rows: auto auto;
@@ -75,7 +78,6 @@ Please change the parent <Route path="${X}"> to <Route path="${X==="/"?"*":`${X}
 	}
 	
 	@media (max-width: ${W.md}) {
-		
 		&::before {
 		height: 100vh;
 		}
@@ -161,38 +163,39 @@ Please change the parent <Route path="${X}"> to <Route path="${X==="/"?"*":`${X}
 `,w2=I.div`
 	position: relative;
 	width: 100%;
-	height: 72vh;
+	height: 75vh;
 	min-height: 400px;
+	clip-path: polygon(50% 0, 100% 0, 65% 100%, 15% 100%);
 	
-	clip-path: polygon(40% 0, 100% 0, 60% 100%, 0 100%);
-	
-	 &::after {
+	  &::after {
         content: '';
         position: absolute;
         top: 0;
         right: 0;
         width: 100%;
-        height: 125vh;
-        background-color: rgba(85, 90, 105, 0.4);
-        //clip-path: polygon(73% 0, 100% 0, 100% 100%, 50% 100%);
+        height: 100%;
+        background-color: rgba(85, 90, 105, 0.3);
+       
 		clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
     }	 
 
 
 	@media (max-width: ${W.xxl}) {
-		clip-path: polygon(32% 0, 100% 0, 70% 100%, 0 100%);
+		clip-path: polygon(40% 0, 95% 0, 75% 100%, 15% 100%);
 	}
 	
-	@media (max-width: ${W.xl}) {
-		clip-path: polygon(32% 0, 90% 0, 60% 100%, 0 100%);
-	}
+	/* @media (max-width: ${W.xl}) {
+		clip-path: polygon(40% 0, 95% 0, 75% 100%, 15% 100%);
+	} */
 	
 	@media (max-width: ${W.lg}) {
-	  
-		clip-path: none;
+	  	clip-path: none;
 		border-radius: 12px;
 		min-height: 280px;
 		max-height: 400px;
+		&::after {
+		clip-path: none;
+		}
 	}
 	
 	@media (max-width: ${W.md}) {
@@ -233,7 +236,8 @@ Please change the parent <Route path="${X}"> to <Route path="${X==="/"?"*":`${X}
     "header header header" 
     ". main ."
     " footer footer footer ";
-    gap: 3rem;
+    column-gap: 3rem;
+    row-gap: 3rem; 
   
 @media (max-width: ${W.xxl}) {
         grid-template-areas:
@@ -241,16 +245,22 @@ Please change the parent <Route path="${X}"> to <Route path="${X==="/"?"*":`${X}
         ". main ."
     " footer footer footer ";
     }
+@media (max-width: ${W.lg}) {
+       gap: 3rem;
+      
+    }      
 @media (max-width: ${W.md}) {
        grid-template-rows: 7rem 1fr auto;
+      
     }    
 `,D2=I.main`
  grid-area: main;
  padding-top: 1.6rem;
  display: flex;
  flex-grow: 1;
- flex-direction: column;
+ flex-direction: column; 
  align-items: center;
+
 @media (max-width: ${W.md}) {
       padding-top: 0;
     }    
@@ -427,6 +437,7 @@ padding-right: 2rem;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
   }
 html {
   font-size: 62.5%; 
@@ -514,7 +525,7 @@ h1 {
 	justify-content: center;
 	background-color: #fff;
 	color: #555a69;
-	z-index: 1;
+	z-index: 0;
 `,J2=I.div`
 	max-width: 140rem;
 	display: flex;
@@ -1075,7 +1086,7 @@ The official ISEZA website is not yet fully operational, but it provides contact
     p {
     ${Xe({max:16,min:14})}
     }
-`,iS=()=>{const[a,r]=R.useState(!1),[s,u]=R.useState(null),f=g=>{u(g),r(!0)},d=()=>{r(!1),u(null)},m=(g,p=300)=>g.length<=p?g:g.slice(0,p)+"...";return x.jsxs(x.Fragment,{children:[x.jsx(lS,{children:tS.map(g=>x.jsxs(nS,{onClick:()=>f(g),style:{cursor:"pointer"},children:[x.jsx("h2",{children:g.title}),x.jsx("p",{children:g.date}),x.jsx("p",{children:m(g.text)})]},g.id))}),x.jsx(Lc,{isOpen:a,onClose:d,children:s&&x.jsxs(aS,{children:[x.jsx("h2",{children:s.title}),x.jsxs("p",{children:[x.jsx("strong",{children:"Date:"})," ",s.date]}),x.jsx("p",{children:s.fullText||s.text})]})})]})},rS=()=>{const a=x.jsx(iS,{}),s={Insights:x.jsx(J_,{}),Events:a},u=[{name:"Insights"},{name:"Events"}];return x.jsx(eS,{tabs:u,content:s})},oS=()=>x.jsx("h1",{children:"Alerts"}),_y=()=>x.jsxs("div",{children:[x.jsx("h1",{children:"Not Found"}),x.jsx(Cc,{to:"/",children:"To Home"})]}),sS=I.div`
+`,iS=()=>{const[a,r]=R.useState(!1),[s,u]=R.useState(null),f=g=>{u(g),r(!0)},d=()=>{r(!1),u(null)},m=(g,p=100)=>g.length<=p?g:g.slice(0,p)+"...";return x.jsxs(x.Fragment,{children:[x.jsx(lS,{children:tS.map(g=>x.jsxs(nS,{onClick:()=>f(g),style:{cursor:"pointer"},children:[x.jsx("h2",{children:g.title}),x.jsx("p",{children:g.date}),x.jsx("p",{children:m(g.text)})]},g.id))}),x.jsx(Lc,{isOpen:a,onClose:d,children:s&&x.jsxs(aS,{children:[x.jsx("h2",{children:s.title}),x.jsxs("p",{children:[x.jsx("strong",{children:"Date:"})," ",s.date]}),x.jsx("p",{children:s.fullText||s.text})]})})]})},rS=()=>{const a=x.jsx(iS,{}),s={Insights:x.jsx(J_,{}),Events:a},u=[{name:"Insights"},{name:"Events"}];return x.jsx(eS,{tabs:u,content:s})},oS=()=>x.jsx("h1",{children:"Alerts"}),_y=()=>x.jsxs("div",{children:[x.jsx("h1",{children:"Not Found"}),x.jsx(Cc,{to:"/",children:"To Home"})]}),sS=I.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;

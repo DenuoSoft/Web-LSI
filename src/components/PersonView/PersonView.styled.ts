@@ -15,7 +15,8 @@ export const PersonBlock = styled.div`
 export const PersonWrap = styled.div`
 	width: 100%;
 	display: flex;
-	gap: 8rem;
+	justify-content: flex-start;
+	gap: 20rem;
 	color: #555a69;
 	animation: ${fadeInX} 0.5s ease-in;
 	@media (max-width: ${breakpoints.lg}) {
@@ -23,12 +24,17 @@ export const PersonWrap = styled.div`
 		gap: 2rem;
 	}
 `;
+export const PersonItem = styled.div`
+	display: flex;
+	flex-direction: column; 
+	gap: 2rem;
+`;
 export const PersonImg = styled.div`
-	width: 50rem;
+	width: 30rem;
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
-	height: 50rem;
+	height: 30rem;
 	//border-radius: 5rem;
 	/* box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
 		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem; */
@@ -53,14 +59,19 @@ export const InfoBlock = styled.div`
 		width: 100%;
 	}
 `;
-export const ItemTitle = styled.h5`
-	
+export const ItemTitle = styled.h1`
+	display: flex;
 `;
+export const PersonEmail = styled.h6`
+`
+export const PositionTitle = styled.h6`
+
+`
 
 export const Description = styled.div`
 	//text-align: justify;
-	padding: 2.4rem 0;
-	border-top: 0.5px solid #8237FF;
+	//padding: 2.4rem 0;
+	//border-top: 0.5px solid #8237FF;
 	${fluidTypography({max: 18, min: 16})}
 	@media (max-width: ${breakpoints.md}) {
 		font-size: 1.6rem;
@@ -79,3 +90,49 @@ export const NavBackText = styled.span`
 	color: #8237FF;
 	}
 `;
+export const ContentSection = styled.div`
+	margin-top: 3rem;
+	border-top: 2px solid #f0f0f0;
+	padding-top: 2rem;
+`;
+
+export const ContentItem = styled.div<{isHeading?: boolean}>`
+	margin-bottom: ${props => props.isHeading ? '1.5rem' : '1rem'};
+	padding: ${props => props.isHeading ? '0' : '0.5rem 0'};
+	
+	${props => props.isHeading && `
+		border-bottom: 2px solid #f5f5f5;
+		padding-bottom: 0.5rem;
+		margin-top: 2rem;
+		
+		&:first-child {
+			margin-top: 0;
+		}
+	`}
+	
+	
+`;
+
+export const FormattedText = styled.div`
+	line-height: 1.8;
+	color: #333;
+`;
+
+export const FormattingSpan = styled.span`
+	display: inline;
+`;
+
+export const StyledList = styled.ul<{type: 'numbered' | 'bullet'}>`
+	list-style-type: ${props => props.type === 'numbered' ? 'decimal' : 'disc'};
+	padding-left: 2rem;
+	margin: 0.5rem 0;
+`;
+
+export const ListItem = styled.li<{level: number}>`
+	margin-left: ${props => props.level * 1.5}rem;
+	padding: 0.25rem 0;
+	line-height: 1.6;
+	color: #333;
+`;
+
+

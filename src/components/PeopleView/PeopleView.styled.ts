@@ -24,12 +24,12 @@ export const PeopleWrap = styled.div`
 	gap: 2.5rem
 `
 export const PeopleItem = styled.div`
-	width: calc(100% / 3);
+	width: calc(100% / 4);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
-	gap: 2.4rem;
+	align-items: flex-start;
+	gap: 2rem;
 	padding: 2.4rem;
 
 	@media (max-width: ${breakpoints.xl}) {
@@ -50,8 +50,8 @@ export const PeopleItem = styled.div`
 export const ItemWrap = styled.button`
 	width: 100%;
 	display: flex;
-	justify-content: space-around;
-	align-items: center;
+	justify-content: space-between;
+	align-items: flex-start;
 	cursor: pointer;
 `;
 export const ItemTitle = styled.h5`
@@ -61,7 +61,7 @@ export const ItemTitle = styled.h5`
 export const PeopleImg = styled.div`
 	width: 100%;
 	background-size: contain;
-	background-position: center center;
+	background-position: left center;
 	background-repeat: no-repeat;
 	/* box-shadow: 0.2rem 0.2rem 0.3rem 0.05rem rgba(85, 90, 105, 0.5);
 	box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
@@ -83,7 +83,7 @@ export const ItemBadgeWrap = styled.div`
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: flex-start;
 	gap: 1.2rem;
 	color: #555a69;
 	@media (max-width: ${breakpoints.sm}) {
@@ -92,7 +92,7 @@ export const ItemBadgeWrap = styled.div`
 `
 export const ItemBadge = styled.div`
 	padding: 0.2rem 0.8rem;
-	border: 0.2px solid #555a69;
+	border: 0.2px solid #8237FF;
 	border-radius: 0.4rem;
 	font-size: 1.2rem;
 	line-height: 167%;

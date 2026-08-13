@@ -9,6 +9,7 @@ import boikov from '../../assets/img/boikov.jpg';
 import klushin from '../../assets/img/klushin.jpg';
 import shabalin from '../../assets/img/shabalin.jpg';
 
+
 export const people: peopleProps[] = [
 	{
 		id: 1,
@@ -50,7 +51,8 @@ export const people: peopleProps[] = [
 		img: naberezhnaya,
 		badge: ['Tax'],
 		about: 'Julia Naberezhnaya is a tax expert with extensive experience in tax, exchange and budget law. Julia’s professional practice focuses on international tax planning. Julia participates in projects on international planning and the structuring of transactions involving foreign jurisdictions, which allows clients to find effective solutions for doing business on a global level. A prominent place is held by projects on the redomiciliation of foreign companies both to the Russian Federation and to other foreign jurisdictions. In addition, Julia deals with taxation issues in the UAE and other Middle East countries.',
-		position: 'Senior Associate'
+		position: 'Senior Associate',
+		
 	},
 	{
 		id: 6,

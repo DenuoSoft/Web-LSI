@@ -1,4 +1,4 @@
-import {Outlet} from 'react-router-dom';
+import {Outlet, ScrollRestoration} from 'react-router-dom';
 import {BackgroundLayer, LayoutBlock, Main} from './Layout.styled';
 import {Header} from '../components/Header/Header';
 import {GlobalStyle} from '../styles/GlobalStyle';
@@ -12,6 +12,7 @@ export const Layout = () => {
 			<LayoutBlock>
 				<Header />
 				<Main>
+					<ScrollRestoration />
 					<Outlet />
 				</Main>
 				<Footer />

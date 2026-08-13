@@ -29,6 +29,7 @@ export const Header = () => {
 		setIsMobileMenuOpen(false);
 	};
 	return (
+		
 		<HeaderBlock $isHomePage={isHomePage}>
 			<HeaderContainer $isHomePage={isHomePage}>
 				<HeaderContact to="/">
@@ -67,5 +68,7 @@ export const Header = () => {
 			</HeaderContainer>
 			<MobileOverlay $isOpen={isMobileMenuOpen} onClick={closeMobileMenu} />
 		</HeaderBlock>
+	
+		
 	);
 };

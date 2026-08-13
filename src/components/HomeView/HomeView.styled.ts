@@ -8,14 +8,14 @@ export const HomeBlock = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: clamp(1rem, 3vw, 3rem);
-	align-items: stretch;
-	height: 100vh;
+	//align-items: stretch;
+	//height: 100vh;
 	min-height: 500px;
 	padding-right: clamp(1rem, 2vw, 2rem);
 	z-index: 0;
 	max-width: 1440px;
 	margin: 0 auto;
-	padding-top: 3rem;
+	//padding-top: 3rem;
 	//padding-bottom: 3rem;
 	&::before {
         content: '';
@@ -23,7 +23,7 @@ export const HomeBlock = styled.div`
         top: 0;
         right: 0;
         width: 100%;
-        height: 130vh;
+        height: 100%;
         background-color: #555A69;
         //clip-path: polygon(73% 0, 100% 0, 100% 100%, 50% 100%);
 		clip-path: polygon(0% 0%, 75% 0%, 55% 100%, 0% 100%);
@@ -144,7 +144,7 @@ export const HomeText = styled.div`
 export const ImgContainer = styled.div`
 	position: relative;
 	width: 100%;
-	height: 75vh;
+	//height: 75vh;
 	min-height: 400px;
 	clip-path: polygon(50% 0, 100% 0, 65% 100%, 15% 100%);
 	
@@ -162,7 +162,7 @@ export const ImgContainer = styled.div`
 
 
 	@media (max-width: ${breakpoints.xxl}) {
-		clip-path: polygon(40% 0, 95% 0, 75% 100%, 15% 100%);
+		clip-path: polygon(40% 0, 95% 0, 70% 100%, 13% 100%);
 	}
 	
 	/* @media (max-width: ${breakpoints.xl}) {

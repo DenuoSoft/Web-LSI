@@ -4,13 +4,18 @@ import {breakpoints} from '../../styles/breakpoints';
 import { fluidTypography } from '../../styles/fluidTypography';
 import { IconWhatsapp } from '../../shared/whatsapp';
 
+
+
 export const HeaderBlock = styled.header<{ $isHomePage?: boolean }>`
 	grid-area: header;
-	position: sticky;
+	position: fixed;
 	width: 100%;
+	height: 80px;
+	background: ${props => props.$isHomePage ? 'transparent' : '#c8d2e6'};
 	display: flex;
 	justify-content: center;
 	z-index: 5;
+	padding: 0 3rem;
 `;
 
 export const HeaderContainer = styled.div<{ $isHomePage?: boolean }>`

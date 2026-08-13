@@ -8,7 +8,7 @@ import {
 	ItemsText,
 	ItemsTitle,
 	LinksBlock,
-	RightsBlock,
+	//RightsBlock,
 } from './Footer.styled';
 
 export const Footer = () => {
@@ -49,9 +49,9 @@ export const Footer = () => {
 					</ItemsBlock>
 				</ContentBlock>
 
-				<RightsBlock>
+				{/* <RightsBlock>
 					© 2026 Denuo. All rights reserved.
-				</RightsBlock>
+				</RightsBlock> */}
 			</FooterWrap>
 		</FooterBlock>
 	);

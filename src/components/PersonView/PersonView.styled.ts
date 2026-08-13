@@ -39,12 +39,12 @@ export const PersonImg = styled.div`
 	/* box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
 		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem; */
 	@media (max-width: ${breakpoints.lg}) {
-		width: 40rem;
-		height: 40rem;
+		width: 25rem;
+		height: 25rem;
 	}
 	@media (max-width: ${breakpoints.md}) {
-		width: 30rem;
-		height: 30rem;
+		width: 20rem;
+		height: 20rem;
 	}
 	
 `;

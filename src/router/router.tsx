@@ -11,7 +11,8 @@ import {Policy} from '../pages/Policy';
 import {Terms} from '../pages/Terms';
 import {Cookie} from '../pages/Cookie';
 import {LegalNotice} from '../pages/Legal';
-import {Service} from '../pages/Service';
+import { Service } from '../pages/Service';
+import {About} from '../pages/About';
 
 export const router = createBrowserRouter(
 	[
@@ -23,6 +24,10 @@ export const router = createBrowserRouter(
 				{
 					index: true,
 					element: <Home />,
+				},
+				{
+					path: '/about',
+					element: <About />,
 				},
 				{
 					path: '/services',

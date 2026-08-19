@@ -43,8 +43,8 @@ export const Header = () => {
 					</HeaderLogo>
 		    	</HeaderContact>
 				<HeaderNav $isOpen={isMobileMenuOpen}>
-					<HeaderLink to="/" onClick={closeMobileMenu} $isHomePage={isHomePage}>
-						Home
+					<HeaderLink to="/about" onClick={closeMobileMenu} $isHomePage={isHomePage}>
+						About
 					</HeaderLink>
 					<HeaderLink to="/services" onClick={closeMobileMenu} $isHomePage={isHomePage}>
 						Services

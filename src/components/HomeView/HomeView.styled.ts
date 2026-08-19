@@ -1,20 +1,22 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { breakpoints } from '../../styles/breakpoints';
 import { fluidTypography } from '../../styles/fluidTypography';
 import { fadeInY } from '../../styles/animation';
-import image from '../../assets/img/background.jpg'
+//import image from '../../assets/img/background.jpg'
 
 export const HomeBlock = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: clamp(1rem, 3vw, 3rem);
-	//align-items: stretch;
+	//display: flex;
+	//justify-content: space-between;
 	//height: 100vh;
 	min-height: 500px;
-	padding-right: clamp(1rem, 2vw, 2rem);
+	//padding-right: clamp(1rem, 2vw, 2rem);
 	z-index: 0;
-	max-width: 1440px;
-	margin: 0 auto;
+	width: 100%;
+	//max-width: 1440px;
+	//margin: 0 auto;
 	//padding-top: 3rem;
 	//padding-bottom: 3rem;
 	&::before {
@@ -62,7 +64,7 @@ export const HomeTextBlock = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: clamp(3.4rem, 1.5vw, 4.3rem);
-	//justify-content: center;
+	justify-content: space-between;
 	//padding: clamp(0.5rem, 1vw, 1.5rem);
 	animation: ${fadeInY} 0.5s ease-in;
 	z-index: 1;
@@ -94,44 +96,23 @@ export const HomeTitle = styled.h1`
 	}
 `;
 
-export const HomeLabel = styled.div`
-	display: flex;
-	align-items: center;
-	gap: clamp(0.5rem, 0.8vw, 0.8rem);
-	width: auto;
-	min-width: 200px;
-	max-width: 100%;
-	padding: clamp(0.3rem, 0.5vw, 0.6rem) clamp(0.6rem, 1vw, 1.2rem);
-	background-color: rgba(85, 90, 105, 0.1);
-	border-radius: 0.4rem;
-	font-size: clamp(0.7rem, 0.9vw, 1rem);
-	color: #555a69;
-	border: 1px solid rgba(85, 90, 105, 0.1);
-	
-	@media (max-width: ${breakpoints.lg}) {
-		min-width: 0;
-		width: auto;
-		margin: 0 auto;
-		font-size: clamp(0.6rem, 0.8vw, 0.9rem);
-		padding: 0.3rem 0.8rem;
-	}
-	
-	@media (max-width: ${breakpoints.md}) {
-		font-size: 0.7rem;
-		padding: 0.2rem 0.6rem;
-		gap: 0.4rem;
-	}
-`;
 
 
 export const HomeText = styled.div`
     display: flex;
+	flex: 1;
 	flex-direction: column;
-    gap: clamp(2.4rem, 1.5vw, 3.3rem);
+	width: 100%;
+    //gap: clamp(2.4rem, 1.5vw, 3.3rem);
 	${fluidTypography({ max: 18, min: 16 })}
 	line-height: 1.6;
 	margin: 0;
 	color: #c8d2e6;
+	.date {
+		font-weight: bold;
+		display: block;
+		margin-bottom: 10px;
+	}
 	
 	@media (max-width: ${breakpoints.lg}) {
 	    color: #555a69;
@@ -146,9 +127,10 @@ export const ImgContainer = styled.div`
 	width: 100%;
 	//height: 75vh;
 	min-height: 400px;
+	overflow: hidden;
 	clip-path: polygon(50% 0, 100% 0, 65% 100%, 15% 100%);
 	
-	  &::after {
+	/*   &::after {
         content: '';
         position: absolute;
         top: 0;
@@ -159,7 +141,7 @@ export const ImgContainer = styled.div`
        
 		clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
     }	 
-
+ */
 
 	@media (max-width: ${breakpoints.xxl}) {
 		clip-path: polygon(40% 0, 95% 0, 70% 100%, 13% 100%);
@@ -190,15 +172,111 @@ export const ImgContainer = styled.div`
 	}	
 `;
 
-export const ImgBlock = styled.div`
+export const ImgBlock = styled.div<{ image: string }>`
 	width: 100%;
 	height: 100%;
-	background-image: url(${image});
+	background-image: url(${props => props.image});;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 	transition: opacity 0.5s ease, background-image 0.5s ease;
 	position: relative;
+	will-change: transform, opacity;
 	
+`;
+
+export const NavigationDots = styled.div`
+	display: flex;
+	gap: 12px;
+	margin-top: 40px;
+	position: relative;
+	z-index: 2;
+`;
+
+export const Dot = styled.button<{ active: boolean }>`
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: none;
+	background: ${props => props.active ? '#c8d2e6' : '#ccc'};
+	cursor: pointer;
+	transition: all 0.3s ease;
+	padding: 0;
 	
+	&:hover {
+		transform: scale(1.2);
+		background: #8237FF;
+	}
+`;
+export const TextWrapper = styled.div`
+	width: 100%;
+	max-width: 600px;
+	position: relative;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+`;
+
+// Контейнер для изображения с анимацией
+export const ImageWrapper = styled.div`
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+`;
+// В HomeView.styled.ts добавить:
+
+const slideInFromRight = keyframes`
+	0% {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+`;
+
+const slideOutToLeft = keyframes`
+	0% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+`;
+
+export const SlideContent = styled.div<{ 
+	$isTransitioning: boolean; 
+	$direction: 'left' | 'right';
+	$isExiting?: boolean;
+}>`
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	
+	${({ $isTransitioning, $isExiting }) => {
+		if ($isExiting && $isTransitioning) {
+			return css`
+				animation: ${slideOutToLeft} 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+			`;
+		}
+		
+		if ($isTransitioning && !$isExiting) {
+			return css`
+				animation: ${slideInFromRight} 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+			`;
+		}
+		
+		return css`
+			transform: translateX(0);
+			opacity: 1;
+		`;
+	}}
 `;

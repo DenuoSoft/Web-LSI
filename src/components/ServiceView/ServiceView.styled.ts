@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fadeInX} from "../../styles/animation";
+import { fadeInY} from "../../styles/animation";
 import { fluidTypography } from "../../styles/fluidTypography";
 
 
@@ -9,7 +9,7 @@ width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 5rem;
-  animation: ${fadeInX} 0.5s ease-in;
+  animation: ${fadeInY} 0.5s ease-in;
   z-index: 1;
 `
 
@@ -56,6 +56,6 @@ export const ServiceListItem = styled.li`
     position: absolute;
     left: 0;
     top: 0;
-    color: #555a69; 
+    color: #8237FF; 
   }
 `

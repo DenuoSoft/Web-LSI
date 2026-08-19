@@ -14,14 +14,14 @@ export const TabsWrap = styled.div`
 export const TabsBlock = styled.div`
 	display: flex;
     gap: 5rem;
-    width: 20rem;
+    width: 100%;
 	@media (max-width: ${breakpoints.sm}) {
 		 width: 18rem;
 		}
 `;
 export const TabsItem = styled.div<{$isActive: boolean}>`
 	display: flex;
-	width: calc(100% / 2);
+	width: calc(100% / );
 	justify-content: flex-start;
 	padding-bottom: 0.5rem;
 	${fluidTypography({max: 20, min: 16})};

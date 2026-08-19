@@ -1,46 +1,41 @@
-import {useNavigate, useParams} from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import {services} from '../ServicesView/services-data';
 import {
-	NavBack,
-	NavBackText,
-	ServiceBlock,
-	ServiceContent,
-	ServiceList,
-	ServiceListBlock,
-	ServiceListItem,
+  ServiceBlock,
+  ServiceContent,
+  ServiceList,
+  ServiceListBlock,
+  ServiceListItem,
 } from './ServiceView.styled';
-import {ArrowLeft} from '../../assets/img/arrow-left';
-import {ItemIcon} from '../../styles/shared';
 
-export const ServiceView = () => {
-	const {id} = useParams();
-	const navigate = useNavigate();
+interface ServiceViewProps {
+  service?: typeof services[0]; // делаем опциональным для обратной совместимости
+}
 
-	const service = services.find((p) => p.id === Number(id));
+export const ServiceView = ({ service: propService }: ServiceViewProps) => {
+  const {id} = useParams();
+  // Используем переданный service или ищем по id из URL
+  const service = propService || services.find((p) => p.id === Number(id));
 
-	if (!service) {
-		return <div>Service not found</div>;
-	}
-	return (
-		<ServiceBlock>
-			<NavBack onClick={() => navigate(-1)}>
-				<ItemIcon>
-					<ArrowLeft />
-				</ItemIcon>
-				<NavBackText>Back to services</NavBackText>
-			</NavBack>
-			<ServiceContent>
-				<h1>{service.title}</h1>
-			</ServiceContent>
-			<ServiceListBlock>
-				<ServiceList>
-					{service.list.map((list, index) => (
-						<ServiceListItem key={index}>{list}</ServiceListItem>
-					))}
-				</ServiceList>
-			</ServiceListBlock>
-		</ServiceBlock>
-	);
+  if (!service) {
+    return <div>Service not found</div>;
+  }
+  
+  return (
+    <ServiceBlock>
+      <ServiceContent>
+        
+        {service.description && <p>{service.description}</p>}
+      </ServiceContent>
+      <ServiceListBlock>
+        <ServiceList>
+          {service.list.map((item, index) => (
+            <ServiceListItem key={index}>{item}</ServiceListItem>
+          ))}
+        </ServiceList>
+      </ServiceListBlock>
+    </ServiceBlock>
+  );
 };
 
 export default ServiceView;

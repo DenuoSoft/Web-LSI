@@ -26,7 +26,7 @@ export const HeaderContainer = styled.div<{ $isHomePage?: boolean }>`
 	//gap: 3.2rem;
 	justify-content: space-between;
 	padding-bottom: 2rem;
-	border-bottom: 1px solid rgba(130, 55, 255, 0.5);
+	border-bottom: 1px solid #fff;
 	align-items: flex-end;
 	@media (max-width: ${breakpoints.md}) {
 		justify-content: space-between;
@@ -84,7 +84,7 @@ export const HeaderNav = styled.div<{$isOpen: boolean}>`
 export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean }>`
     display: flex;	
 	text-decoration: none;
-	color:${props => props.$isHomePage ? '#c8d2e6' : '#555a69'};
+	color:${props => props.$isHomePage ? '#555a69' : '#c8d2e6'};
 	border: none;
 	outline: none;
 	${fluidTypography({max: 20, min: 14})}

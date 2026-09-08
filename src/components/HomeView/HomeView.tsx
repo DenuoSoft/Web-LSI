@@ -10,7 +10,10 @@ import {
 	Dot,
 	TextWrapper,
 	ImageWrapper,
-	SlideContent
+	SlideContent,
+	HomeBackground,
+	HomeWrapper,
+	HomeAkkut
 } from './HomeView.styled';
 import { homeData } from './home-data';
 import type { HomeDataItem } from './home-data';
@@ -83,7 +86,8 @@ export const HomeView = () => {
 
 	return (
 		<HomeBlock>
-			<HomeTextBlock>
+			<HomeWrapper>
+				<HomeTextBlock>
 				{/* <HomeTitle>Новости</HomeTitle> */}
 				<TextWrapper>
 					<SlideContent 
@@ -144,6 +148,14 @@ export const HomeView = () => {
 					)}
 				</ImageWrapper>
 			</ImgContainer>
+			<HomeBackground>
+			</HomeBackground>
+			
+			<HomeAkkut>
+					
+			</HomeAkkut>
+			</HomeWrapper>
+			
 		</HomeBlock>
 	);
 };

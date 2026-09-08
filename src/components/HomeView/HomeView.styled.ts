@@ -5,32 +5,15 @@ import { fadeInY } from '../../styles/animation';
 //import image from '../../assets/img/background.jpg'
 
 export const HomeBlock = styled.div`
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: clamp(1rem, 3vw, 3rem);
-	//display: flex;
-	//justify-content: space-between;
-	//height: 100vh;
-	min-height: 500px;
-	//padding-right: clamp(1rem, 2vw, 2rem);
-	z-index: 0;
+	position: absolute;
+    top: 0;
+    left: 0;
+	display: flex;
+	height: 100%;
 	width: 100%;
-	//max-width: 1440px;
-	//margin: 0 auto;
-	//padding-top: 3rem;
-	//padding-bottom: 3rem;
-	&::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #555A69;
-        //clip-path: polygon(73% 0, 100% 0, 100% 100%, 50% 100%);
-		clip-path: polygon(0% 0%, 75% 0%, 55% 100%, 0% 100%);
-		
-    }
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+	overflow: hidden;
 	@media (max-width: ${breakpoints.xxl}) {
 	    padding-botton: 3rem;
 	}
@@ -59,15 +42,34 @@ export const HomeBlock = styled.div`
 		
 	}	
 `;
-
+export const HomeWrapper = styled.div`
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 0;
+`
 export const HomeTextBlock = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: clamp(3.4rem, 1.5vw, 4.3rem);
+	/* display: flex;
+	//flex-direction: column;
+	//gap: clamp(3.4rem, 1.5vw, 4.3rem);
 	justify-content: space-between;
-	//padding: clamp(0.5rem, 1vw, 1.5rem);
 	animation: ${fadeInY} 0.5s ease-in;
-	z-index: 1;
+
+	 */
+	position: relative;
+    z-index: 1;
+    width: 97.6rem;
+    margin: 0;
+
+    background-color: #c8d2e6;
+    -webkit-transform: skew(-22.5deg) translateZ(0);
+    transform: skew(-22.5deg) translateZ(0);
+    will-change: transform;
+}
 	@media (max-width: ${breakpoints.lg}) {
 		gap: clamp(0.8rem, 1.5vw, 1.5rem);
 	}
@@ -82,7 +84,7 @@ export const HomeTitle = styled.h1`
 	line-height: 1.2;
 	margin: 0;
 	font-weight: 700;
-	color: #c8d2e6;
+	color: #555a69;
 	text-align: left;
 	
 	@media (max-width: ${breakpoints.lg}) {
@@ -107,7 +109,7 @@ export const HomeText = styled.div`
 	${fluidTypography({ max: 18, min: 16 })}
 	line-height: 1.6;
 	margin: 0;
-	color: #c8d2e6;
+	color: #555a69;
 	.date {
 		font-weight: bold;
 		display: block;
@@ -123,25 +125,20 @@ export const HomeText = styled.div`
 `;
 
 export const ImgContainer = styled.div`
-	position: relative;
+    position: absolute;
 	width: 100%;
-	//height: 75vh;
-	min-height: 400px;
-	overflow: hidden;
-	clip-path: polygon(50% 0, 100% 0, 65% 100%, 15% 100%);
+    height: 100%;
+    top: 0;
+    right: 0;
+    margin: 0;
+    overflow: hidden;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    z-index: 0;
+	padding-left: 20rem;
+    
+}
 	
-	/*   &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(85, 90, 105, 0.3);
-       
-		clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
-    }	 
- */
 
 	@media (max-width: ${breakpoints.xxl}) {
 		clip-path: polygon(40% 0, 95% 0, 70% 100%, 13% 100%);
@@ -171,10 +168,45 @@ export const ImgContainer = styled.div`
 		height: 0;
 	}	
 `;
-
-export const ImgBlock = styled.div<{ image: string }>`
-	width: 100%;
+export const HomeBackground = styled.div`
+	width: calc(100% - 148rem);
 	height: 100%;
+	transform: skewX(-22.5deg) translateZ(0);
+	will-change: transform;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #555a69;
+
+	&::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(99%);
+	width: 200%;
+	height: 100%;
+	background-color: #555a69;
+	
+	}
+`
+export const HomeAkkut = styled.div`
+display: block;
+    position: absolute;
+    opacity: 1;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    background-color: #d7ff23;
+    width: 11.5rem;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-transform: skew(-22.5deg) translate3d(152rem,22.59259vh,0);
+    transform: skew(-22.5deg) translate3d(152rem,22.59259vh,0);
+    height: 49.38272vh;
+`
+export const ImgBlock = styled.div<{ image: string }>`
+	height: 100%;
+	background-color: #555a69;
 	background-image: url(${props => props.image});;
 	background-size: cover;
 	background-position: center center;
@@ -211,8 +243,8 @@ export const Dot = styled.button<{ active: boolean }>`
 export const TextWrapper = styled.div`
 	width: 100%;
 	max-width: 600px;
-	position: relative;
-	height: 200px;
+	//position: relative;
+	//height: 200px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -221,7 +253,7 @@ export const TextWrapper = styled.div`
 
 // Контейнер для изображения с анимацией
 export const ImageWrapper = styled.div`
-	width: 100%;
+	width: 95%;
 	height: 100%;
 	position: relative;
 	overflow: hidden;

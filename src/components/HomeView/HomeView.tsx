@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import {useState, useEffect, useRef, useCallback} from 'react';
 import {
 	HomeBlock,
 	HomeText,
 	HomeTextBlock,
-//	HomeTitle,
+	//	HomeTitle,
 	ImgBlock,
 	ImgContainer,
 	NavigationDots,
@@ -13,10 +13,10 @@ import {
 	SlideContent,
 	HomeBackground,
 	HomeWrapper,
-	HomeAkkut
+	HomeAkkut,
 } from './HomeView.styled';
-import { homeData } from './home-data';
-import type { HomeDataItem } from './home-data';
+import {homeData} from './home-data';
+import type {HomeDataItem} from './home-data';
 
 export const HomeView = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,10 +29,10 @@ export const HomeView = () => {
 
 	const nextSlide = useCallback(() => {
 		if (isTransitioning) return;
-		
+
 		setPrevIndex(currentIndex);
 		setIsTransitioning(true);
-		
+
 		setTimeout(() => {
 			setCurrentIndex((prevIndex) => (prevIndex + 1) % homeData.length);
 			setTimeout(() => {
@@ -41,19 +41,22 @@ export const HomeView = () => {
 		}, 150);
 	}, [isTransitioning, currentIndex]);
 
-	const goToSlide = useCallback((index: number) => {
-		if (isTransitioning || index === currentIndex) return;
-		
-		setPrevIndex(currentIndex);
-		setIsTransitioning(true);
-		
-		setTimeout(() => {
-			setCurrentIndex(index);
+	const goToSlide = useCallback(
+		(index: number) => {
+			if (isTransitioning || index === currentIndex) return;
+
+			setPrevIndex(currentIndex);
+			setIsTransitioning(true);
+
 			setTimeout(() => {
-				setIsTransitioning(false);
-			}, 100);
-		}, 50);
-	}, [isTransitioning, currentIndex]);
+				setCurrentIndex(index);
+				setTimeout(() => {
+					setIsTransitioning(false);
+				}, 100);
+			}, 50);
+		},
+		[isTransitioning, currentIndex],
+	);
 
 	useEffect(() => {
 		if (!isHovered) {
@@ -88,74 +91,68 @@ export const HomeView = () => {
 		<HomeBlock>
 			<HomeWrapper>
 				<HomeTextBlock>
-				{/* <HomeTitle>Новости</HomeTitle> */}
-				<TextWrapper>
-					<SlideContent 
-						$isTransitioning={isTransitioning}
-						$direction="left"
-					>
-						<HomeText 
-							onMouseEnter={handleMouseEnter}
-							onMouseLeave={handleMouseLeave}
-						>
-							<span className="date">{currentItem.date}</span>
-							{currentItem.news}
-						</HomeText>
-					</SlideContent>
-					{isTransitioning && (
-						<SlideContent 
-							$isTransitioning={true}
-							$direction="left"
-							$isExiting={true}
-						>
-							<HomeText>
-								<span className="date">{prevItem.date}</span>
-								{prevItem.news}
+ 					<TextWrapper>
+						<SlideContent $isTransitioning={isTransitioning} $direction="left">
+							<HomeText
+								onMouseEnter={handleMouseEnter}
+								onMouseLeave={handleMouseLeave}
+							>
+								{currentItem.news}
+								<span className="date">{currentItem.date}</span>
+								
 							</HomeText>
+							
 						</SlideContent>
-					)}
-				</TextWrapper>
-				
-				<NavigationDots>
-					{homeData.map((_, index) => (
-						<Dot
-							key={index}
-							active={index === currentIndex}
-							onClick={() => goToSlide(index)}
-							onMouseEnter={handleMouseEnter}
-							onMouseLeave={handleMouseLeave}
-						/>
-					))}
-				</NavigationDots>
-			</HomeTextBlock>
-			
-			<ImgContainer>
-				<ImageWrapper>
-					<SlideContent 
-						$isTransitioning={isTransitioning}
-						$direction="left"
-					>
-						<ImgBlock image={currentItem.img} />
-					</SlideContent>
-					{isTransitioning && (
-						<SlideContent 
-							$isTransitioning={true}
-							$direction="left"
-							$isExiting={true}
-						>
-							<ImgBlock image={prevItem.img} />
-						</SlideContent>
-					)}
-				</ImageWrapper>
-			</ImgContainer>
-			<HomeBackground>
-			</HomeBackground>
-			
-			<HomeAkkut>
+						
+						{isTransitioning && (
+							<SlideContent
+								$isTransitioning={true}
+								$direction="left"
+								$isExiting={true}
+							>
+								<HomeText>
+									
+									{prevItem.news}
+									<span className="date">{prevItem.date}</span>
+								</HomeText>
+							</SlideContent>
+						)}
+						
+
+					</TextWrapper>
 					
-			</HomeAkkut>
+					
+				</HomeTextBlock>
+                 <NavigationDots>
+						{homeData.map((_, index) => (
+							<Dot
+								key={index}
+								active={index === currentIndex}
+								onClick={() => goToSlide(index)}
+								onMouseEnter={handleMouseEnter}
+								onMouseLeave={handleMouseLeave}
+							/>
+						))}
+					</NavigationDots> 
+				<ImgContainer>
+					<ImageWrapper>
+						<SlideContent $isTransitioning={isTransitioning} $direction="left">
+							<ImgBlock image={currentItem.img} />
+						</SlideContent>
+						{isTransitioning && (
+							<SlideContent
+								$isTransitioning={true}
+								$direction="left"
+								$isExiting={true}
+							>
+								<ImgBlock image={prevItem.img} />
+							</SlideContent>
+						)}
+					</ImageWrapper>
+				</ImgContainer>
+				<HomeBackground></HomeBackground>
+				<HomeAkkut></HomeAkkut>
 			</HomeWrapper>
-			
 		</HomeBlock>
 	);
 };

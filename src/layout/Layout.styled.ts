@@ -8,15 +8,15 @@ export const BackgroundLayer = styled.div`
     width: 100%;
     height: 100vh;
     z-index: 0;
-    background-color: #c8d2e6;
+    background-color: #555a69;
     pointer-events: none;
 `;
 
 export const LayoutBlock = styled.div`
     display: grid;
     height: 100vh;
-    grid-template-columns: minmax(0, auto) minmax(30rem, 140rem) minmax(0, auto);
-    grid-template-rows: 10rem 1fr auto;
+    grid-template-columns: minmax(0, auto) minmax(30rem, 180rem) minmax(0, auto);
+    grid-template-rows: 10rem 1fr 13rem;
     grid-template-areas: 
     "header header header" 
     ". main ."

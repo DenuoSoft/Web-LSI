@@ -2,70 +2,67 @@ import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
 import { fluidTypography } from '../../styles/fluidTypography';
-import { IconWhatsapp } from '../../shared/whatsapp';
 
-
-
-export const HeaderBlock = styled.header<{ $isHomePage?: boolean }>`
+/* export const HeaderBlock = styled.header<{ $isHomePage?: boolean }>`
 	grid-area: header;
 	position: fixed;
 	width: 100%;
-	height: 80px;
-	background: ${props => props.$isHomePage ? 'transparent' : '#c8d2e6'};
+	height: 10rem;
+	//background: ${props => props.$isHomePage ? 'transparent' : '#555a69'};
 	display: flex;
 	justify-content: center;
+	align-items: flex-end;
 	z-index: 5;
 	padding: 0 3rem;
+`; */
+export const HeaderBlock = styled.header<{ 
+	$isScrolled?: boolean 
+}>`
+	grid-area: header;
+	position: fixed;
+	width: 100%;
+	height: 10rem;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	z-index: 5;
+	padding: 0 3rem;
+	
+	/* Всегда прозрачный фон */
+	background: transparent;
+	
+	/* Плавный переход для фона и тени */
+	transition: background-color 0.3s ease, box-shadow 0.3s ease;
+	
+	/* Фон появляется при прокрутке */
+	${props => props.$isScrolled && `
+		background-color: rgba(85, 90, 105, 0.92);
+		backdrop-filter: blur(8px);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	`}
 `;
-
-export const HeaderContainer = styled.div<{ $isHomePage?: boolean }>`
-	max-width: 140rem;
+export const HeaderContainer = styled.div<{ $isHomePage?: boolean; $isScrolled?: boolean; }>`
+	max-width: 180rem;
 	width: 100%;
 	height: 100%;
 	display: flex;
-	//gap: 3.2rem;
-	justify-content: space-between;
-	padding-bottom: 2rem;
-	border-bottom: 1px solid #fff;
+	justify-content: flex-start;
 	align-items: flex-end;
+	gap: 8rem;
+	padding-bottom: 3rem;
+	border-bottom: 1px solid ${props => props.$isHomePage ? '#555a69' : '#c8d2e6'};
+	//z-index: 2;
 	@media (max-width: ${breakpoints.md}) {
 		justify-content: space-between;
 		width: 100%;
 	}
 `;
 
-export const ContactLink = styled.div`
-display: flex;
-justify-content: center;
-align-items: flex-end;
-color: #64358c;
-gap: 1rem;
-${fluidTypography({max: 20, min: 14})}
-padding-right: 2rem;
-`;
-export const WhatsAppIcon = styled(IconWhatsapp)`
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  transition: width 0.2s ease, height 0.2s ease;
-
-  @media (max-width: ${breakpoints.md}) {
-    width: 32px;
-    height: 32px;
-  }
-
-  @media (max-width: ${breakpoints.xs}) {
-    width: 28px;
-    height: 28px;
-  }
-`
-
 export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	display: flex;
-	//justify-content: flex-start;
-	align-items: flex-end;
+	justify-content: flex-start;
 	gap: 6rem;
-	margin-right: 0;
+
 	@media (max-width: ${breakpoints.md}) {
 		position: fixed;
 		top: 0;
@@ -81,17 +78,33 @@ export const HeaderNav = styled.div<{$isOpen: boolean}>`
 		z-index: 98;
 	}
 `;
-export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean }>`
-    display: flex;	
+
+export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean; $isActive?: boolean }>`
+    display: flex;
 	text-decoration: none;
-	color:${props => props.$isHomePage ? '#555a69' : '#c8d2e6'};
+	color: ${props => props.$isHomePage ? '#28282d' : '#c8d2e6'};
 	border: none;
+	//border-bottom: 2px solid ${props => props.$isActive ? '#c8d2e6' : 'transparent'}; 
 	outline: none;
+	margin: 0;
+	line-height: 1;
 	${fluidTypography({max: 20, min: 14})}
+    position: relative;
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: -3rem; /* перекрываем border Container */
+		left: 0;
+		width: 100%;
+		height: 0.5rem;
+		background-color: ${props => props.$isActive ? '#c8d2e6' : 'transparent'};
+		transition: background-color 0.3s ease;
+	}
 
 	&.active {
 		font-weight: bold;
 	}
+	
 	@media (max-width: ${breakpoints.lg}) {
 		color: #555a69;
 	}	
@@ -99,6 +112,7 @@ export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean }>`
 		color: #c8d2e6;
 	}
 `;
+
 export const HeaderContact = styled(NavLink)`
 	height: 100%;
 	width: auto;
@@ -106,17 +120,17 @@ export const HeaderContact = styled(NavLink)`
 	display: flex;
 	align-items: flex-end;
 	overflow: hidden;
-	//${fluidTypography({max: 14, min: 10})}
 	
 	@media (max-width: ${breakpoints.xs}) {
 		display: none;
 	}
 `;
+
 export const HeaderLogo = styled.div`
     height: 100%;
 	width: auto;
-	display: block;
-	
+	display: flex;
+	align-items: flex-end;
 	@media (max-width: ${breakpoints.lg}) {
 		height: 90%;
 	}
@@ -124,6 +138,7 @@ export const HeaderLogo = styled.div`
 		height: 80%;
 	}	
 `;
+
 export const MobileMenuButton = styled.button<{$isOpen: boolean}>`
 	display: none;
 	background: none;
@@ -138,6 +153,7 @@ export const MobileMenuButton = styled.button<{$isOpen: boolean}>`
 		font-size: 2.2rem;
 	}
 `;
+
 export const MobileOverlay = styled.div<{$isOpen: boolean}>`
 	display: none;
 
@@ -153,4 +169,3 @@ export const MobileOverlay = styled.div<{$isOpen: boolean}>`
 		color: #fff;
 	}
 `;
-

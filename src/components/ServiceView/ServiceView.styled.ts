@@ -20,7 +20,7 @@ export const NavBack = styled.button`
   cursor: pointer;
 `
 export const NavBackText = styled.span`
-  color: #555a69;
+  color: #c8d2e6;
   ${fluidTypography({ max: 18, min: 14 })}
   &:hover {
   color: #8237FF;
@@ -34,10 +34,10 @@ export const ServiceContent = styled.div`
   width: 100%;
   gap: 2rem;
   font-size: 1.6rem;
-  color: #555a69;
+  color: #c8d2e6;
 `
 export const ServiceListBlock = styled.div`
-color: #555a69;
+color: #c8d2e6;
 `
 export const ServiceList = styled.ul`
 display: flex;
@@ -56,6 +56,6 @@ export const ServiceListItem = styled.li`
     position: absolute;
     left: 0;
     top: 0;
-    color: #8237FF; 
+    color: #c8d2e6; 
   }
 `

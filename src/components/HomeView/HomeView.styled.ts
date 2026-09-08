@@ -14,6 +14,7 @@ export const HomeBlock = styled.div`
 	-webkit-box-flex: 1;
 	flex-grow: 1;
 	overflow: hidden;
+	
 	@media (max-width: ${breakpoints.xxl}) {
 	    padding-botton: 3rem;
 	}
@@ -51,24 +52,33 @@ export const HomeWrapper = styled.div`
     -ms-flex-positive: 1;
     flex-grow: 1;
     min-width: 0;
+	
+	
 `
 export const HomeTextBlock = styled.div`
-	/* display: flex;
-	//flex-direction: column;
 	//gap: clamp(3.4rem, 1.5vw, 4.3rem);
-	justify-content: space-between;
-	animation: ${fadeInY} 0.5s ease-in;
-
-	 */
+	//animation: ${fadeInY} 0.5s ease-in;
 	position: relative;
     z-index: 1;
-    width: 97.6rem;
+    width: 88.6rem;
     margin: 0;
-
-    background-color: #c8d2e6;
+	background-color: #c8d2e6;
     -webkit-transform: skew(-22.5deg) translateZ(0);
     transform: skew(-22.5deg) translateZ(0);
-    will-change: transform;
+    will-change: transform; 
+	&::after {
+	content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    -webkit-transform: translateX(-99%);
+    -ms-transform: translateX(-99%);
+    transform: translateX(-99%);
+    background-color: #c8d2e6; 
+
+	} 
 }
 	@media (max-width: ${breakpoints.lg}) {
 		gap: clamp(0.8rem, 1.5vw, 1.5rem);
@@ -98,22 +108,26 @@ export const HomeTitle = styled.h1`
 	}
 `;
 
-
-
 export const HomeText = styled.div`
     display: flex;
-	flex: 1;
 	flex-direction: column;
+	//justify-content: flex-start;
+	//align-items:center;
 	width: 100%;
-    //gap: clamp(2.4rem, 1.5vw, 3.3rem);
-	${fluidTypography({ max: 18, min: 16 })}
+	height: 100%;
+	//padding-top: 10rem;
+	padding: 12.8rem 0 8rem 6rem;
+	//gap: clamp(2.4rem, 1.5vw, 3.3rem);
+	${fluidTypography({ max: 44, min: 16 })}
 	line-height: 1.6;
 	margin: 0;
-	color: #555a69;
+	color: #28282d;
 	.date {
 		font-weight: bold;
 		display: block;
 		margin-bottom: 10px;
+		color: #555a69;
+		${fluidTypography({ max: 35, min: 14 })}
 	}
 	
 	@media (max-width: ${breakpoints.lg}) {
@@ -122,6 +136,21 @@ export const HomeText = styled.div`
 	}
 	
 	
+`;
+export const TextWrapper = styled.div`
+	width: 100%;
+	max-width: 91rem;
+	position: relative;
+	height: 100%;
+	//overflow: hidden;
+	display: flex;
+	flex-direction: column;
+//	justify-content: center;
+	-webkit-transform: skew(22.5deg) translateZ(0);
+    transform: skew(22.5deg) translateZ(0);
+    will-change: transform;
+	z-index: 2; 
+	 
 `;
 
 export const ImgContainer = styled.div`
@@ -135,7 +164,7 @@ export const ImgContainer = styled.div`
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
     z-index: 0;
-	padding-left: 20rem;
+	
     
 }
 	
@@ -197,11 +226,11 @@ display: block;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     background-color: #d7ff23;
-    width: 11.5rem;
+    width: 18.4rem;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
-    -webkit-transform: skew(-22.5deg) translate3d(152rem,22.59259vh,0);
-    transform: skew(-22.5deg) translate3d(152rem,22.59259vh,0);
+    -webkit-transform: skew(-22.5deg) translate3d(151rem,22.59259vh,0);
+    transform: skew(-22.5deg) translate3d(151rem,22.59259vh,0);
     height: 49.38272vh;
 `
 export const ImgBlock = styled.div<{ image: string }>`
@@ -219,18 +248,22 @@ export const ImgBlock = styled.div<{ image: string }>`
 
 export const NavigationDots = styled.div`
 	display: flex;
-	gap: 12px;
-	margin-top: 40px;
-	position: relative;
-	z-index: 2;
+    gap: 12px;
+    position: absolute;
+    z-index: 10;
+    bottom: 18rem;
+    left: 6rem;
+    //transform: skew(22.5deg) translateZ(0); /* Компенсация skew */
+    //will-change: transform;
+    //padding: 10px 0;
 `;
 
 export const Dot = styled.button<{ active: boolean }>`
 	width: 12px;
 	height: 12px;
 	border-radius: 50%;
-	border: none;
-	background: ${props => props.active ? '#c8d2e6' : '#ccc'};
+	border: 1px solid #555a69;
+	background: ${props => props.active ? '#555a69' : ''};
 	cursor: pointer;
 	transition: all 0.3s ease;
 	padding: 0;
@@ -240,16 +273,7 @@ export const Dot = styled.button<{ active: boolean }>`
 		background: #8237FF;
 	}
 `;
-export const TextWrapper = styled.div`
-	width: 100%;
-	max-width: 600px;
-	//position: relative;
-	//height: 200px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-`;
+
 
 // Контейнер для изображения с анимацией
 export const ImageWrapper = styled.div`

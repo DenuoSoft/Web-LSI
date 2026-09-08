@@ -55,7 +55,7 @@ export const ItemWrap = styled.button`
 	cursor: pointer;
 `;
 export const ItemTitle = styled.h5`
-	color: #555a69;
+	color: #c8d2e6;
 `;
 
 export const PeopleImg = styled.div`
@@ -85,14 +85,14 @@ export const ItemBadgeWrap = styled.div`
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	gap: 1.2rem;
-	color: #555a69;
+	color: #c8d2e6;
 	@media (max-width: ${breakpoints.sm}) {
 		justify-content: center;
 	}
 `
 export const ItemBadge = styled.div`
 	padding: 0.2rem 0.8rem;
-	border: 0.2px solid #8237FF;
+	border: 0.2px solid #c8d2e6;
 	border-radius: 0.4rem;
 	font-size: 1.2rem;
 	line-height: 167%;

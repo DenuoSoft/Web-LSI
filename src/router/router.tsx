@@ -77,6 +77,6 @@ export const router = createBrowserRouter(
 		},
 	],
 	  {
-		basename: '/Web-LSI',
+		basename: '/',
 	}   
 );

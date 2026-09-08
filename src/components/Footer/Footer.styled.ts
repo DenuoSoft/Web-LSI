@@ -2,21 +2,23 @@ import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
 import { fluidTypography } from '../../styles/fluidTypography';
+import { IconWhatsapp } from '../../shared/whatsapp';
 
 
 export const FooterBlock = styled.footer`
 	grid-area: footer;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	background-color: #fff;
 	color: #555a69;
 	z-index: 5;
+	height 100%;
 `;
 export const FooterWrap = styled.div`
-	max-width: 140rem;
+	max-width: 180rem;
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	align-items: center;
 	flex: 1;
 	padding: 2rem 0;
 `;
@@ -24,47 +26,34 @@ export const FooterContact = styled.a`
 	cursor: pointer;
 `
 export const ContentBlock = styled.div`
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 `;
 export const ItemsBlock = styled.div`
-	width: calc(100% / 3);
 	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+	gap: 16rem;
 	padding: 0 2rem;
-	border-left: 1px solid #555a69;
-
-	&:nth-child(3n) {
-		border-right: 1px solid #555a69;
-	}
+	
 	@media (max-width: ${breakpoints.xl}) {
-		&:first-child {
-			border-left: none;
-		}
-		&:nth-child(3n) {
-			border-right: none;
-		}
+	
 	}
 	@media (max-width: ${breakpoints.md}) {
-		flex-direction: row;
-		gap: 1.2rem;
-		justify-content: center;
-		align-items: center;
-		border-left: none;
-		width: 100%;
-		&:nth-child(-n + 2) {
-			display: none;
-		}
+	
 	}
 	@media (max-width: ${breakpoints.xs}) {
 		padding: 0 1rem;
 		gap: 0.8rem;
 	}
 `;
+export const ItemsLinks = styled.div`
+	display: flex;
+	gap: 3rem;
+`
 export const ItemsTitle = styled.h2`
 	font-weight: 300;
-	${fluidTypography({max: 18, min: 14})}
+	${fluidTypography({max: 20, min: 14})}
 `;
 export const ItemsText = styled.p`
 	${fluidTypography({max: 16, min: 12})}
@@ -110,3 +99,28 @@ export const FooterLink = styled(NavLink)`
 		font-size: 1.2rem;
 	}
 `;
+export const ContactLink = styled.div`
+display: flex;
+justify-content: center;
+align-items: flex-end;
+color: #555a69;
+gap: 1rem;
+${fluidTypography({max: 20, min: 14})}
+padding-right: 2rem;
+`;
+export const WhatsAppIcon = styled(IconWhatsapp)`
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  transition: width 0.2s ease, height 0.2s ease;
+
+  @media (max-width: ${breakpoints.md}) {
+    width: 32px;
+    height: 32px;
+  }
+
+  @media (max-width: ${breakpoints.xs}) {
+    width: 28px;
+    height: 28px;
+  }
+`

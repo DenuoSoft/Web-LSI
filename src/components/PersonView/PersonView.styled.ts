@@ -17,7 +17,7 @@ export const PersonWrap = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	gap: 20rem;
-	color: #555a69;
+	color: #c8d2e6;
 	animation: ${fadeInX} 0.5s ease-in;
 	@media (max-width: ${breakpoints.lg}) {
 		flex-direction: column;
@@ -84,10 +84,10 @@ export const NavBack = styled.button`
 	cursor: pointer;
 `;
 export const NavBackText = styled.span`
-	color: #555a69;
+	color: #c8d2e6;
 	font-size: clamp(1.4rem, 0.388vw + 1.654rem, 1.8rem);
 	&:hover {
-	color: #8237FF;
+	color: #d7ff23;
 	}
 `;
 export const ContentSection = styled.div`

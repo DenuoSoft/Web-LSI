@@ -13,7 +13,7 @@ export default defineConfig({
             webp: { quality: 80 }
         })
   ],
-  base: '/Web-LSI/' 
+  base: '/' 
   
 })
 

@@ -1,13 +1,16 @@
 import {
+	ContactLink,
 	ContentBlock,
 	FooterBlock,
-	FooterContact,
+	//	FooterContact,
 	FooterLink,
 	FooterWrap,
 	ItemsBlock,
-	ItemsText,
+	ItemsLinks,
+	//	ItemsText,
 	ItemsTitle,
 	LinksBlock,
+	WhatsAppIcon,
 	//RightsBlock,
 } from './Footer.styled';
 
@@ -17,41 +20,24 @@ export const Footer = () => {
 			<FooterWrap>
 				<ContentBlock>
 					<ItemsBlock>
-						<ItemsTitle>Contact:</ItemsTitle>
-						<ItemsText>
-							<FooterContact
-								href="https://maps.app.goo.gl/igdU3UxCed96Yu9s6"
-								target="_blank"
-							>
-								Unit No. 31–44, <br />
-								Central Park Towers,
-								<br /> DIFC Dubai, United Arab Emirates
-							</FooterContact>
-						</ItemsText>
+						<ItemsTitle>© 2026 Denuo</ItemsTitle>
+						<ItemsLinks>
+							<ItemsTitle>Legal notices</ItemsTitle>
+							<ItemsTitle>Contact us</ItemsTitle>
+						</ItemsLinks>
 					</ItemsBlock>
 					<ItemsBlock>
-						<ItemsTitle>Quick links:</ItemsTitle>
-						<LinksBlock>
-							<FooterLink to="/services">Services</FooterLink>
-							<FooterLink to="/people">People</FooterLink>
-							<FooterLink to="/artcles">Artiles</FooterLink>
-							<FooterLink to="/alerts">Alerts</FooterLink>
-						</LinksBlock>
+						<ContactLink>
+							<WhatsAppIcon />
+							<div>+975 123 45 67</div>
+						</ContactLink>
 					</ItemsBlock>
 					<ItemsBlock>
-						<ItemsTitle>Legal:</ItemsTitle>
 						<LinksBlock>
-							<FooterLink to="/policy">Privacy Policy</FooterLink>
-							<FooterLink to="/terms">Terms & Conditions</FooterLink>
-							<FooterLink to="/cookie">Cookie Policy</FooterLink>
-							<FooterLink to="/legal">Legal Notice</FooterLink>
+							<FooterLink to="/">LinkedIn</FooterLink>
 						</LinksBlock>
 					</ItemsBlock>
 				</ContentBlock>
-
-				{/* <RightsBlock>
-					© 2026 Denuo. All rights reserved.
-				</RightsBlock> */}
 			</FooterWrap>
 		</FooterBlock>
 	);

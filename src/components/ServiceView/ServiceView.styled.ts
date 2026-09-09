@@ -8,7 +8,7 @@ width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5rem;
+  //gap: 5rem;
   animation: ${fadeInY} 0.5s ease-in;
   z-index: 1;
 `
@@ -46,7 +46,7 @@ gap: 1rem;
 list-style: none;
   padding: 0;
   margin: 0;
-${fluidTypography({max: 18, min: 14})}
+${fluidTypography({max: 20, min: 14})}
 `
 export const ServiceListItem = styled.li`
   position: relative;

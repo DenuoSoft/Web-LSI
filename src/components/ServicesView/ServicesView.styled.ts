@@ -6,8 +6,8 @@ import {fluidTypography} from '../../styles/fluidTypography';
 export const ServicesBlock = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	row-gap: 15rem;
-	margin-top: 4rem;
+	//row-gap: 15rem;
+	//margin-top: 4rem;
 	animation: ${fadeInY} 0.5s ease-in;
 	z-index: 1;
 `;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TabContent, TabsBlock, TabsItem, TabsWrap } from './Tabs.styled';
+import { TabContent, TabsAkkut, TabsBlock, TabsItem, TabsWrap } from './Tabs.styled';
 import type { TabsProps, TabItem } from '../../models/tabs';
 
 export const Tabs = ({ tabs, content }: TabsProps) => {
@@ -18,10 +18,14 @@ export const Tabs = ({ tabs, content }: TabsProps) => {
                         onClick={() => handleTabClick(tab.name)}
                         $isActive={activeTab === tab.name}
                     >
-                        {tab.name}
+                         <span className="tab-text">{tab.name}</span> 
+                       
                     </TabsItem>
                 ))}
             </TabsBlock>
+            <TabsAkkut>
+
+            </TabsAkkut>
             <TabContent>{content[activeTab]}</TabContent>
         </TabsWrap>
     );

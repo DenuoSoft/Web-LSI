@@ -27,7 +27,7 @@ export const PeopleView = () => {
 				{people.map((lawer) => (
 					<PeopleItem key={lawer.id}>
 						<PeopleWrap>
-							<PeopleImg style={{backgroundImage: `url(${lawer.img})`}} />
+							<PeopleImg image={lawer.img} />
 							<ItemBadgeWrap>
 								{lawer.badge.map((item, index) => (
 									<ItemBadge key={index}>{item}</ItemBadge>

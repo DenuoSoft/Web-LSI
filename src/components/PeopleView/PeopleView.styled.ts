@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
 import { fadeInY } from '../../styles/animation';
 
+interface PeopleImgProps {
+	image?: string; // Делаем опциональным, чтобы можно было использовать и без image
+}
+
 export const PeopleBlock = styled.div`
 	display: flex;
 	flex-wrap: wrap;
@@ -58,26 +62,37 @@ export const ItemTitle = styled.h5`
 	color: #c8d2e6;
 `;
 
-export const PeopleImg = styled.div`
-	width: 100%;
-	background-size: contain;
-	background-position: left center;
-	background-repeat: no-repeat;
-	/* box-shadow: 0.2rem 0.2rem 0.3rem 0.05rem rgba(85, 90, 105, 0.5);
-	box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
-		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem;
-	 */height: 30rem;
-	//border-radius: 3rem;
+// PeopleView.styled.js
+
+// Альтернатива - передача изображения через props
+export const PeopleImg = styled.div<PeopleImgProps>`
+	width: 50%;
+	height: 30rem;
+	position: relative;
+	overflow: hidden;
+	background: none;
+	
+	&::before {
+		content: '';
+		position: absolute;
+		top: -10%;
+		left: -10%;
+		right: -10%;
+		bottom: -10%;
+		background-image: url(${props => props.image});
+		background-size: contain;
+		background-position: left center;
+		background-repeat: no-repeat;
+		
+	}
+
 	@media (max-width: ${breakpoints.lg}) {
 		width: 100%;
 	}
 	
 	@media (max-width: ${breakpoints.sm}) {
 		box-shadow: none;
-		background-size: contain;
-		
 	}
-	
 `;
 export const ItemBadgeWrap = styled.div`
 	width: 100%;

@@ -30,12 +30,12 @@ export const PersonItem = styled.div`
 	gap: 2rem;
 `;
 export const PersonImg = styled.div`
-	width: 30rem;
-	background-size: contain;
+ 	width: 100%;
+	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-	height: 30rem;
-	//border-radius: 5rem;
+	height: 35%;
+	border-radius: 100%;
 	/* box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
 		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem; */
 	@media (max-width: ${breakpoints.lg}) {

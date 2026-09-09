@@ -85,7 +85,7 @@ export const Header = () => {
 
 	const navLinks = [
 		{ to: '/about', label: 'About us' },
-		{ to: '/services', label: 'Capabilities' },
+		{ to: '/services', label: 'Services' },
 		{ to: '/people', label: 'People' },
 		{ to: '/insights', label: 'Insights' },
 	];

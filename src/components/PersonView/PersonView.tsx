@@ -16,8 +16,10 @@ import {
 	PersonItem,
 	PersonWrap,
 	PositionTitle,
+	ItemBadge,
+	ItemBadgeWrap
+
 } from './PersonView.styled';
-import {ItemBadge, ItemBadgeWrap} from '../PeopleView/PeopleView.styled';
 import {ArrowLeft} from '../../assets/img/arrow-left';
 import {ItemIcon} from '../../styles/shared';
 import type { FormattedPart, ContentItem, ListItem } from '../../models/people-model';

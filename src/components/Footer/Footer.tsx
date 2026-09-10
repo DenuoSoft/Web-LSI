@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
 	ContactLink,
 	ContentBlock,
@@ -14,7 +15,7 @@ import {
 	//RightsBlock,
 } from './Footer.styled';
 
-export const Footer = () => {
+export const Footer = memo(() => {
 	return (
 		<FooterBlock>
 			<FooterWrap>
@@ -41,4 +42,4 @@ export const Footer = () => {
 			</FooterWrap>
 		</FooterBlock>
 	);
-};
+});

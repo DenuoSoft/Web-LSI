@@ -6,9 +6,9 @@ import {fluidTypography} from '../../styles/fluidTypography';
 export const InsightsBlock = styled.div`
     width: 100%;
     display: flex;
-    
+    flex-direction: column;
     gap: 2rem;
-    margin-top: 2rem;
+    //margin-top: 2rem;
     animation: ${fadeInY} 0.5s ease-in;
     z-index: 1;
 `
@@ -17,8 +17,8 @@ export const InsightsItem = styled.div`
     flex-direction: column;
     align-content: flex-start;
     gap: 1.2rem;
-    padding: 2rem;
-    color: #555a69;
+    //padding: 2rem;
+    color: #c8d2e6;
     h2 {
     ${fluidTypography({max: 20, min: 16})}
     }

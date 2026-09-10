@@ -1,0 +1,15 @@
+.people-swiper .swiper-button-prev,
+.people-swiper .swiper-button-next {
+	color: #c8d2e6; /* Цвет ваших стрелок */
+	/* Здесь можно добавить свои стили, например, убрать фон или изменить размер */
+}
+
+/* Стили для активного слайда */
+.people-swiper .swiper-slide-active .PeopleImg {
+	transform: skewX(22.5deg) scale(1.05);
+	transition: transform 0.4s ease;
+}
+.people-swiper {
+  position: relative;
+  /* Ваши стили для стрелок */
+}

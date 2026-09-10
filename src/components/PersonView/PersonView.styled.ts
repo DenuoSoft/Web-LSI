@@ -135,4 +135,22 @@ export const ListItem = styled.li<{level: number}>`
 	color: #333;
 `;
 
-
+export const ItemBadgeWrap = styled.div`
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 1.2rem;
+	color: #c8d2e6;
+	
+	@media (max-width: ${breakpoints.sm}) {
+		justify-content: center;
+	}
+`;
+export const ItemBadge = styled.div`
+	padding: 0.2rem 0.8rem;
+	border: 0.2px solid #c8d2e6;
+	border-radius: 0.4rem;
+	font-size: 1.2rem;
+	line-height: 167%;
+`;

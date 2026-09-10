@@ -8,7 +8,7 @@ import {
 	MobileMenuButton,
 	MobileOverlay,
 } from './Header.styled';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { useLocation, useMatch } from 'react-router-dom';
 import type { LinkProps } from 'react-router-dom';
 import { Logo } from '../../shared/logo';
@@ -42,7 +42,7 @@ const NavLinkWithActive = ({
 	);
 };
 
-export const Header = () => {
+export const Header = memo(() => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 	const location = useLocation();
@@ -127,4 +127,4 @@ export const Header = () => {
 			<MobileOverlay $isOpen={isMobileMenuOpen} onClick={closeMobileMenu} />
 		</HeaderBlock>
 	);
-};
+});

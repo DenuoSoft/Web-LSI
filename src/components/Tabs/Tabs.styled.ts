@@ -174,7 +174,7 @@ export const TabsAkkutImg = styled.img`
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	object-position: center right;
+	object-position: center center;
 	display: block;
 	z-index: 5;
 	transform: skew(22.5deg) scale(1.5);

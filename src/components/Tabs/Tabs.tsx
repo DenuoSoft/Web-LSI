@@ -9,7 +9,7 @@ import {
 	TabsWrap,
 } from './Tabs.styled';
 import type {TabsProps, TabItem} from '../../models/tabs';
-import image from '../../assets/img/dubai-1.jpg';
+import image from '../../assets/img/insight.jpg';
 
 interface TabsExtendedProps extends TabsProps {
 	images?: Record<string, string>; // имя таба → картинка

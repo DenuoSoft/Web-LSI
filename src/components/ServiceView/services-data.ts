@@ -1,4 +1,11 @@
-import type {servicesProps} from '../../models/services-model';
+import type { servicesProps } from '../../models/services-model';
+import corporate from '../../assets/img/corporate.jpg';
+import realestate from '../../assets/img/realestate.jpg';
+import litigation from '../../assets/img/realestate.jpg';
+import regulatory from '../../assets/img/regulatory.jpg';
+import ip from '../../assets/img/ip.jpg';
+import employment from '../../assets/img/realestate.jpg';
+import tax from '../../assets/img/tax.jpg';
 
 export const services: servicesProps[] = [
 	{
@@ -11,8 +18,8 @@ export const services: servicesProps[] = [
 			'General advice on corporate governance and day-to-day operations of multi-jurisdictional structures;',
 			'Advice on free zones.'
 		],
-		description: ''
-
+		description: '',
+		image: corporate
 	},
 	{
 		id: 2,
@@ -23,7 +30,8 @@ export const services: servicesProps[] = [
 			'Assistance in negotiations with all major international operators.',
 			
 		],
-		description: ''
+		description: '',
+		image: realestate
 	},
 	{
 		id: 3,
@@ -35,7 +43,8 @@ export const services: servicesProps[] = [
 			'Tax audit support;',
 			'Private wealth tax services in the UAE.'
 		],
-		description: ''
+		description: '',
+		image: tax
 	},
 	{
 		id: 4,
@@ -45,7 +54,8 @@ export const services: servicesProps[] = [
 			'Russian arbitration (ICAC) and litigation (arbitrazh courts) for international clients',
 			'Cross-border litigation and enforcement '
 		],
-		description: ''
+		description: '',
+		image: litigation
 	},
 	{
 		id: 5,
@@ -55,7 +65,8 @@ export const services: servicesProps[] = [
 			'IP portfolio management, including handling international and local registrations',
 			'Development of defence strategies for IP portfolio protection',
 		],
-		description: ''
+		description: '',
+		image: ip
 	},
 	{
 		id: 6,
@@ -65,7 +76,8 @@ export const services: servicesProps[] = [
 			'General employment advice (recruitment & termination, disciplinary actions) ',
 			'Advice on internal policies and compliance (remote work, remuneration, gifts and motivation programmes for employees)',
 		],
-		description: ''
+		description: '',
+	    image: employment
 	},
 	{
 		id: 7,
@@ -75,7 +87,8 @@ export const services: servicesProps[] = [
 			'Russian countersanctions compliance ',
 			'Advice in connection with unblocking assets, including securities and dividend payouts',
 		],
-		description: ''
+		description: '',
+		image: regulatory
 	},
 	
 ];

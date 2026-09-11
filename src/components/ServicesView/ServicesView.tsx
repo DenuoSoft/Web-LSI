@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 import {ArrowRight} from '../../assets/img/arrow-right';
-import {services} from './services-data';
+import {services} from '../ServiceView/services-data';
 
 import {
 	ServicesBlock,
@@ -19,12 +19,11 @@ export const ServicesView = () => {
 	};
 	return (
 		<>
-			
 			<ServicesBlock>
 				{services.map((service) => (
 					<ServicesItem key={service.id}>
 						<ItemTitle>{service.title}</ItemTitle>
-				
+
 						<ItemNav onClick={() => handlePersonClick(service.id)}>
 							<ItemText>See more</ItemText>
 							<ItemIcon>

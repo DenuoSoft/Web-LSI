@@ -24,6 +24,12 @@ export const HomeView = () => {
 	const intervalRef = useRef<NodeJS.Timeout | null>(null);
 	const [isTransitioning, setIsTransitioning] = useState(false);
 	const [prevIndex, setPrevIndex] = useState(0);
+	const [visible, setVisible] = useState(false);
+
+	useEffect(() => {
+		const id = requestAnimationFrame(() => setVisible(true));
+		return () => cancelAnimationFrame(id);
+	}, []);
 
 	const currentItem: HomeDataItem = homeData[currentIndex];
 
@@ -151,7 +157,7 @@ export const HomeView = () => {
 					</ImageWrapper>
 				</ImgContainer>
 				<HomeBackground></HomeBackground>
-				<HomeAkkut></HomeAkkut>
+				<HomeAkkut $visible={visible}></HomeAkkut>
 			</HomeWrapper>
 		</HomeBlock>
 	);

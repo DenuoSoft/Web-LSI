@@ -51,6 +51,7 @@ ${fluidTypography({max: 20, min: 14})}
 export const ServiceListItem = styled.li`
   position: relative;
   padding-left: 24px;
+   color: #c8d2e6;
   &::before {
     content: "•";
     position: absolute;

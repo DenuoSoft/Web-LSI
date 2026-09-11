@@ -17,6 +17,6 @@ export const Insights = () => {
 
   return (
     
-    <Tabs tabs={tabs} content={content}/>
+    <Tabs tabs={tabs} content={content} variant="insights"/>
   );
 }

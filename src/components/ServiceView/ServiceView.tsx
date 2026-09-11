@@ -1,41 +1,30 @@
-import { useParams} from 'react-router-dom';
-import {services} from '../ServicesView/services-data';
 import {
   ServiceBlock,
   ServiceContent,
   ServiceList,
-  ServiceListBlock,
   ServiceListItem,
 } from './ServiceView.styled';
+import type { servicesProps } from '../../models/services-model';
+import { memo } from 'react';
 
 interface ServiceViewProps {
-  service?: typeof services[0]; // делаем опциональным для обратной совместимости
+  service: servicesProps;
 }
 
-export const ServiceView = ({ service: propService }: ServiceViewProps) => {
-  const {id} = useParams();
-  // Используем переданный service или ищем по id из URL
-  const service = propService || services.find((p) => p.id === Number(id));
-
-  if (!service) {
-    return <div>Service not found</div>;
-  }
-  
+export const ServiceView = memo(({ service }: ServiceViewProps) => {
   return (
     <ServiceBlock>
       <ServiceContent>
-        
         {service.description && <p>{service.description}</p>}
       </ServiceContent>
-      <ServiceListBlock>
-        <ServiceList>
-          {service.list.map((item, index) => (
-            <ServiceListItem key={index}>{item}</ServiceListItem>
-          ))}
-        </ServiceList>
-      </ServiceListBlock>
+
+      <ServiceList>
+        {service.list.map((item, index) => (
+          <ServiceListItem key={index}>{item}</ServiceListItem>
+        ))}
+      </ServiceList>
     </ServiceBlock>
   );
-};
+});
 
 export default ServiceView;

@@ -3,7 +3,7 @@ import type {FluidTypographyOptions} from '../models/fluid-typography';
 export const fluidTypography = ({
 	max = 48,
 	min = 10,
-	maxViewportWidth = 1400,
+	maxViewportWidth = 1900,
 	minViewportWidth = 360,
 }: FluidTypographyOptions = {}): string => {
 	const maxSize = max / 10;

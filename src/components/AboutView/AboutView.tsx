@@ -1,9 +1,16 @@
 import { AboutBlock, AboutImage, AboutItem, AboutText, AboutTitle, AboutWrapper } from './AboutView.styled';
 import image from '../../assets/img/dubai-1.jpg'
+import { useEffect, useState } from 'react';
 
 export const AboutView = () => {
+	const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setVisible(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
 	return (
-		<AboutBlock>
+		<AboutBlock $visible={visible}>
 			<AboutItem>About us</AboutItem>
 			<AboutWrapper>
 				<AboutTitle>Full-service law firm</AboutTitle>

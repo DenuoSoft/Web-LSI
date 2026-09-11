@@ -32,7 +32,6 @@ export const HomeWrapper = styled.div`
 export const HomeTextBlock = styled.div`
 	position: relative;
 	z-index: 1;
-	/* Ширина = базовой переменной, плавно тянется */
 	width: var(--slide-base);
 	min-width: 0;
 	flex-shrink: 1;
@@ -71,7 +70,6 @@ export const HomeText = styled.div`
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
-	/* Отступы плавно уменьшаются вместе с блоком */
 	padding: calc(100px + 2rem) 0 clamp(3rem, 6vw, 8rem) clamp(1.6rem, 4vw, 6rem);
 	${fluidTypography({ max: 44, min: 16 })}
 	line-height: 1.6;
@@ -140,7 +138,7 @@ export const ImgContainer = styled.div`
 export const HomeBackground = styled.div`
 	/* Тянется синхронно с HomeTextBlock:
 	   ширина = 100% минус (HomeTextBlock + зазор) */
-	width: calc((100% - var(--slide-base) - var(--slide-gap)) - 30vw);
+	width: calc((100% - var(--slide-base) - var(--slide-gap)) - 30.5vw);
 	height: 100%;
 	transform: skewX(-22.5deg) translateZ(0);
 	will-change: transform;
@@ -166,25 +164,35 @@ export const HomeBackground = styled.div`
 	}
 `;
 
-export const HomeAkkut = styled.div`
+export const HomeAkkut = styled.div<{$visible: boolean}>`
 	display: block;
 	position: absolute;
 	opacity: 1;
 	flex-shrink: 0;
 	background-color: #d7ff23;
-
-	/* Ширина плавно тянется: ~ 20.8% от HomeTextBlock (18.4 / 88.6) */
-	width: clamp(6rem, 12.8vw, 18.4rem);
-	transition: all .3s ease;
+	width: clamp(6rem, 12vw, 18.4rem);
 	height: 49.38272vh;
-
-	/* Позиционируем относительно HomeTextBlock + зазор, чтобы «ехало» вместе с ним */
-	left: calc((var(--slide-base) + var(--slide-gap)) + 26vw);
+	left: calc((var(--slide-base) + var(--slide-gap)) + 28vw);
 	top: 22.59259vh;
-
 	-webkit-transform: skew(-22.5deg) translateZ(0);
 	transform: skew(-22.5deg) translateZ(0);
+	
+	clip-path: inset(0 100% 0 0);
+      -webkit-clip-path: inset(0 0 0 100%);
+      transition:
+        clip-path 0.8s ease-out 0.2s,
+        -webkit-clip-path 0.8s ease-out 0.2s;
 
+      ${({ $visible }) => $visible && `
+      clip-path: inset(0 0 0 0);
+    `}
+
+
+	@media (max-width: ${breakpoints.lg}) {
+		left: calc((var(--slide-base) - var(--slide-gap)) );
+		z-index: 3;
+	}
+	
 	@media (max-width: ${breakpoints.md}) {
 		display: none;
 	}
@@ -250,7 +258,7 @@ export const Dot = styled.button<{ active: boolean }>`
 `;
 
 export const ImageWrapper = styled.div`
-	width: 95%;
+	width: 100%;
 	height: 100%;
 	position: relative;
 	overflow: hidden;

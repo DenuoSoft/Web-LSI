@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, memo } from 'react';
 import { createPortal } from 'react-dom';
 import { insights } from './insights-data';
 import { InsightsBlock, InsightsItem, SelectedItem } from './InsightsView.styled';
@@ -559,7 +559,7 @@ const ContentRenderer = ({ content }: ContentRendererProps) => {
 };
 
 // ===== ОСНОВНОЙ КОМПОНЕНТ =====
-export const InsightsView = () => {
+export const InsightsView = memo(() => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<insightsProps | null>(null);
 
@@ -625,4 +625,4 @@ export const InsightsView = () => {
       </Modal>
     </>
   );
-};
+});

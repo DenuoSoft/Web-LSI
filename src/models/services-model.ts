@@ -3,5 +3,6 @@ export interface servicesProps {
     title: string,
     text: string,
     list: string[],
-    description: string
+    description: string,
+    image: string
 }

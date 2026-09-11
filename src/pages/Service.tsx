@@ -1,7 +1,9 @@
-import ServiceView from "../components/ServiceView/ServiceView"
-
-export const Service = () => {
+function Service() {
   return (
-    <ServiceView />
+    <div>
+      Service
+    </div>
   );
 }
+
+export default Service;

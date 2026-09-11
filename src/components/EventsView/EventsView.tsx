@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {memo, useState} from 'react';
 import {events} from './events-data';
 import {EventsBlock, EventsItem, SelectedItem} from './EventsView.styled';
 import {Modal} from '../Modal/modal'; // Путь к вашему Modal компоненту
@@ -11,7 +11,7 @@ interface InsightDetail {
 	fullText?: string; // Добавьте, если есть полный текст
 }
 
-export const EventsView = () => {
+export const EventsView = memo(() => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [selectedInsight, setSelectedInsight] = useState<InsightDetail | null>(
 		null,
@@ -49,7 +49,7 @@ export const EventsView = () => {
 					</EventsItem>
 				))}
 			</EventsBlock>
-
+		
 			<Modal isOpen={isModalOpen} onClose={handleCloseModal}>
 				{selectedInsight && (
 					<SelectedItem>
@@ -65,4 +65,4 @@ export const EventsView = () => {
 			</Modal>
 		</>
 	);
-};
+});

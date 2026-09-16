@@ -1,5 +1,5 @@
 import {useNavigate} from 'react-router-dom';
-import {ArrowRight} from '../../assets/img/arrow-right';
+import {ArrowRight} from '../../shared/arrow-right';
 import {services} from '../ServiceView/services-data';
 
 import {

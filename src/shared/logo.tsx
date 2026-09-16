@@ -1,6 +1,6 @@
 // В файле с Logo компонентом
 import styled from 'styled-components';
-import { breakpoints } from '../styles/breakpoints';
+//import { breakpoints } from '../styles/breakpoints';
 import { useState } from 'react';
 import type { LogoProps } from '../models/logo-model';
 
@@ -11,12 +11,9 @@ const LogoWrapper = styled.div<{ $isHomePage: boolean }>`
   
     --logo-main-color: ${props => props.$isHomePage ? '#28282d' : '#c8d2e6'};
     --logo-accent-color: ${props => props.$isHomePage ? '#d7ff23' : '#d7ff23'};
-    --logo-hover-color: #8237FF;
+    --logo-hover-color: #d7ff23;
     
-    @media (max-width: ${breakpoints.lg}) {
-        --logo-main-color: #555A69;
-        --logo-accent-color: #8237FF;
-    }
+   
     
     svg {
         display: block;

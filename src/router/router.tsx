@@ -12,6 +12,8 @@ import {Terms} from '../pages/Terms';
 import {Cookie} from '../pages/Cookie';
 import {LegalNotice} from '../pages/Legal';
 import {About} from '../pages/About';
+import { InsightPage } from '../components/InsightsView/InsightPage';
+import { EventPage } from '../components/EventsView/EventPage';
 
 export const router = createBrowserRouter(
 	[
@@ -44,6 +46,14 @@ export const router = createBrowserRouter(
 				{
 					path: '/insights',
 					element: <Insights />,
+				},
+				{
+					path: '/insights/:id',
+					element: <InsightPage />
+				},
+				{
+					path: '/events/:id',
+					element: <EventPage />
 				},
 				{
 					path: '/alerts',

@@ -27,7 +27,7 @@ export const TabsWrap = styled.div<{$variant: TabsVariant}>`
 `;
 
 export const TabsBlock = styled.div<{$variant: TabsVariant}>`
-	width: 40%;
+	width: 30%;
 	display: flex;
 	flex-direction: column;
 	gap: 4rem;
@@ -55,13 +55,13 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 	align-items: center;
 	gap: 10px;
 	padding-bottom: 0.5rem;
-	${fluidTypography({max: 26, min: 16})};
+	${fluidTypography({max: 24, min: 12})};
 	cursor: pointer;
 	color: ${({$isActive}) => ($isActive ? '#d7ff23' : '#c8d2e6')};
 	font-weight: ${({$isActive}) => ($isActive ? 'bold' : 'normal')};
 	transition: color 0.3s ease;
 	position: relative;
-	width: fit-content; /* Блок по ширине контента */
+	width: fit-content;
 
 	.tab-text {
 		display: inline-block;
@@ -73,8 +73,8 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 	&::after {
 		content: '';
 		display: inline-block;
-		width: 550px;
-		//width: ${({$isActive}) => ($isActive ? '550px' : '0')};
+		max-width: 100%;
+		//width: ${({$isActive}) => ($isActive ? 'min(550px, 100%)' : '0')};
 		height: 1px;
 		z-index: -1;
 		background: #c8d2e6;
@@ -84,7 +84,7 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 		transform: scaleX(${({$isActive}) => ($isActive ? 1 : 0)});
 		transform-origin: left;
 	}
-
+	
 	&:hover {
 		color: #d7ff23;
 
@@ -114,6 +114,7 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 			transform: scaleX(1);
 		}
 	}
+	
 `;
 
 export const TabsAkkut = styled.div<{
@@ -121,7 +122,7 @@ export const TabsAkkut = styled.div<{
 	$visible?: boolean;
 }>`
 	display: block;
-	position: absolute;
+	position: relative;
 	opacity: 1;
 	flex-shrink: 0;
 	overflow: hidden;
@@ -132,14 +133,18 @@ export const TabsAkkut = styled.div<{
 		css`
 			width: 45rem;
 			height: 59.38272vh;
+			right: 10rem;
 			transform: skew(-22.5deg) translate3d(0, 0.59259vh, 0);
 			-webkit-transform: skew(-22.5deg) translate3d(0, 0.59259vh, 0);
 			@media (max-width: ${breakpoints.xxl}) {
 				width: 35rem;
 			}
-            @media (max-width: ${breakpoints.xxl}) {
+			@media (max-width: ${breakpoints.xl}) {
 				width: 25rem;
-			}    
+			}
+			@media (max-width: ${breakpoints.lg}) {
+				width: 20rem;
+			}
 		`}
 
 	${({$variant, $visible}) =>
@@ -179,12 +184,15 @@ export const TabsAkkutImg = styled.img`
 	z-index: 5;
 	transform: skew(22.5deg) scale(1.5);
 	transform-origin: center;
-    @media (max-width: ${breakpoints.xxl}) {
+	@media (max-width: ${breakpoints.xxl}) {
 		transform: skew(22.5deg) scale(1.6);
 	}
-    @media (max-width: ${breakpoints.xl}) {
+	@media (max-width: ${breakpoints.xl}) {
 		transform: skew(22.5deg) scale(1.9);
-	}    
+	}
+	@media (max-width: ${breakpoints.lg}) {
+		transform: skew(22.5deg) scale(2.2);
+	}
 `;
 export const TabContent = styled.div<{$variant: TabsVariant}>`
 	display: flex;

@@ -149,9 +149,14 @@ export const ImageBlock = styled.div`
 	overflow: hidden;
 	flex-shrink: 0;
 
+	@media (max-width: ${breakpoints.lg}) {
+		width: 15rem;
+		height: 23rem;
+		
+	}
 	@media (max-width: ${breakpoints.md}) {
-		width: 30rem;
-		height: 22.5rem;
+		
+		
 	}
 
 	@media (max-width: ${breakpoints.sm}) {
@@ -174,10 +179,7 @@ export const PeopleImg = styled.div<PeopleImgProps>`
 		background-size: 110%;
 	}
 
-	@media (max-width: ${breakpoints.lg}) {
-		width: 100%;
-	}
-
+	
 	@media (max-width: ${breakpoints.sm}) {
 		box-shadow: none;
 	}
@@ -206,11 +208,14 @@ export const CarouselViewport = styled.div`
 
 export const CarouselTrack = styled.div<CarouselTrackProps>`
 	display: flex;
-	gap: var(--gap);
+	gap: 1rem;
 	transform: translateX(${(p) => -p.$offsetPx}px);
 	transition: ${(p) =>
 		p.$instant ? 'none' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)'};
 	will-change: transform;
+	@media (max-width: ${breakpoints.md}) {
+		gap: 3rem;
+	}
 `;
 export const CarouselItem = styled.div<CarouselItemProps>`
 	//flex: 0 0 calc((100% - 2rem * (var(--visible) - 1)) / var(--visible));

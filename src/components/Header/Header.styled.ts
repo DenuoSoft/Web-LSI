@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
-import { fluidTypography } from '../../styles/fluidTypography';
+import {fluidTypography} from '../../styles/fluidTypography';
 
 /* export const HeaderBlock = styled.header<{ $isHomePage?: boolean }>`
 	grid-area: header;
@@ -15,8 +15,8 @@ import { fluidTypography } from '../../styles/fluidTypography';
 	z-index: 5;
 	padding: 0 3rem;
 `; */
-export const HeaderBlock = styled.header<{ 
-	$isScrolled?: boolean 
+export const HeaderBlock = styled.header<{
+	$isScrolled?: boolean;
 }>`
 	grid-area: header;
 	position: fixed;
@@ -27,21 +27,26 @@ export const HeaderBlock = styled.header<{
 	align-items: flex-end;
 	z-index: 5;
 	padding: 0 3rem;
-	
-	/* Всегда прозрачный фон */
 	background: transparent;
-	
-	/* Плавный переход для фона и тени */
-	transition: background-color 0.3s ease, box-shadow 0.3s ease;
-	
-	/* Фон появляется при прокрутке */
-	${props => props.$isScrolled && `
+	transition:
+		background-color 0.3s ease,
+		box-shadow 0.3s ease;
+	${(props) =>
+		props.$isScrolled &&
+		`
 		background-color: rgba(85, 90, 105, 0.92);
 		backdrop-filter: blur(8px);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 	`}
+	@media (max-width: ${breakpoints.xl}) {
+		height: 6.5rem;
+		padding: 0 3rem;
+	}
 `;
-export const HeaderContainer = styled.div<{ $isHomePage?: boolean; $isScrolled?: boolean; }>`
+export const HeaderContainer = styled.div<{
+	$isHomePage?: boolean;
+	$isScrolled?: boolean;
+}>`
 	max-width: 180rem;
 	width: 100%;
 	height: 100%;
@@ -50,8 +55,14 @@ export const HeaderContainer = styled.div<{ $isHomePage?: boolean; $isScrolled?:
 	align-items: flex-end;
 	gap: 8rem;
 	padding-bottom: 3rem;
-	border-bottom: 1px solid ${props => props.$isHomePage ? '#555a69' : '#c8d2e6'};
+	border-bottom: 1px solid
+		${(props) => (props.$isHomePage ? '#555a69' : '#c8d2e6')};
 	//z-index: 2;
+	@media (max-width: ${breakpoints.xl}) {
+		padding-bottom: 1.6rem;
+		gap: 4rem;
+	}
+
 	@media (max-width: ${breakpoints.md}) {
 		justify-content: space-between;
 		width: 100%;
@@ -63,6 +74,9 @@ export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	justify-content: flex-start;
 	gap: 6rem;
 
+	@media (max-width: ${breakpoints.xl}) {
+		gap: 3rem;
+	}
 	@media (max-width: ${breakpoints.md}) {
 		position: fixed;
 		top: 0;
@@ -79,35 +93,47 @@ export const HeaderNav = styled.div<{$isOpen: boolean}>`
 	}
 `;
 
-export const HeaderLink = styled(NavLink)<{ $isHomePage?: boolean; $isActive?: boolean }>`
-    display: flex;
+export const HeaderLink = styled(NavLink)<{
+	$isHomePage?: boolean;
+	$isActive?: boolean;
+}>`
+	--underline-offset: -3rem;
+	--underline-height: 0.5rem;
+	display: flex;
 	text-decoration: none;
-	color: ${props => props.$isHomePage ? '#28282d' : '#c8d2e6'};
+	color: ${(props) => (props.$isHomePage ? '#28282d' : '#c8d2e6')};
 	border: none;
-	//border-bottom: 2px solid ${props => props.$isActive ? '#c8d2e6' : 'transparent'}; 
+	//border-bottom: 2px solid ${(props) =>
+		props.$isActive ? '#c8d2e6' : 'transparent'};
 	outline: none;
 	margin: 0;
 	line-height: 1;
-	${fluidTypography({max: 20, min: 14})}
-    position: relative;
+	${fluidTypography({max: 20, min: 10})}
+	position: relative;
 	&::after {
 		content: '';
 		position: absolute;
-		bottom: -3rem; /* перекрываем border Container */
+		bottom: var(--underline-offset);
 		left: 0;
 		width: 100%;
-		height: 0.5rem;
-		background-color: ${props => props.$isActive ? '#c8d2e6' : 'transparent'};
+		height: var(--underline-height);
+		background-color: ${(props) =>
+			props.$isActive ? '#c8d2e6' : 'transparent'};
 		transition: background-color 0.3s ease;
+		@media (max-width: ${breakpoints.lg}) {
+		}
 	}
 
 	&.active {
 		font-weight: bold;
 	}
-	
+	@media (max-width: ${breakpoints.xl}) {
+		 --underline-offset: -2rem;
+	}		
 	@media (max-width: ${breakpoints.lg}) {
-		color: #555a69;
-	}	
+		 --underline-offset: -1.7rem;
+		 --underline-height: 0.4rem;
+	}
 	@media (max-width: ${breakpoints.md}) {
 		color: #c8d2e6;
 	}
@@ -120,14 +146,14 @@ export const HeaderContact = styled(NavLink)`
 	display: flex;
 	align-items: flex-end;
 	overflow: hidden;
-	
+
 	@media (max-width: ${breakpoints.xs}) {
 		display: none;
 	}
 `;
 
 export const HeaderLogo = styled.div`
-    height: 100%;
+	height: 100%;
 	width: auto;
 	display: flex;
 	align-items: flex-end;
@@ -136,7 +162,7 @@ export const HeaderLogo = styled.div`
 	}
 	@media (max-width: ${breakpoints.md}) {
 		height: 80%;
-	}	
+	}
 `;
 
 export const MobileMenuButton = styled.button<{$isOpen: boolean}>`

@@ -37,10 +37,10 @@ export const ItemsBlock = styled.div`
 	padding: 0 2rem;
 	
 	@media (max-width: ${breakpoints.xl}) {
-	
+		gap: 10rem;
 	}
 	@media (max-width: ${breakpoints.md}) {
-	
+	  gap: 6rem;
 	}
 	@media (max-width: ${breakpoints.xs}) {
 		padding: 0 1rem;

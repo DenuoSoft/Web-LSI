@@ -16,7 +16,7 @@ export const HomeBlock = styled.div`
 	/* Базовая ширина, от которой считаем пропорции.
 	   При 1440px = 88.6rem, дальше плавно уменьшается.
 	   Все блоки (HomeTextBlock, HomeBackground, HomeAkkut) привязаны к этой переменной. */
-	--slide-base: clamp(28rem, 45vw, 88.6rem);
+	--slide-base: clamp(28rem, 47.5vw, 88.6rem);
 	--slide-gap: clamp(1rem, 2.2vw, 3rem);
 `;
 
@@ -52,7 +52,16 @@ export const HomeTextBlock = styled.div`
 		-ms-transform: translateX(-99%);
 		transform: translateX(-99%);
 		background-color: #c8d2e6;
+		media (max-width: ${breakpoints.md}) {
+		display: none;
 	}
+	}
+@media (max-width: ${breakpoints.md}) {
+		transform: skew(-13.5deg) translate3d(15rem, 0, 0);
+		will-change: transform;
+		
+	}
+
 `;
 
 export const HomeTitle = styled.h1`
@@ -83,16 +92,15 @@ export const HomeText = styled.div`
 		color: #555a69;
 		${fluidTypography({ max: 35, min: 14 })}
 	}
+	@media (max-width: ${breakpoints.xxl}) {
+		padding: calc(100px + 2rem) 0 clamp(3rem, 6vw, 8rem) clamp(1.6rem, 4vw, 3rem);
+	}	
 	@media (max-width: ${breakpoints.xl}) {
-		padding-top: calc(100px + 5rem);
-	}
-
-	@media (max-width: ${breakpoints.lg}) {
-		padding-top: calc(100px + 4rem);
+		padding: 10rem 0 clamp(3rem, 6vw, 8rem) clamp(1.6rem, 4vw, 3rem);
 	}
 
 	@media (max-width: ${breakpoints.md}) {
-		padding-top: calc(100px + 3rem);
+		padding-top: 9rem;
 	}
 
 	@media (max-width: ${breakpoints.sm}) {
@@ -115,7 +123,13 @@ export const TextWrapper = styled.div`
 	-webkit-transform: skew(22.5deg) translateZ(0);
 	transform: skew(22.5deg) translateZ(0);
 	will-change: transform;
-	z-index: 2;
+	z-index: 5;
+	
+	@media (max-width: ${breakpoints.md}) {
+	transform: skew(13.5deg) translate3d(-15rem, 0, 0);
+	will-change: transform;
+	
+	}
 `;
 
 export const ImgContainer = styled.div`
@@ -192,8 +206,12 @@ export const HomeAkkut = styled.div<{$visible: boolean}>`
 		left: calc((var(--slide-base) - var(--slide-gap)) );
 		z-index: 3;
 	}
-	
 	@media (max-width: ${breakpoints.md}) {
+		left: calc((var(--slide-base)) + 11rem);
+		z-index: 3;
+		transform: skew(-13.5deg) translateZ(0);
+	}
+	@media (max-width: ${breakpoints.xs}) {
 		display: none;
 	}
 `;
@@ -225,10 +243,9 @@ export const NavigationDots = styled.div`
 	z-index: 10;
 	bottom: clamp(3rem, 18vh, 18rem);
 	left: clamp(1.6rem, 4vw, 6rem);
-
-	@media (max-width: ${breakpoints.md}) {
-		left: 50%;
-		transform: translateX(-50%);
+	
+	@media (max-width: ${breakpoints.xxl}) {
+		left: clamp(1.6rem, 4vw, 3rem);
 	}
 
 	@media (max-width: ${breakpoints.sm}) {

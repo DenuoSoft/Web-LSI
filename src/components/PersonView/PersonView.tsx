@@ -1,9 +1,6 @@
 import {useParams, useNavigate} from 'react-router-dom';
 import React from 'react';
-import {
-	getPersonById,
-	getPersonJsonData,
-} from '../PeopleView/people-data';
+import {getPersonById, getPersonJsonData} from '../PeopleView/people-data';
 import {
 	Description,
 	InfoBlock,
@@ -17,12 +14,15 @@ import {
 	PersonWrap,
 	PositionTitle,
 	ItemBadge,
-	ItemBadgeWrap
-
+	ItemBadgeWrap,
 } from './PersonView.styled';
-import {ArrowLeft} from '../../assets/img/arrow-left';
+import {ArrowLeft} from '../../shared/arrow-left';
 import {ItemIcon} from '../../styles/shared';
-import type { FormattedPart, ContentItem, ListItem } from '../../models/people-model';
+import type {
+	FormattedPart,
+	ContentItem,
+	ListItem,
+} from '../../models/people-model';
 
 export const PersonView = () => {
 	const {id} = useParams();
@@ -30,15 +30,18 @@ export const PersonView = () => {
 
 	// Получаем данные человека из people-data.ts
 	const person = getPersonById(Number(id));
-	
+
 	// Получаем JSON данные
 	const jsonData = getPersonJsonData(Number(id));
-    
+
 	if (!person) {
 		return <div>Person not found</div>;
 	}
 
-	const renderFormattedText = (formatted: FormattedPart[] | string, hyperlinks?: Record<string, string>) => {
+	const renderFormattedText = (
+		formatted: FormattedPart[] | string,
+		hyperlinks?: Record<string, string>,
+	) => {
 		if (typeof formatted === 'string') {
 			return <span>{formatted}</span>;
 		}
@@ -83,14 +86,17 @@ export const PersonView = () => {
 			switch (item.type) {
 				case 'heading': {
 					const level = Math.min(item.level || 1, 6);
-					const headingContent = item.formatted_text 
-						? renderFormattedText(item.formatted_text, jsonData?.hyperlinks) 
+					const headingContent = item.formatted_text
+						? renderFormattedText(item.formatted_text, jsonData?.hyperlinks)
 						: item.text;
-					
+
 					return React.createElement(
 						`h${level}`,
-						{ key: `heading-${index}`, style: { marginTop: '1.5rem', marginBottom: '0.5rem' } },
-						headingContent
+						{
+							key: `heading-${index}`,
+							style: {marginTop: '1.5rem', marginBottom: '0.5rem'},
+						},
+						headingContent,
 					);
 				}
 
@@ -99,41 +105,49 @@ export const PersonView = () => {
 					const isTableRow = item.style === 'TableRow';
 					const paragraphStyle: React.CSSProperties = {
 						marginBottom: '0.5rem',
-						...(isTableRow && { 
+						...(isTableRow && {
 							paddingLeft: '1rem',
 							borderLeft: '3px solid #e0e0e0',
 							paddingTop: '0.25rem',
 							paddingBottom: '0.25rem',
 							backgroundColor: index % 2 === 0 ? '#fafafa' : 'transparent',
-						})
+						}),
 					};
 
 					return (
 						<p key={`paragraph-${index}`} style={paragraphStyle}>
-							{item.formatted_text ? renderFormattedText(item.formatted_text, jsonData?.hyperlinks) : item.text}
+							{item.formatted_text
+								? renderFormattedText(item.formatted_text, jsonData?.hyperlinks)
+								: item.text}
 						</p>
 					);
 				}
 
 				case 'list':
 					return (
-						<ul 
-							key={`list-${index}`} 
-							style={{ 
-								listStyleType: item.list_type === 'numbered' ? 'decimal' : 'disc',
+						<ul
+							key={`list-${index}`}
+							style={{
+								listStyleType:
+									item.list_type === 'numbered' ? 'decimal' : 'disc',
 								paddingLeft: '2rem',
-								marginBottom: '0.5rem'
+								marginBottom: '0.5rem',
 							}}
 						>
 							{item.items?.map((listItem: ListItem, itemIndex: number) => (
-								<li 
+								<li
 									key={`list-item-${index}-${itemIndex}`}
-									style={{ 
+									style={{
 										marginLeft: `${(listItem.level || 0) * 1.5}rem`,
-										marginBottom: '0.25rem'
+										marginBottom: '0.25rem',
 									}}
 								>
-									{listItem.formatted_text ? renderFormattedText(listItem.formatted_text, jsonData?.hyperlinks) : listItem.text}
+									{listItem.formatted_text
+										? renderFormattedText(
+												listItem.formatted_text,
+												jsonData?.hyperlinks,
+											)
+										: listItem.text}
 								</li>
 							))}
 						</ul>
@@ -158,26 +172,18 @@ export const PersonView = () => {
 				<PersonItem>
 					<PersonImg style={{backgroundImage: `url(${person.img})`}} />
 					<ItemTitle>{person.title}</ItemTitle>
-					
-					
+
 					{person.position && <PositionTitle>{person.position}</PositionTitle>}
-					<PersonEmail>
-						{ person.email}
-					</PersonEmail>
+					<PersonEmail>{person.email}</PersonEmail>
 					<ItemBadgeWrap>
 						{person.badge.map((badge, index) => (
 							<ItemBadge key={index}>{badge}</ItemBadge>
 						))}
 					</ItemBadgeWrap>
 				</PersonItem>
-				
+
 				<InfoBlock>
-					
-					
-					
-					<Description>
-						{renderAllContent()}
-					</Description>
+					<Description>{renderAllContent()}</Description>
 				</InfoBlock>
 			</PersonWrap>
 		</PersonBlock>

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
 import {fadeInX} from '../../styles/animation';
 import { fluidTypography } from '../../styles/fluidTypography';
+import { ItemIcon } from '../../styles/shared';
 
 export const PersonBlock = styled.div`
 	width: 100%;
@@ -82,13 +83,33 @@ export const NavBack = styled.button`
 	align-items: center;
 	gap: 1.2rem;
 	cursor: pointer;
+		color: #c8d2e6; 
+		 ${ItemIcon} {
+		color: inherit;
+	  }
+	
+	  svg path {
+		fill: currentColor;
+		transition: fill 0.2s ease;
+	  }
+	
+	  &:hover {
+		color: #d7ff23;
+	  }
+	 
+	  &:hover ${ItemIcon} {
+		color: #d7ff23;
+		border-color: #d7ff23;
+	  }
+	
+	  &:hover svg path {
+		fill: #d7ff23;
+	  }
 `;
 export const NavBackText = styled.span`
-	color: #c8d2e6;
+	color: inherit;
 	font-size: clamp(1.4rem, 0.388vw + 1.654rem, 1.8rem);
-	&:hover {
-	color: #d7ff23;
-	}
+	
 `;
 export const ContentSection = styled.div`
 	margin-top: 3rem;

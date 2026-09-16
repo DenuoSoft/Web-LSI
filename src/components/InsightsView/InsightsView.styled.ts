@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {fadeInY} from '../../styles/animation';
 import {breakpoints} from '../../styles/breakpoints';
 import {fluidTypography} from '../../styles/fluidTypography';
+import { ItemIcon } from '../../styles/shared';
 
 export const InsightsBlock = styled.div`
 	width: 100%;
@@ -56,16 +57,79 @@ export const InsightsItem = styled.div`
 		width: 100%;
 	}
 `;
-export const SelectedItem = styled.div`
+export const InsightPageBlock = styled.div`
 	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	color: #555a69;
+	width: 100%;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 5rem;
+	color: #c8d2e6;
+	z-index: 1;
 	h2 {
 		${fluidTypography({max: 20, min: 16})}
 	}
 	p {
 		${fluidTypography({max: 16, min: 14})}
 	}
+`;
+export const InsightPageWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 85%;
+`
+export const InsightPageTitle = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	&::before {
+		content: '';
+		position: absolute;
+		left: 30rem;
+		width: 0.8rem;
+		height: 2.6rem;
+		-webkit-transform: skew(-22deg) scale(0);
+		-ms-transform: skew(-22deg) scale(0);
+		transform: skew(-22deg) scale(1);
+		background: #d7ff23;
+	}
+`
+export const InsightPageContent = styled.div`
+    display: flex;
+   
+`;
+export const NavBack = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 1.2rem;
+	height: 3rem;
+	cursor: pointer;
+	color: #c8d2e6; 
+	 ${ItemIcon} {
+    color: inherit;
+  }
+
+  svg path {
+    fill: currentColor;
+    transition: fill 0.2s ease;
+  }
+
+  &:hover {
+    color: #d7ff23;
+  }
+ 
+  &:hover ${ItemIcon} {
+    color: #d7ff23;
+    border-color: #d7ff23;
+  }
+
+  &:hover svg path {
+    fill: #d7ff23;
+  }
+`;
+export const NavBackText = styled.span`
+	color: inherit;
+	font-size: clamp(1.4rem, 0.388vw + 1.654rem, 1.8rem);
+	
 `;
 export const HeadingTag = styled.div``;

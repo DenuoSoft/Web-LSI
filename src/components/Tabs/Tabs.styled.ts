@@ -74,7 +74,7 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 		content: '';
 		display: inline-block;
 		max-width: 100%;
-		//width: ${({$isActive}) => ($isActive ? 'min(550px, 100%)' : '0')};
+		//width: ${({$isActive}) => ($isActive ? 'min(650px, 100%)' : '0')};
 		height: 1px;
 		z-index: -1;
 		background: #c8d2e6;
@@ -83,15 +83,21 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 		opacity: ${({$isActive}) => ($isActive ? 1 : 0)};
 		transform: scaleX(${({$isActive}) => ($isActive ? 1 : 0)});
 		transform-origin: left;
+		@media (max-width: ${breakpoints.xxl}) {
+				width: 35rem;
+			}
 	}
 	
 	&:hover {
 		color: #d7ff23;
 
 		&::after {
-			width: 550px;
+			width: 65rem;
 			opacity: 1;
 			transform: scaleX(1);
+			@media (max-width: ${breakpoints.xxl}) {
+				width: 55rem;
+			}
 		}
 	}
 
@@ -150,6 +156,7 @@ export const TabsAkkut = styled.div<{
 	${({$variant, $visible}) =>
 		$variant === 'insights' &&
 		css`
+			position: absolute;
 			background-color: #d7ff23;
 			top: 18rem;
 			right: 39rem;

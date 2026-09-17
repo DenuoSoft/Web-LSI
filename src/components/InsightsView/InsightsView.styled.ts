@@ -13,6 +13,10 @@ export const InsightsBlock = styled.div`
 	//margin-top: 2rem;
 	animation: ${fadeInY} 0.5s ease-in;
 	z-index: 1;
+	@media (max-width: ${breakpoints.xl}) {
+	   width: 85%;	
+	   gap: 2rem;
+	}
 `;
 export const InsightsItem = styled.div`
 	position: relative;
@@ -34,7 +38,7 @@ export const InsightsItem = styled.div`
 		background: #d7ff23;
 		transform: scaleY(0);
 		transform-origin: top;
-		will-change: transform;
+		//will-change: transform;
 		transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 	&:hover::before {
@@ -71,27 +75,50 @@ export const InsightPageBlock = styled.div`
 	p {
 		${fluidTypography({max: 16, min: 14})}
 	}
+	@media (max-width: ${breakpoints.md}) {
+		flex-direction: column;
+	}		
 `;
 export const InsightPageWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
   width: 85%;
+  @media (max-width: ${breakpoints.xxl}) {
+		width: 80%;
+	}
+	@media (max-width: ${breakpoints.xl}) {
+		width: 75%;
+	}
+	@media (max-width: ${breakpoints.lg}) {
+		width: 70%;
+	}	
+	@media (max-width: ${breakpoints.md}) {
+		width: 100%;
+		padding-left: 3rem;
+	}				
 `
 export const InsightPageTitle = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+	position: relative;
 	&::before {
 		content: '';
 		position: absolute;
-		left: 30rem;
+		left: -3rem;
 		width: 0.8rem;
 		height: 2.6rem;
 		-webkit-transform: skew(-22deg) scale(0);
 		-ms-transform: skew(-22deg) scale(0);
 		transform: skew(-22deg) scale(1);
 		background: #d7ff23;
+		@media (max-width: ${breakpoints.lg}) {
+		height: 2.2rem;
+		@media (max-width: ${breakpoints.md}) {
+		left: -2rem;
+	}		
+	}
 	}
 `
 export const InsightPageContent = styled.div`

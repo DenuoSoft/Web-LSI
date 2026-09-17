@@ -169,7 +169,8 @@ export const MobileMenuButton = styled.button<{$isOpen: boolean}>`
 	display: none;
 	background: none;
 	border: none;
-	color: ${(props) => (props.$isOpen ? '#c8d2e6' : '#000')};
+	//color: ${(props) => (props.$isOpen ? '#c8d2e6' : '#000')};
+	color: #c8d2e6;
 	font-size: 3.2rem;
 	cursor: pointer;
 	z-index: 100;

@@ -12,10 +12,6 @@ export const HomeBlock = styled.div`
 	width: 100%;
 	flex-grow: 1;
 	overflow: hidden;
-
-	/* Базовая ширина, от которой считаем пропорции.
-	   При 1440px = 88.6rem, дальше плавно уменьшается.
-	   Все блоки (HomeTextBlock, HomeBackground, HomeAkkut) привязаны к этой переменной. */
 	--slide-base: clamp(28rem, 47.5vw, 88.6rem);
 	--slide-gap: clamp(1rem, 2.2vw, 3rem);
 `;
@@ -39,7 +35,7 @@ export const HomeTextBlock = styled.div`
 	background-color: #c8d2e6;
 	-webkit-transform: skew(-22.5deg) translateZ(0);
 	transform: skew(-22.5deg) translateZ(0);
-	will-change: transform;
+	//will-change: transform;
 
 	&::after {
 		content: "";
@@ -58,8 +54,6 @@ export const HomeTextBlock = styled.div`
 	}
 @media (max-width: ${breakpoints.md}) {
 		transform: skew(-13.5deg) translate3d(15rem, 0, 0);
-		will-change: transform;
-		
 	}
 
 `;
@@ -122,12 +116,12 @@ export const TextWrapper = styled.div`
 	flex-direction: column;
 	-webkit-transform: skew(22.5deg) translateZ(0);
 	transform: skew(22.5deg) translateZ(0);
-	will-change: transform;
+	//will-change: transform;
 	z-index: 5;
 	
 	@media (max-width: ${breakpoints.md}) {
-	transform: skew(13.5deg) translate3d(-15rem, 0, 0);
-	will-change: transform;
+	transform: skew(13.5deg) translateX(-15rem);
+	//will-change: transform;
 	
 	}
 `;
@@ -155,7 +149,7 @@ export const HomeBackground = styled.div`
 	width: calc((100% - var(--slide-base) - var(--slide-gap)) - 30.5vw);
 	height: 100%;
 	transform: skewX(-22.5deg) translateZ(0);
-	will-change: transform;
+	//will-change: transform;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -186,7 +180,7 @@ export const HomeAkkut = styled.div<{$visible: boolean}>`
 	background-color: #d7ff23;
 	width: clamp(6rem, 12vw, 18.4rem);
 	height: 49.38272vh;
-	left: calc((var(--slide-base) + var(--slide-gap)) + 28vw);
+	left: calc((var(--slide-base) + var(--slide-gap)) + 27vw);
 	top: 22.59259vh;
 	-webkit-transform: skew(-22.5deg) translateZ(0);
 	transform: skew(-22.5deg) translateZ(0);

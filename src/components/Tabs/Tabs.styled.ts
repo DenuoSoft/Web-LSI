@@ -7,7 +7,7 @@ export const TabsWrap = styled.div<{$variant: TabsVariant}>`
 	width: 100%;
 	height: 100%;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	gap: 15rem;
 	z-index: 3;
 
@@ -15,6 +15,10 @@ export const TabsWrap = styled.div<{$variant: TabsVariant}>`
 		$variant === 'services' &&
 		css`
 			position: relative;
+			@media (max-width: ${breakpoints.xl}) {
+			   gap: 0;
+			}
+			
 		`}
 	${({$variant}) =>
 		$variant === 'insights' &&
@@ -32,10 +36,17 @@ export const TabsBlock = styled.div<{$variant: TabsVariant}>`
 	flex-direction: column;
 	gap: 4rem;
 	z-index: 2;
-
+		
 	@media (max-width: ${breakpoints.sm}) {
 		width: 18rem;
 	}
+	${({$variant}) =>
+		$variant === 'services' &&
+		css`
+			@media (max-width: ${breakpoints.md}) {
+			
+			}
+		`}	
 	${({$variant}) =>
 		$variant === 'insights' &&
 		css`
@@ -43,7 +54,7 @@ export const TabsBlock = styled.div<{$variant: TabsVariant}>`
 			flex-direction: row;
 			justify-content: flex-start;
 			gap: 3rem;
-
+			}   
 			@media (max-width: ${breakpoints.sm}) {
 				flex-wrap: wrap;
 				gap: 1.5rem;
@@ -86,6 +97,9 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 		@media (max-width: ${breakpoints.xxl}) {
 				width: 35rem;
 			}
+		@media (max-width: ${breakpoints.md}) {
+				display: none;
+			}		
 	}
 	
 	&:hover {
@@ -146,11 +160,15 @@ export const TabsAkkut = styled.div<{
 				width: 35rem;
 			}
 			@media (max-width: ${breakpoints.xl}) {
-				width: 25rem;
+				width: 27rem;
+				margin-left: 10rem
 			}
 			@media (max-width: ${breakpoints.lg}) {
 				width: 20rem;
 			}
+			@media (max-width: ${breakpoints.md}) {
+				display: none;
+			}	
 		`}
 
 	${({$variant, $visible}) =>
@@ -164,7 +182,6 @@ export const TabsAkkut = styled.div<{
 			width: 11.5rem;
 			transform: skew(-22.5deg) translate3d(0, 2vh, 0);
 			-webkit-transform: skew(-22.5deg) translate3d(0, 2vh, 0);
-
 			/* начальное состояние — обрезано слева */
 			clip-path: inset(0 100% 0 0);
 			-webkit-clip-path: inset(0 100% 0 0);
@@ -212,6 +229,12 @@ export const TabContent = styled.div<{$variant: TabsVariant}>`
 			flex-direction: column;
 			align-items: flex-start;
 			gap: 2rem;
+			@media (max-width: ${breakpoints.xl}) {
+			   width: 33%
+			}
+			@media (max-width: ${breakpoints.md}) {
+				width: 50%;
+			}		   
 		`}
 
 	${({$variant}) =>
@@ -223,6 +246,10 @@ export const TabContent = styled.div<{$variant: TabsVariant}>`
 			//justify-content: space-between;
 			//gap: 4rem;
 			//margin-top: 3rem;
+			@media (max-width: ${breakpoints.xl}) {
+			  
+
+			}
 		`}
 `;
 export const TabsImg = styled.div<{$variant: TabsVariant}>`

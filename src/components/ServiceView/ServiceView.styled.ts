@@ -46,6 +46,7 @@ gap: 1rem;
 list-style: none;
   padding: 0;
   margin: 0;
+width: 100%;  
 ${fluidTypography({max: 20, min: 14})}
 `
 export const ServiceListItem = styled.li`

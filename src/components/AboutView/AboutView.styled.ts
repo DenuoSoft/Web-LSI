@@ -7,9 +7,9 @@ export const AboutBlock = styled.div<{ $visible: boolean }>`
 	--slide-gap: clamp(1rem, 2.2vw, 3rem);
 	--slide-padding: clamp(1.5rem, 5vw, 10rem);
 	--accent-width: clamp(0.4rem, 0.6vw, 0.8rem);
-	--accent-height: clamp(1.4rem, 1.8vw, 2.6rem);
+	--accent-height: clamp(1.4rem, 2vw, 2.6rem);
 	--stripe-width: clamp(2.5rem, 5.8vw, 11.5rem);
-width: 100%;
+     width: 100%;
 	display: flex;
 	padding: 0 var(--slide-padding);
 	gap: var(--slide-gap);
@@ -21,12 +21,12 @@ width: 100%;
 		content: '';
 		position: absolute;
 		z-index: 2;
-		top: 50%;
+		top: 45%;
 		transform: translateY(-50%) skewX(-22.5deg);
-		height: calc(var(--slide-base) * 0.82);
+		height: calc(var(--slide-base) * 0.7);
 		width: var(--stripe-width);
 		/* центр полоски на стыке картинки и контента */
-		right: calc(var(--slide-base) - 30rem);
+		right: calc(var(--slide-base) - 31rem);
 		background: #d7ff23;
 
 		clip-path: inset(0 0 100% 0);
@@ -68,7 +68,7 @@ export const AboutItem = styled.div`
 	&::before {
 		content: '';
 		position: absolute;
-		left: calc(var(--slide-gap) * -1.2);
+		left: calc(var(--slide-gap) * -1);
 		top: calc(var(--accent-height) - 1rem);
 		transform: translateY(-50%) skew(-22deg);
 		width: var(--accent-width);
@@ -150,4 +150,9 @@ export const AboutImage = styled.div`
 			border-radius: var(--slide-gap);
 		}
 	}
+	@media (max-width: ${breakpoints.lg}) {
+		img {
+		display: none;
+		} 
+	}	
 `;

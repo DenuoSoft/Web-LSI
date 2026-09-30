@@ -17,6 +17,7 @@ import {
 } from './HomeView.styled';
 import {homeData} from './home-data';
 import type {HomeDataItem} from './home-data';
+import { RoundButton } from '../../shared/buttons/RoundButton';
 
 export const HomeView = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -127,7 +128,7 @@ export const HomeView = () => {
 
 					</TextWrapper>
 					
-					
+					<RoundButton>Learn more</RoundButton>
 				</HomeTextBlock>
                  <NavigationDots>
 						{homeData.map((_, index) => (
@@ -139,7 +140,8 @@ export const HomeView = () => {
 								onMouseLeave={handleMouseLeave}
 							/>
 						))}
-					</NavigationDots> 
+				</NavigationDots>
+				
 				<ImgContainer>
 					<ImageWrapper>
 						<SlideContent $isTransitioning={isTransitioning} $direction="left">

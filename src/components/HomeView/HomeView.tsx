@@ -123,7 +123,7 @@ export const HomeView = () => {
 						)}
 					</TextWrapper>
 
-					<RoundButton>Learn more</RoundButton>
+					<RoundButton variant="main">Learn more</RoundButton>
 				</HomeTextBlock>
 				<NavigationDots>
 					{homeData.map((_, index) => (

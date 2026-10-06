@@ -7,19 +7,22 @@ export const TabsWrap = styled.div<{$variant: TabsVariant}>`
 	width: 100%;
 	height: 100%;
 	display: flex;
-	justify-content: space-between;
-	gap: 15rem;
+	gap: 10rem;
 	z-index: 3;
 
 	${({$variant}) =>
 		$variant === 'services' &&
 		css`
 			position: relative;
+			align-items: center;
+			justify-content: center;
+			gap: 4rem;
+			padding: 0 10rem;
 			@media (max-width: ${breakpoints.xl}) {
-			   gap: 0;
+				gap: 2rem;
 			}
-			
 		`}
+
 	${({$variant}) =>
 		$variant === 'insights' &&
 		css`
@@ -30,23 +33,28 @@ export const TabsWrap = styled.div<{$variant: TabsVariant}>`
 		`}
 `;
 
-export const TabsBlock = styled.div<{$variant: TabsVariant}>`
-	width: 30%;
+export const TabsBlock = styled.div<{
+	$variant: TabsVariant;
+	$side?: 'left' | 'right';
+}>`
 	display: flex;
 	flex-direction: column;
 	gap: 4rem;
 	z-index: 2;
-		
+
 	@media (max-width: ${breakpoints.sm}) {
 		width: 18rem;
 	}
-	${({$variant}) =>
+
+	${({$variant, $side}) =>
 		$variant === 'services' &&
 		css`
-			@media (max-width: ${breakpoints.md}) {
-			
-			}
-		`}	
+			flex: 1;
+			width: auto;
+			min-width: 0;
+			align-items: ${$side === 'right' ? 'flex-end' : 'flex-start'};
+		`}
+
 	${({$variant}) =>
 		$variant === 'insights' &&
 		css`
@@ -54,21 +62,26 @@ export const TabsBlock = styled.div<{$variant: TabsVariant}>`
 			flex-direction: row;
 			justify-content: flex-start;
 			gap: 3rem;
-			}   
+
 			@media (max-width: ${breakpoints.sm}) {
 				flex-wrap: wrap;
 				gap: 1.5rem;
 			}
 		`}
 `;
-export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
+
+export const TabsItem = styled.div<{
+	$isActive: boolean;
+	$variant: TabsVariant;
+	$side?: 'left' | 'right';
+}>`
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	padding-bottom: 0.5rem;
 	${fluidTypography({max: 24, min: 12})};
 	cursor: pointer;
-	color: ${({$isActive}) => ($isActive ? '#d7ff23' : '--var(text)')};
+	color: ${({$isActive}) => ($isActive ? '#d7ff23' : '#c8d2e6')};
 	font-weight: ${({$isActive}) => ($isActive ? 'bold' : 'normal')};
 	transition: color 0.3s ease;
 	position: relative;
@@ -85,7 +98,6 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 		content: '';
 		display: inline-block;
 		max-width: 100%;
-		//width: ${({$isActive}) => ($isActive ? 'min(650px, 100%)' : '0')};
 		height: 1px;
 		z-index: -1;
 		background: #c8d2e6;
@@ -94,14 +106,15 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 		opacity: ${({$isActive}) => ($isActive ? 1 : 0)};
 		transform: scaleX(${({$isActive}) => ($isActive ? 1 : 0)});
 		transform-origin: left;
+
 		@media (max-width: ${breakpoints.xxl}) {
-				width: 35rem;
-			}
+			width: 35rem;
+		}
 		@media (max-width: ${breakpoints.md}) {
-				display: none;
-			}		
+			display: none;
+		}
 	}
-	
+
 	&:hover {
 		color: #d7ff23;
 
@@ -109,6 +122,7 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 			width: 65rem;
 			opacity: 1;
 			transform: scaleX(1);
+
 			@media (max-width: ${breakpoints.xxl}) {
 				width: 55rem;
 			}
@@ -126,15 +140,44 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 			}
 		`}
 
-	&:hover {
-		color: #d7ff23;
+	/* services: линия тянется от текста в сторону картинки */
+	${({$variant, $side}) =>
+		$variant === 'services' &&
+		css`
+			width: 100%;
+			flex-direction: ${$side === 'right' ? 'row-reverse' : 'row'};
 
-		&::after {
-			opacity: 1;
-			transform: scaleX(1);
-		}
+			&::after {
+				flex: 1;
+				width: auto;
+				transform-origin: ${$side === 'right' ? 'right' : 'left'};
+			}
+			&:hover::after {
+				width: auto;
+			}
+		`}
+`;
+
+/* Обёртка для картинки и кнопки в центре (только services) */
+export const TabsCenter = styled.div`
+	position: relative;
+	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	z-index: 5;
+
+	@media (max-width: ${breakpoints.md}) {
+		display: none;
 	}
-	
+`;
+
+/* Кнопка поверх нижней серой части картинки */
+export const TabsCta = styled.div`
+	position: absolute;
+	left: 50%;
+	bottom: 2rem;
+	transform: translateX(-50%);
+	z-index: 6;
 `;
 
 export const TabsAkkut = styled.div<{
@@ -151,24 +194,31 @@ export const TabsAkkut = styled.div<{
 	${({$variant}) =>
 		$variant === 'services' &&
 		css`
-			width: 45rem;
-			height: 59.38272vh;
-			right: 10rem;
+			--akkut-h: 59.38272vh;
+			width: 35rem;
+			height: var(--akkut-h);
 			transform: skew(-22.5deg) translate3d(0, 0.59259vh, 0);
 			-webkit-transform: skew(-22.5deg) translate3d(0, 0.59259vh, 0);
-			@media (max-width: ${breakpoints.xxl}) {
-				width: 35rem;
+
+			&::after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 10rem;
+				bottom: 0;
+				background-color: #c8d2e6;
+				z-index: 5;
 			}
+
 			@media (max-width: ${breakpoints.xl}) {
 				width: 27rem;
-				margin-left: 10rem
 			}
 			@media (max-width: ${breakpoints.lg}) {
 				width: 20rem;
 			}
 			@media (max-width: ${breakpoints.md}) {
 				display: none;
-			}	
+			}
 		`}
 
 	${({$variant, $visible}) =>
@@ -199,25 +249,20 @@ export const TabsAkkut = styled.div<{
 
 export const TabsAkkutImg = styled.img`
 	position: absolute;
-	inset: 0;
-	width: 100%;
+	top: 0;
+	left: -8rem;
+	width: calc(100% + 0.42 * var(--akkut-h));
 	height: 100%;
 	object-fit: cover;
 	object-position: center center;
 	display: block;
 	z-index: 5;
-	transform: skew(22.5deg) scale(1.5);
+	transform: skew(22.5deg);
 	transform-origin: center;
-	@media (max-width: ${breakpoints.xxl}) {
-		transform: skew(22.5deg) scale(1.6);
-	}
-	@media (max-width: ${breakpoints.xl}) {
-		transform: skew(22.5deg) scale(1.9);
-	}
-	@media (max-width: ${breakpoints.lg}) {
-		transform: skew(22.5deg) scale(2.2);
-	}
+
+	
 `;
+
 export const TabContent = styled.div<{$variant: TabsVariant}>`
 	display: flex;
 	position: relative;
@@ -225,35 +270,19 @@ export const TabContent = styled.div<{$variant: TabsVariant}>`
 	${({$variant}) =>
 		$variant === 'services' &&
 		css`
-			width: 20%;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 2rem;
-			@media (max-width: ${breakpoints.xl}) {
-			   width: 33%
-			}
-			@media (max-width: ${breakpoints.md}) {
-				width: 50%;
-			}		   
+			display: none;
 		`}
 
 	${({$variant}) =>
 		$variant === 'insights' &&
 		css`
 			width: 80%;
-			//flex-direction: column;
-			//align-items: flex-start;
-			//justify-content: space-between;
-			//gap: 4rem;
-			//margin-top: 3rem;
-			@media (max-width: ${breakpoints.xl}) {
-			  
-
-			}
 		`}
 `;
+
 export const TabsImg = styled.div<{$variant: TabsVariant}>`
 	display: none;
+
 	${({$variant}) =>
 		$variant === 'insights' &&
 		css`
@@ -270,12 +299,11 @@ export const TabsImg = styled.div<{$variant: TabsVariant}>`
 				center left/cover;
 			-webkit-mask-repeat: no-repeat;
 			mask-repeat: no-repeat;
+
 			img {
 				display: block;
 				width: 100%;
 				height: 100%;
-				-o-object-position: center;
-				object-position: center;
 				-o-object-fit: cover;
 				object-fit: cover;
 				-o-object-position: center right;

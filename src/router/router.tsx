@@ -15,6 +15,7 @@ import {About} from '../pages/About';
 import { InsightPage } from '../components/InsightsView/InsightPage';
 import { EventPage } from '../components/EventsView/EventPage';
 import { NewsView } from '../components/NewsView/NewsView';
+import { CapaView } from '../components/CapaView/CapaView';
 
 export const router = createBrowserRouter(
 	[
@@ -34,9 +35,13 @@ export const router = createBrowserRouter(
 				{
 					path: '/capabilities',
 					element: <Services />,
-					handle: { theme: "light" }
+					
 				},
-				
+				{
+					path: '/capaview',
+					element: <CapaView />,
+					//handle: { theme: "light" }
+				},
 				{
 					path: '/people',
 					element: <People />,

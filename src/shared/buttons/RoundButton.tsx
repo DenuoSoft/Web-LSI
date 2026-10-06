@@ -1,14 +1,9 @@
-import type {ReactNode} from 'react';
+import type { ButtonProps } from '../../models/button-model';
 import {ButtonBlock, ButtonText} from './RoundButton.styled';
 
-interface RoundButtonProps {
-	children: ReactNode;
-	onClick?: () => void;
-}
-
-export const RoundButton = ({children, onClick}: RoundButtonProps) => {
+export const RoundButton = ({children, onClick, variant}: ButtonProps) => {
 	return (
-		<ButtonBlock onClick={onClick}>
+		<ButtonBlock onClick={onClick} $variant={variant}>
 			<ButtonText>{children}</ButtonText>
 		</ButtonBlock>
 	);

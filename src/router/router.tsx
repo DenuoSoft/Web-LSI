@@ -32,7 +32,7 @@ export const router = createBrowserRouter(
 					element: <About />,
 				},
 				{
-					path: '/services',
+					path: '/capabilities',
 					element: <Services />,
 					handle: { theme: "light" }
 				},

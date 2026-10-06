@@ -68,7 +68,7 @@ export const TabsItem = styled.div<{$isActive: boolean; $variant: TabsVariant}>`
 	padding-bottom: 0.5rem;
 	${fluidTypography({max: 24, min: 12})};
 	cursor: pointer;
-	color: ${({$isActive}) => ($isActive ? '#d7ff23' : '#c8d2e6')};
+	color: ${({$isActive}) => ($isActive ? '#d7ff23' : '--var(text)')};
 	font-weight: ${({$isActive}) => ($isActive ? 'bold' : 'normal')};
 	transition: color 0.3s ease;
 	position: relative;

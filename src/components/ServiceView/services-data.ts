@@ -90,5 +90,16 @@ export const services: servicesProps[] = [
 		description: '',
 		image: regulatory
 	},
+	{
+		id: 8,
+		title: 'Data Privacy',
+		text: 'Guidance on property transactions, disputes, and zoning laws.',
+		list: ['US, EU, Swiss and UK sanctions compliance',
+			'Russian countersanctions compliance ',
+			'Advice in connection with unblocking assets, including securities and dividend payouts',
+		],
+		description: '',
+		image: regulatory
+	},
 	
 ];

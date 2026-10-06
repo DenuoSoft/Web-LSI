@@ -9,7 +9,7 @@ const LogoWrapper = styled.div<{ $isHomePage: boolean }>`
     height: 100%;
     width: auto;
   
-    --logo-main-color: ${props => props.$isHomePage ? '#28282d' : '#c8d2e6'};
+    --logo-main-color: ${props => props.$isHomePage ? '#28282d' : 'var(--text)'};
     --logo-accent-color: ${props => props.$isHomePage ? '#d7ff23' : '#d7ff23'};
     --logo-hover-color: #d7ff23;
     

@@ -8,7 +8,8 @@ export const BackgroundLayer = styled.div`
     width: 100%;
     height: 100vh;
     z-index: 0;
-    background-color: #555a69;
+    background: var(--bg);
+    transition: background 0.3s ease;
     pointer-events: none;
 `;
 

@@ -85,7 +85,7 @@ export const Header = memo(() => {
 
 	const navLinks = [
 		{ to: '/about', label: 'About us' },
-		{ to: '/services', label: 'Services' },
+		{ to: '/services', label: 'Capabilities' },
 		{ to: '/people', label: 'People' },
 		{ to: '/insights', label: 'Insights' },
 	];

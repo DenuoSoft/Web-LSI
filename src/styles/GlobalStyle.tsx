@@ -2,8 +2,9 @@ import {createGlobalStyle} from 'styled-components';
 import {normalize} from 'styled-normalize';
 import Graphik from '../assets/fonts/GraphikLC-Regular.woff2';
 import { fluidTypography } from './fluidTypography';
+import type { Theme } from "./themes";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ $theme: Theme }>`
   ${normalize}
 
   *, *::before, *::after {
@@ -41,10 +42,14 @@ html {
   }
 
   :root {
+  --bg: ${({ $theme }) => $theme.background};
+  --text: ${({ $theme }) => $theme.text};
+  --logo: ${({ $theme }) => $theme.logo};
     --text-size-normal: 1rem;
     --text-size-14px: 1.4rem;
     --text-size-12px: 1.2rem;
     --box-shadow:  3px 3px 12px rgba(98, 121, 167, 0.1);
+    
   }
   a {
     text-decoration: none;

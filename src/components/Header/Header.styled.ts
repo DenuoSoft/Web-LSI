@@ -56,7 +56,7 @@ export const HeaderContainer = styled.div<{
 	gap: 8rem;
 	padding-bottom: 3rem;
 	border-bottom: 1px solid
-		${(props) => (props.$isHomePage ? '#555a69' : '#c8d2e6')};
+		${(props) => (props.$isHomePage ? '#555a69' : 'var(--text)')};
 	//z-index: 2;
 	@media (max-width: ${breakpoints.xl}) {
 		padding-bottom: 1.6rem;
@@ -101,7 +101,7 @@ export const HeaderLink = styled(NavLink)<{
 	--underline-height: 0.5rem;
 	display: flex;
 	text-decoration: none;
-	color: ${(props) => (props.$isHomePage ? '#28282d' : '#c8d2e6')};
+	color: ${(props) => (props.$isHomePage ? '#28282d' : 'var(--text)')};
 	border: none;
 	//border-bottom: 2px solid ${(props) =>
 		props.$isActive ? '#c8d2e6' : 'transparent'};
@@ -118,7 +118,7 @@ export const HeaderLink = styled(NavLink)<{
 		width: 100%;
 		height: var(--underline-height);
 		background-color: ${(props) =>
-			props.$isActive ? '#c8d2e6' : 'transparent'};
+			props.$isActive ? 'var(--text)' : 'transparent'};
 		transition: background-color 0.3s ease;
 		@media (max-width: ${breakpoints.lg}) {
 		}

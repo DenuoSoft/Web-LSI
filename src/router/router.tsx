@@ -14,6 +14,7 @@ import {LegalNotice} from '../pages/Legal';
 import {About} from '../pages/About';
 import { InsightPage } from '../components/InsightsView/InsightPage';
 import { EventPage } from '../components/EventsView/EventPage';
+import { NewsView } from '../components/NewsView/NewsView';
 
 export const router = createBrowserRouter(
 	[
@@ -42,6 +43,10 @@ export const router = createBrowserRouter(
 				{
 					path: '/person/:id',
 					element: <Person />,
+				},
+				{
+					path: '/news/:id',
+					element: <NewsView />,
 				},
 				{
 					path: '/insights',

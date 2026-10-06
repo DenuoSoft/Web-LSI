@@ -17,7 +17,7 @@ import {
 } from './HomeView.styled';
 import {homeData} from './home-data';
 import type {HomeDataItem} from './home-data';
-import { RoundButton } from '../../shared/buttons/RoundButton';
+import {RoundButton} from '../../shared/buttons/RoundButton';
 
 export const HomeView = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -98,7 +98,7 @@ export const HomeView = () => {
 		<HomeBlock>
 			<HomeWrapper>
 				<HomeTextBlock>
- 					<TextWrapper>
+					<TextWrapper>
 						<SlideContent $isTransitioning={isTransitioning} $direction="left">
 							<HomeText
 								onMouseEnter={handleMouseEnter}
@@ -106,11 +106,9 @@ export const HomeView = () => {
 							>
 								{currentItem.news}
 								<span className="date">{currentItem.date}</span>
-								
 							</HomeText>
-							
 						</SlideContent>
-						
+
 						{isTransitioning && (
 							<SlideContent
 								$isTransitioning={true}
@@ -118,30 +116,27 @@ export const HomeView = () => {
 								$isExiting={true}
 							>
 								<HomeText>
-									
 									{prevItem.news}
 									<span className="date">{prevItem.date}</span>
 								</HomeText>
 							</SlideContent>
 						)}
-						
-
 					</TextWrapper>
-					
+
 					<RoundButton>Learn more</RoundButton>
 				</HomeTextBlock>
-                 <NavigationDots>
-						{homeData.map((_, index) => (
-							<Dot
-								key={index}
-								active={index === currentIndex}
-								onClick={() => goToSlide(index)}
-								onMouseEnter={handleMouseEnter}
-								onMouseLeave={handleMouseLeave}
-							/>
-						))}
+				<NavigationDots>
+					{homeData.map((_, index) => (
+						<Dot
+							key={index}
+							active={index === currentIndex}
+							onClick={() => goToSlide(index)}
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+						/>
+					))}
 				</NavigationDots>
-				
+
 				<ImgContainer>
 					<ImageWrapper>
 						<SlideContent $isTransitioning={isTransitioning} $direction="left">

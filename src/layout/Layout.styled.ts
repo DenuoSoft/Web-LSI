@@ -15,7 +15,7 @@ export const BackgroundLayer = styled.div`
 
 export const LayoutBlock = styled.div`
     display: grid;
-    height: 100vh;
+    min-height: 100vh;
     grid-template-columns: minmax(0, auto) minmax(30rem, 180rem) minmax(0, auto);
     grid-template-rows: 10rem 1fr 13rem;
     grid-template-areas: 

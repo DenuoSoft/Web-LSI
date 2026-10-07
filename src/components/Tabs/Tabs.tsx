@@ -21,13 +21,12 @@ interface TabsExtendedProps extends TabsProps {
 
 export const Tabs = ({tabs, content, variant, images}: TabsExtendedProps) => {
 	const navigate = useNavigate();
+	// таб становится активным при наведении и остаётся им,
+	// пока пользователь не наведёт курсор на другой таб
 	const [activeTab, setActiveTab] = useState(tabs[0].name);
-	const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 	const [visible, setVisible] = useState(false);
 
-	// при наведении показываем картинку hover-таба, иначе — активного
-	const displayedTab = hoveredTab ?? activeTab;
-	const displayedImage = images?.[displayedTab];
+	const activeImage = images?.[activeTab];
 
 	useEffect(() => {
 		const id = requestAnimationFrame(() => setVisible(true));
@@ -36,9 +35,9 @@ export const Tabs = ({tabs, content, variant, images}: TabsExtendedProps) => {
 
 	const openService = (name: string) => navigate('/capaview', {state: {service: name}});
 
-	// первый клик выбирает таб, повторный клик по активному открывает страницу
 	const handleTabClick = (name: string) => {
-		if (variant === 'services' && name === activeTab) {
+	
+		if (variant === 'services') {
 			openService(name);
 			return;
 		}
@@ -46,20 +45,15 @@ export const Tabs = ({tabs, content, variant, images}: TabsExtendedProps) => {
 	};
 
 	const renderBlock = (list: TabItem[], side?: 'left' | 'right') => (
-		<TabsBlock
-			$variant={variant}
-			$side={side}
-			onMouseLeave={() => setHoveredTab(null)}
-		>
+		<TabsBlock $variant={variant} $side={side}>
 			{list.map((tab: TabItem) => (
 				<TabsItem
 					key={tab.name}
 					$variant={variant}
 					$side={side}
 					onClick={() => handleTabClick(tab.name)}
-					onMouseEnter={() => setHoveredTab(tab.name)}
-					onFocus={() => setHoveredTab(tab.name)}
-					onBlur={() => setHoveredTab(null)}
+					onMouseEnter={() => setActiveTab(tab.name)}
+					onFocus={() => setActiveTab(tab.name)}
 					$isActive={activeTab === tab.name}
 				>
 					<span className="tab-text">{tab.name}</span>
@@ -68,19 +62,15 @@ export const Tabs = ({tabs, content, variant, images}: TabsExtendedProps) => {
 		</TabsBlock>
 	);
 
-	// для services делим табы пополам: слева / справа от картинки
+
 	const half = Math.ceil(tabs.length / 2);
 	const leftTabs = tabs.slice(0, half);
 	const rightTabs = tabs.slice(half);
 
 	const akkut = (
 		<TabsAkkut $variant={variant} $visible={visible}>
-			{variant === 'services' && displayedImage && (
-				<TabsAkkutImg
-					key={displayedTab}
-					src={displayedImage}
-					alt={displayedTab}
-				/>
+			{variant === 'services' && activeImage && (
+				<TabsAkkutImg key={activeTab} src={activeImage} alt={activeTab} />
 			)}
 		</TabsAkkut>
 	);
@@ -93,7 +83,7 @@ export const Tabs = ({tabs, content, variant, images}: TabsExtendedProps) => {
 
 					<TabsCenter>
 						{akkut}
-						{displayedImage && (
+						{activeImage && (
 							<TabsCta>
 								<RoundButton
 									variant="capa"

@@ -64,7 +64,8 @@ html {
 h1 {
     ${fluidTypography({max: 32, min: 24})}
     margin: 0;
-    line-height: 1.2;
+    padding: 0;
+    line-height: 1;
   }
 
 //  h2 {

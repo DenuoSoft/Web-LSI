@@ -40,7 +40,7 @@ export const router = createBrowserRouter(
 				{
 					path: '/capaview',
 					element: <CapaView />,
-					//handle: { theme: "light" }
+					handle: { theme: "light" }
 				},
 				{
 					path: '/people',

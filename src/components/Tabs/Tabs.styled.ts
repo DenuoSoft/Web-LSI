@@ -144,21 +144,28 @@ export const TabsItem = styled.div<{
 	${({$variant, $side}) =>
 		$variant === 'services' &&
 		css`
+			--line-overlap: calc(4rem + 13vh);
 			width: 100%;
 			flex-direction: ${$side === 'right' ? 'row-reverse' : 'row'};
 
 			&::after {
 				flex: 1;
 				width: auto;
+				max-width: none;
+				${$side === 'right'
+					? 'margin-left: calc(-1 * var(--line-overlap));'
+					: 'margin-right: calc(-1 * var(--line-overlap));'}
 				transform-origin: ${$side === 'right' ? 'right' : 'left'};
 			}
 			&:hover::after {
 				width: auto;
 			}
+			@media (max-width: ${breakpoints.xl}) {
+				--line-overlap: calc(2rem + 13vh);
+			}	
 		`}
 `;
 
-/* Обёртка для картинки и кнопки в центре (только services) */
 export const TabsCenter = styled.div`
 	position: relative;
 	flex-shrink: 0;

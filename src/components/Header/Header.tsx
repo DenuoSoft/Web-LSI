@@ -8,10 +8,10 @@ import {
 	MobileMenuButton,
 	MobileOverlay,
 } from './Header.styled';
-import { useState, useEffect, memo } from 'react';
-import { useLocation, useMatch } from 'react-router-dom';
-import type { LinkProps } from 'react-router-dom';
-import { Logo } from '../../shared/logo';
+import {useState, useEffect, memo} from 'react';
+import {useLocation, useMatch} from 'react-router-dom';
+import type {LinkProps} from 'react-router-dom';
+import {Logo} from '../../shared/logo';
 
 interface NavLinkWithActiveProps extends LinkProps {
 	children: React.ReactNode;
@@ -48,6 +48,7 @@ export const Header = memo(() => {
 	const location = useLocation();
 
 	const isHomePage = location.pathname === '/';
+	const isCapaView = location.pathname === '/capaview';
 
 	// Обработчик скролла
 	useEffect(() => {
@@ -68,7 +69,7 @@ export const Header = memo(() => {
 			}
 		};
 
-		window.addEventListener('scroll', throttledScroll, { passive: true });
+		window.addEventListener('scroll', throttledScroll, {passive: true});
 
 		return () => {
 			window.removeEventListener('scroll', throttledScroll);
@@ -84,18 +85,15 @@ export const Header = memo(() => {
 	};
 
 	const navLinks = [
-		{ to: '/about', label: 'About us' },
-		{ to: '/capabilities', label: 'Capabilities' },
-		{ to: '/people', label: 'People' },
-		{ to: '/insights', label: 'Insights' },
+		{to: '/about', label: 'About us'},
+		{to: '/capabilities', label: 'Capabilities'},
+		{to: '/people', label: 'People'},
+		{to: '/insights', label: 'Insights'},
 	];
 
 	return (
-		<HeaderBlock $isScrolled={isScrolled}>
-			<HeaderContainer 
-				$isHomePage={isHomePage}
-				$isScrolled={isScrolled}
-			>
+		<HeaderBlock $isScrolled={isScrolled} $isCapaView={isCapaView}>
+			<HeaderContainer $isHomePage={isHomePage} $isScrolled={isScrolled}>
 				<HeaderContact to="/">
 					<HeaderLogo>
 						<Logo

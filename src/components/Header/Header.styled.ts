@@ -3,20 +3,9 @@ import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
 import {fluidTypography} from '../../styles/fluidTypography';
 
-/* export const HeaderBlock = styled.header<{ $isHomePage?: boolean }>`
-	grid-area: header;
-	position: fixed;
-	width: 100%;
-	height: 10rem;
-	//background: ${props => props.$isHomePage ? 'transparent' : '#555a69'};
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	z-index: 5;
-	padding: 0 3rem;
-`; */
 export const HeaderBlock = styled.header<{
 	$isScrolled?: boolean;
+	$isCapaView?: boolean;
 }>`
 	grid-area: header;
 	position: fixed;
@@ -34,9 +23,10 @@ export const HeaderBlock = styled.header<{
 	${(props) =>
 		props.$isScrolled &&
 		`
-		background-color: rgba(85, 90, 105, 0.92);
-		backdrop-filter: blur(8px);
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+		background-color: ${props.$isCapaView ? '#fff' : 'rgba(85, 90, 105, 0.92)'};
+		
+		//backdrop-filter: blur(8px);
+		//box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 	`}
 	@media (max-width: ${breakpoints.xl}) {
 		height: 6.5rem;
@@ -47,6 +37,7 @@ export const HeaderContainer = styled.div<{
 	$isHomePage?: boolean;
 	$isScrolled?: boolean;
 }>`
+    position: relative;
 	max-width: 180rem;
 	width: 100%;
 	height: 100%;
@@ -55,9 +46,20 @@ export const HeaderContainer = styled.div<{
 	align-items: flex-end;
 	gap: 8rem;
 	padding-bottom: 3rem;
-	border-bottom: 1px solid
-		${(props) => (props.$isHomePage ? '#555a69' : 'var(--text)')};
-	//z-index: 2;
+	
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: ${(props) => (props.$isScrolled ? '100vw' : '100%')};
+		height: 1px;
+		background-color: ${(props) =>
+			props.$isHomePage ? '#555a69' : 'var(--text)'};
+		transform: translateX(-50%);
+		transition: width 0.4s ease;
+		pointer-events: none;
+	}
 	@media (max-width: ${breakpoints.xl}) {
 		padding-bottom: 1.6rem;
 		gap: 4rem;
@@ -128,11 +130,11 @@ export const HeaderLink = styled(NavLink)<{
 		font-weight: bold;
 	}
 	@media (max-width: ${breakpoints.xl}) {
-		 --underline-offset: -2rem;
-	}		
+		--underline-offset: -2rem;
+	}
 	@media (max-width: ${breakpoints.lg}) {
-		 --underline-offset: -1.7rem;
-		 --underline-height: 0.4rem;
+		--underline-offset: -1.7rem;
+		--underline-height: 0.4rem;
 	}
 	@media (max-width: ${breakpoints.md}) {
 		color: #c8d2e6;

@@ -9,7 +9,7 @@ const hoverLook = css`
 	background: #fff;
 
 	&::before {
-		transform: rotate(20deg) translateX(50%);
+		transform: rotate(22.5deg) translateX(50%);
 	}
 `;
 
@@ -58,8 +58,8 @@ export const ButtonBlock = styled.button<{$variant: ButtonVariant}>`
 		$variant === 'capa' &&
 	css`    
 	        transform: translateZ(0);
-			bottom: 15rem;
-			left: 9rem;	
+			bottom: 10rem;
+			left: 6.6rem;	
 			${hoverLook}
 			
 

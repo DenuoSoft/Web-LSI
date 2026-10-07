@@ -5,7 +5,6 @@ import lamzin from '../../assets/img/lamzin.jpg';
 import panov from '../../assets/img/panov.png';
 import naberezhnaya from '../../assets/img/naberezhnaya.jpg';
 import alterman from '../../assets/img/alterman.jpg';
-import boikov from '../../assets/img/boikov.jpg';
 import klushin from '../../assets/img/klushin.jpg';
 import shabalin from '../../assets/img/shabalin.jpg';
 import sosedkincv from '../../data/cv/Sosedkin.json';
@@ -100,35 +99,26 @@ export const people: peopleProps[] = [
 		email: "maria.alterman@denuo.legal",
 		jsonData: jsonDataMap[6]
 	},
+	
 	{
 		id: 7,
-		title: 'Dmitry Boikov',
-		img: boikov,
-		badge: ['Coroprate'],
-		about: 'Dmitry Boikov advises foreign and Russian clients on various aspects of Russian corporate and commercial law. Dmitry assists in implementing M&A deals, advising clients on corporate governance, joint ventures, group structuring and Russian countersanctions.',
-		position: 'Senior Associate',
-		email: "dmitry.boikov@denuo.legal",
-		jsonData: jsonDataMap[7],
-	},
-	{
-		id: 8,
 		title:'Igor Klushin',
 		img: klushin,
 		badge: ['Litigation & Arbitration', 'Regulatory & Compliance'],
 		about: 'Igor Klushin advises on EU, UK, US and Swiss sanctions and represents clients in liaising with foreign sanctions regulators. In addition to his work on sanctions law, Igor focuses on litigation and international arbitration. He represents clients both in international arbitrations under a variety of arbitration rules, including those of the Arbitration Institute of the Stockholm Chamber of Commerce, the Hong Kong International Arbitration Centre, the International Chamber of Commerce, the International Commercial Arbitration Court at the Chamber of Commerce and Industry of the Russian Federation, and in litigations in Russia, primarily in corporate and commercial disputes.',
 		position: 'Senior Associate, MCIArb',
 		email: "igor.klushin@denuo.legal",
-		jsonData: jsonDataMap[8]
+		jsonData: jsonDataMap[7]
 	},
 	{
-		id: 9,
+		id: 8,
 		title:'Nikita Shabalin',
 		img: shabalin,
 		badge: ['Real Estate & Hospitality'],
 		about: 'Nikita Shabalin advises on EU, UK, US and Swiss sanctions and represents clients in liaising with foreign sanctions regulators. In addition to his work on sanctions law, Igor focuses on litigation and international arbitration. He represents clients both in international arbitrations under a variety of arbitration rules, including those of the Arbitration Institute of the Stockholm Chamber of Commerce, the Hong Kong International Arbitration Centre, the International Chamber of Commerce, the International Commercial Arbitration Court at the Chamber of Commerce and Industry of the Russian Federation, and in litigations in Russia, primarily in corporate and commercial disputes.',
 		position: 'Senior Associate, MCIArb',
 		email: "nikita.shabalin@denuo.legal",
-		jsonData: jsonDataMap[9]
+		jsonData: jsonDataMap[8]
 	},
 ];
 

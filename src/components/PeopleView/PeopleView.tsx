@@ -14,8 +14,9 @@ import {
 	ItemPosition,
 } from './PeopleView.styled';
 import {RoundButton} from '../../shared/buttons/RoundButton';
+import { memo } from 'react';
 
-export const PeopleView = () => {
+export const PeopleView = memo(() => {
 	const navigate = useNavigate();
 
 	const handlePersonClick = (id: number) => {
@@ -52,4 +53,4 @@ export const PeopleView = () => {
 			</PeopleGrid>
 		</>
 	);
-};
+});

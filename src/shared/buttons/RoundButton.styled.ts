@@ -47,8 +47,7 @@ export const ButtonBlock = styled.button<{$variant: ButtonVariant}>`
 
 	${({$variant}) =>
 		$variant === 'main' &&
-	css`
-		   
+		css`
 			&:hover {
 				${hoverLook}
 			}
@@ -56,14 +55,13 @@ export const ButtonBlock = styled.button<{$variant: ButtonVariant}>`
 
 	${({$variant}) =>
 		$variant === 'capa' &&
-	css`    
-	        transform: translateZ(0);
+		css`
+			transform: translateZ(0);
 			bottom: 10rem;
-			left: 6.6rem;	
+			left: 6.6rem;
 			${hoverLook}
-			
 
-  		&:hover {
+			&:hover {
 				background: #d7ff23;
 				&::before {
 					transform: none;
@@ -72,31 +70,30 @@ export const ButtonBlock = styled.button<{$variant: ButtonVariant}>`
 		`}
 	${({$variant}) =>
 		$variant === 'people' &&
-	css`    
+		css`
 			width: 8rem;
-			height: 8rem;	
-	        transform: translateZ(0);
+			height: 8rem;
+			transform: translateZ(0);
 			bottom: 8rem;
-			left: 10.2rem;	
+			left: 10.2rem;
 			${hoverLook}
 			
-		
-  		&:hover {
+
+			&:hover {
 				background: #d7ff23;
 				&::before {
 					transform: none;
 				}
 			}
-		`}	
+		`}
 `;
 
 export const ButtonText = styled.span<{$variant: ButtonVariant}>`
 	position: relative;
 	z-index: 1;
-	${({ $variant }) =>
-	$variant === 'people' &&
-	css`
-	   ${fluidTypography({max: 14, min: 10})}  
-	`
-	}
+	${({$variant}) =>
+		$variant === 'people' &&
+		css`
+			${fluidTypography({max: 14, min: 10})}
+		`}
 `;

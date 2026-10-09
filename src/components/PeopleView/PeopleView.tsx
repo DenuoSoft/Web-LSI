@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {people} from './people-data';
 import {
@@ -14,24 +15,42 @@ import {
 	ItemPosition,
 } from './PeopleView.styled';
 import {RoundButton} from '../../shared/buttons/RoundButton';
-import { memo } from 'react';
 
-export const PeopleView = memo(() => {
+export const PeopleView = () => {
 	const navigate = useNavigate();
+	const [activeId, setActiveId] = useState<number | null>(null);
 
 	const handlePersonClick = (id: number) => {
 		navigate(`/person/${id}`);
 	};
 
+	// Тап по картинке работает только на устройствах без hover,
+	// на десктопе раскрытием управляет :hover
+	const handleImageClick = (id: number) => {
+		if (!window.matchMedia('(hover: none)').matches) return;
+		setActiveId((prev) => (prev === id ? null : id));
+	};
+
+	// Тап вне раскрытой карточки закрывает её
+	useEffect(() => {
+		if (activeId === null) return;
+		const onPointerDown = (e: PointerEvent) => {
+			const target = e.target as Element | null;
+			if (!target?.closest('[data-active="true"]')) setActiveId(null);
+		};
+		document.addEventListener('pointerdown', onPointerDown);
+		return () => document.removeEventListener('pointerdown', onPointerDown);
+	}, [activeId]);
+
 	return (
 		<>
-			<PeopleTitle>people</PeopleTitle>
+			<PeopleTitle>People</PeopleTitle>
 			<PeopleGrid>
 				{people.map((lawer) => (
-					<PeopleItem key={lawer.id}>
+					<PeopleItem key={lawer.id} data-active={activeId === lawer.id}>
 						<PeopleWrap>
 							<ImageWrap>
-								<ImageBlock>
+								<ImageBlock onClick={() => handleImageClick(lawer.id)}>
 									<PeopleImg image={lawer.img} />
 								</ImageBlock>
 								<ButtonReveal>
@@ -53,4 +72,4 @@ export const PeopleView = memo(() => {
 			</PeopleGrid>
 		</>
 	);
-});
+};

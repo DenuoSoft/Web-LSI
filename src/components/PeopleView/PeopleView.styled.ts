@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {breakpoints} from '../../styles/breakpoints';
 import {fadeInX, fadeInY} from '../../styles/animation';
 import {fluidTypography} from '../../styles/fluidTypography';
@@ -26,9 +26,9 @@ export const PeopleTitle = styled.div`
 	width: 100%;
 	margin-top: 0;
 	line-height: 0;
-	margin-bottom: 5rem;
+	margin-bottom: clamp(2.4rem, 3vw, 5rem);
 	color: var(--text);
-	padding: 2rem 5rem;
+	padding: 2rem clamp(2rem, 2.6vw, 5rem);
 	${fluidTypography({max: 64, min: 16})}
 	font-weight: normal;
 
@@ -37,8 +37,8 @@ export const PeopleTitle = styled.div`
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 1.2rem;
-		height: 5rem;
+		width: clamp(0.8rem, 0.65vw, 1.2rem);
+		height: clamp(3.4rem, 2.6vw, 5rem);
 		-webkit-transform: skew(-22deg) scale(0);
 		-ms-transform: skew(-22deg) scale(0);
 		transform: skew(-22deg) scale(1);
@@ -48,47 +48,45 @@ export const PeopleTitle = styled.div`
 
 export const PeopleGrid = styled.div`
 	width: 100%;
+	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	row-gap: 4rem;
-	padding: 0 10rem;
-
-	@media (max-width: ${breakpoints.md}) {
-		row-gap: 2rem;
-		padding: 0 2rem;
-	}
-	@media (max-width: ${breakpoints.xs}) {
-		row-gap: 1rem;
-	}
+	row-gap: clamp(2rem, 3vw, 4rem);
+	padding: 0 clamp(2rem, 5.3vw, 10rem);
 `;
 
 export const PeopleItem = styled.div`
-	width: calc(100% / 4);
+	box-sizing: border-box;
+	width: calc(100% / 4); /* > xxl */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
 	gap: 3rem;
-	padding: 2.4rem;
+	padding: clamp(2rem, 1.3vw, 2.4rem);
 	cursor: pointer;
 	position: relative;
 	z-index: 1;
+	-webkit-tap-highlight-color: transparent;
 
-	&:hover {
+	@media (hover: hover) {
+		&:hover {
+			z-index: 2;
+		}
+	}
+	&[data-active='true'] {
 		z-index: 2;
 	}
 
-	@media (max-width: ${breakpoints.xl}) {
+	@media (max-width: ${breakpoints.xxl}) {
 		width: calc(100% / 3);
 	}
-	@media (max-width: ${breakpoints.md}) {
+	@media (max-width: ${breakpoints.lg}) {
 		width: calc(100% / 2);
-		row-gap: 2rem;
 	}
 	@media (max-width: ${breakpoints.sm}) {
 		width: 100%;
-		row-gap: 1rem;
 	}
 `;
 
@@ -98,35 +96,41 @@ export const ItemBlock = styled.div`
 	gap: 1.6rem;
 `;
 
-// Должен идти после ItemBadgeWrap, так как ссылается на него в селекторе
 export const PeopleWrap = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 2rem;
-
-	/* бейджи показываются при наведении на карточку */
 `;
 
-/* Обёртка под картинку: относительно неё позиционируется название */
 export const ImageWrap = styled.div`
-	--w: 10rem;
-	--h: 15rem;
-	--s: 1.5; /* масштаб при hover */
+	--w: clamp(8rem, 5.3vw, 10rem); /* ширина картинки */
+	--h: calc(var(--w) * 1.5); /* высота, пропорция 2:3 */
+	--s: 1.5; /* масштаб в раскрытом состоянии */
 	--skew: 0.4142; /* tan(22.5deg) */
+
+	--text-left: calc(
+		100% + var(--w) * (var(--s) - 1) / 2 - var(--h) * var(--s) * var(--skew) / 2 +
+			3rem
+	);
 
 	position: relative;
 	width: fit-content;
+`;
 
-	@media (max-width: ${breakpoints.lg}) {
-		--w: 10rem;
-		--h: 15.3rem;
+/* Раскрытое состояние: :hover на устройствах с мышью
+   или data-active="true" на карточке (тап на тач-устройствах).
+   Hover обёрнут в (hover: hover), чтобы на таче он не «залипал» после тапа.
+   Объявлен после ImageWrap и PeopleItem, так как ссылается на них */
+const revealed = (styles: ReturnType<typeof css>) => css`
+	@media (hover: hover) {
+		${ImageWrap}:hover & {
+			${styles}
+		}
 	}
-
-	@media (max-width: ${breakpoints.sm}) {
-		--h: 14.7rem;
-		width: 100%;
+	${PeopleItem}[data-active='true'] & {
+		${styles}
 	}
 `;
 
@@ -135,12 +139,22 @@ export const ButtonReveal = styled.div`
 	pointer-events: none;
 	transition: opacity 0.4s ease;
 
-	${ImageWrap}:hover & {
+	
+	& > button {
+		width: calc(var(--w) * 0.8);
+		height: calc(var(--w) * 0.8);
+		left: calc(var(--edge-x) - var(--w) * 0.4);
+		right: auto;
+		bottom: calc(var(--h) * 0.53);
+	}
+
+	${revealed(css`
 		opacity: 1;
 		pointer-events: auto;
 		animation: ${fadeInX} 0.6s ease-in;
-	}
+	`)}
 `;
+
 export const ImageBlock = styled.div`
 	position: relative;
 	width: var(--w);
@@ -150,38 +164,27 @@ export const ImageBlock = styled.div`
 	transition: transform 0.4s ease;
 	overflow: hidden;
 	flex-shrink: 0;
+
 	&::after {
-    position: absolute;
-	content: "";
-	top: 0;
-	left: 0;
-	width: var(--w);
-	height: var(--h);
-	background-color: rgba(200, 210, 230, 0.7);
-	transition: background-color 0.8s ease;
-	} 
-	${ImageWrap}:hover & {
+		position: absolute;
+		content: '';
+		inset: 0;
+		background-color: rgba(200, 210, 230, 0.7);
+		transition: background-color 0.8s ease;
+	}
+
+	${revealed(css`
 		transform: skewX(-22.5deg) scale(var(--s)) translateZ(0);
 		&::after {
-		display: none;
-		
+			display: none;
 		}
-		
-	}
-
-	@media (max-width: ${breakpoints.sm}) {
-		width: 100%;
-	}
+	`)}
 `;
 
-// Должен идти после ImageBlock, так как ссылается на него в селекторе
 export const ItemWrap = styled.div`
 	position: absolute;
 	bottom: calc(var(--h) * (var(--s) - 1) / -2);
-	left: calc(
-		100% + var(--w) * (var(--s) - 1) / 2 - var(--h) * var(--s) * var(--skew) /
-			2 + 3rem
-	);
+	left: var(--text-left);
 
 	z-index: 3;
 	width: max-content;
@@ -197,25 +200,35 @@ export const ItemWrap = styled.div`
 		opacity 0.4s ease,
 		transform 0.4s ease;
 
-	${ImageWrap}:hover & {
+	${revealed(css`
 		opacity: 1;
 		transform: translateX(0);
-	}
+	`)}
 
-	@media (max-width: ${breakpoints.sm}) {
-		left: auto;
-		right: 0;
+	/* на узких экранах разрешаем перенос, чтобы текст не вылезал за край */
+	@media (max-width: ${breakpoints.xs}) {
+		width: auto;
+		max-width: 16rem;
 	}
 `;
 
 export const ItemTitle = styled.h6`
 	font-weight: bold;
 	white-space: nowrap;
+
+	@media (max-width: ${breakpoints.xs}) {
+		white-space: normal;
+	}
 `;
+
 export const ItemPosition = styled.h6`
 	font-weight: normal;
 	white-space: nowrap;
 	${fluidTypography({max: 20, min: 10})}
+
+	@media (max-width: ${breakpoints.xs}) {
+		white-space: normal;
+	}
 `;
 
 export const PeopleImg = styled.div<PeopleImgProps>`
@@ -229,11 +242,7 @@ export const PeopleImg = styled.div<PeopleImgProps>`
 	transform: skewX(22.5deg);
 	transition: background-size 0.4s ease;
 
-	${PeopleItem}:hover & {
+	${revealed(css`
 		background-size: 110%;
-	}
-
-	@media (max-width: ${breakpoints.sm}) {
-		box-shadow: none;
-	}
+	`)}
 `;

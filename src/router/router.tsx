@@ -45,6 +45,7 @@ export const router = createBrowserRouter(
 				{
 					path: '/people',
 					element: <People />,
+					handle: { theme: "light" }
 				},
 				{
 					path: '/person/:id',

@@ -5,4 +5,4 @@ export interface ButtonProps {
     children: ReactNode;
     onClick?: () => void;
 }
-export type ButtonVariant = 'main' | 'capa';
+export type ButtonVariant = 'main' | 'capa' | 'people';

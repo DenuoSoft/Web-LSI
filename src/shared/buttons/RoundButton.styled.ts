@@ -70,9 +70,33 @@ export const ButtonBlock = styled.button<{$variant: ButtonVariant}>`
 				}
 			}
 		`}
+	${({$variant}) =>
+		$variant === 'people' &&
+	css`    
+			width: 8rem;
+			height: 8rem;	
+	        transform: translateZ(0);
+			bottom: 8rem;
+			left: 10.2rem;	
+			${hoverLook}
+			
+		
+  		&:hover {
+				background: #d7ff23;
+				&::before {
+					transform: none;
+				}
+			}
+		`}	
 `;
 
-export const ButtonText = styled.span`
+export const ButtonText = styled.span<{$variant: ButtonVariant}>`
 	position: relative;
 	z-index: 1;
+	${({ $variant }) =>
+	$variant === 'people' &&
+	css`
+	   ${fluidTypography({max: 14, min: 10})}  
+	`
+	}
 `;

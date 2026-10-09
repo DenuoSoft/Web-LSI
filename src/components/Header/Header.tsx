@@ -49,6 +49,7 @@ export const Header = memo(() => {
 
 	const isHomePage = location.pathname === '/';
 	const isCapaView = location.pathname === '/capaview';
+	//const isPersonView = location.pathname === '/person';
 
 	// Обработчик скролла
 	useEffect(() => {

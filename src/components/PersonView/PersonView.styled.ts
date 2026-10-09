@@ -18,7 +18,7 @@ export const PersonWrap = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	gap: 20rem;
-	color: #c8d2e6;
+	color: var(--text);
 	animation: ${fadeInX} 0.5s ease-in;
 	@media (max-width: ${breakpoints.lg}) {
 		flex-direction: column;
@@ -83,7 +83,7 @@ export const NavBack = styled.button`
 	align-items: center;
 	gap: 1.2rem;
 	cursor: pointer;
-		color: #c8d2e6; 
+		color: var(--text); 
 		 ${ItemIcon} {
 		color: inherit;
 	  }
@@ -94,16 +94,16 @@ export const NavBack = styled.button`
 	  }
 	
 	  &:hover {
-		color: #d7ff23;
+		color: #a0b9be;
 	  }
 	 
 	  &:hover ${ItemIcon} {
-		color: #d7ff23;
-		border-color: #d7ff23;
+		color: #a0b9be;
+		border-color: #a0b9be;
 	  }
 	
 	  &:hover svg path {
-		fill: #d7ff23;
+		fill: #a0b9be;
 	  }
 `;
 export const NavBackText = styled.span`
@@ -162,7 +162,7 @@ export const ItemBadgeWrap = styled.div`
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	gap: 1.2rem;
-	color: #c8d2e6;
+	color: var(--text);
 	
 	@media (max-width: ${breakpoints.sm}) {
 		justify-content: center;
@@ -170,7 +170,7 @@ export const ItemBadgeWrap = styled.div`
 `;
 export const ItemBadge = styled.div`
 	padding: 0.2rem 0.8rem;
-	border: 0.2px solid #c8d2e6;
+	border: 0.2px solid var(--text);
 	border-radius: 0.4rem;
 	font-size: 1.2rem;
 	line-height: 167%;

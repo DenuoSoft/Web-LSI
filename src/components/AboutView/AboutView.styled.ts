@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { fluidTypography } from '../../styles/fluidTypography';
 import { breakpoints } from '../../styles/breakpoints';
+import { fadeInX } from '../../styles/animation';
 
 export const AboutBlock = styled.div<{ $visible: boolean }>`
 	--slide-base: clamp(28rem, 45vw, 70rem);
@@ -110,6 +111,7 @@ export const AboutText = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: var(--slide-gap);
+	animation: ${fadeInX} 0.9s ease-in;
 	${fluidTypography({ max: 20, min: 16 })}
 `;
 

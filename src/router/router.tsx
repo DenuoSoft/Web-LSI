@@ -49,6 +49,7 @@ export const router = createBrowserRouter(
 				{
 					path: '/person/:id',
 					element: <Person />,
+					handle: { theme: "light" }
 				},
 				{
 					path: '/news/:id',

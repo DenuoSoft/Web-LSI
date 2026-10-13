@@ -111,7 +111,7 @@ export const CapaContentBlock = styled.div`
 	display: grid;
 `;
 
-export const CapaMenu = styled.ul`
+/* export const CapaMenu = styled.ul`
 	grid-area: 1 / 1;
 	justify-self: start;
 	align-self: start;
@@ -166,7 +166,7 @@ export const CapaMenuButton = styled.button`
 	&:focus-visible {
 		color: #a0b9be;
 	}
-`;
+`; */
 
 export const CapaSections = styled.div`
 	grid-area: 1 / 1;

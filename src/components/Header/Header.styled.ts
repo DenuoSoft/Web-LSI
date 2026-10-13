@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {breakpoints} from '../../styles/breakpoints';
 import {fluidTypography} from '../../styles/fluidTypography';
@@ -6,6 +6,7 @@ import {fluidTypography} from '../../styles/fluidTypography';
 export const HeaderBlock = styled.header<{
 	$isScrolled?: boolean;
 	$isCapaView?: boolean;
+	$isPersonView?: boolean;
 }>`
 	grid-area: header;
 	position: fixed;
@@ -20,13 +21,12 @@ export const HeaderBlock = styled.header<{
 	transition:
 		background-color 0.3s ease,
 		box-shadow 0.3s ease;
-	${(props) =>
-		props.$isScrolled &&
-		`
-		background-color: ${props.$isCapaView ? '#fff' : 'rgba(85, 90, 105, 0.92)'};
-		
-		//backdrop-filter: blur(8px);
-		//box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	${({ $isScrolled, $isCapaView, $isPersonView }) =>
+	$isScrolled &&
+	css`
+		background-color: ${$isCapaView || $isPersonView
+			? '#fff'
+			: 'rgba(85, 90, 105, 0.92)'};
 	`}
 	@media (max-width: ${breakpoints.xl}) {
 		height: 6.5rem;

@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {services} from '../ServiceView/services-data';
 import image from '../../assets/img/regulatory.jpg';
@@ -9,9 +9,6 @@ import {
 	CapaInfo,
 	CapaKeyBlock,
 	CapaList,
-	CapaMenu,
-	CapaMenuButton,
-	CapaMenuItems,
 	CapaPage,
 	CapaSections,
 	CapaServiceBlock,
@@ -20,9 +17,10 @@ import {
 	CapaTitle,
 	CapaTitleBlock,
 } from './CapaView.styled';
-//import {CapaArrow} from '../../shared/capa-arrow';
+import LeftMenu, {type MenuLink} from '../../shared/Nav/LeftMenu';
+import {useScrollSpy} from '../../hooks/useScrollSpy';
 
-const menuLinks = [
+const menuLinks: MenuLink[] = [
 	{id: 'about', label: 'About'},
 	{id: 'key-facts', label: 'Key facts and recognition'},
 	{id: 'services', label: 'Services'},
@@ -42,68 +40,15 @@ export const CapaView = () => {
 	const service =
 		services.find((item) => item.title === selected) ?? services[0];
 
-	const [activeId, setActiveId] = useState(menuLinks[0].id);
-	// пока идёт скролл по клику, scroll-spy не должен перебивать выбор
-	const lockRef = useRef(false);
-
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, [service.id]);
-
-	// определяем активный раздел при скролле
-	useEffect(() => {
-		const update = () => {
-			if (lockRef.current) return;
-
-			// «линия чтения» на 35% высоты окна
-			const line = window.innerHeight * 0.35;
-			let current = menuLinks[0].id;
-
-			for (const {id} of menuLinks) {
-				const el = document.getElementById(id);
-				if (el && el.getBoundingClientRect().top <= line) current = id;
-			}
-
-			// дошли до низа страницы — последний раздел может быть коротким
-			const atBottom =
-				window.innerHeight + window.scrollY >=
-				document.documentElement.scrollHeight - 2;
-			if (atBottom) current = menuLinks[menuLinks.length - 1].id;
-
-			setActiveId(current);
-		};
-
-		update();
-		window.addEventListener('scroll', update, {passive: true});
-		window.addEventListener('resize', update);
-		return () => {
-			window.removeEventListener('scroll', update);
-			window.removeEventListener('resize', update);
-		};
-	}, []);
-
-	const handleMenuClick = useCallback((id: string) => {
-		const el = document.getElementById(id);
-		if (!el) return;
-
-		lockRef.current = true;
-		setActiveId(id);
-		el.scrollIntoView({behavior: 'smooth', block: 'start'});
-
-		const unlock = () => {
-			lockRef.current = false;
-			window.dispatchEvent(new Event('scroll')); // пересчитать активный пункт
-		};
-		window.addEventListener('scrollend', unlock, {once: true});
-		window.setTimeout(unlock, 1000); // запасной вариант для браузеров без scrollend
-	}, []);
+	const {activeId, handleClick} = useScrollSpy(menuLinks, {
+		resetKey: service.id,
+	});
 
 	return (
 		<CapaPage $visible={visible}>
-			<CapaInfo >
+			<CapaInfo>
 				<CapaTitleBlock>
 					<CapaBack type="button" onClick={() => navigate(-1)}>
-						{/* <CapaArrow /> */}
 						Back to capabilities
 					</CapaBack>
 					<CapaTitle>
@@ -112,18 +57,11 @@ export const CapaView = () => {
 				</CapaTitleBlock>
 
 				<CapaContentBlock>
-					<CapaMenu>
-						{menuLinks.map((link) => (
-							<CapaMenuItems key={link.id} $active={activeId === link.id}>
-								<CapaMenuButton
-									type="button"
-									onClick={() => handleMenuClick(link.id)}
-								>
-									{link.label}
-								</CapaMenuButton>
-							</CapaMenuItems>
-						))}
-					</CapaMenu>
+					<LeftMenu
+						links={menuLinks}
+						activeId={activeId}
+						onItemClick={handleClick}
+					/>
 
 					<CapaSections>
 						<CapaTextBlock id="about">
@@ -143,7 +81,7 @@ export const CapaView = () => {
 					</CapaSections>
 				</CapaContentBlock>
 			</CapaInfo>
-			<CapaImage >
+			<CapaImage>
 				<img src={image} />
 			</CapaImage>
 		</CapaPage>

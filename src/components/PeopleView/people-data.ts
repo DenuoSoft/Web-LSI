@@ -1,4 +1,4 @@
-import type {peopleProps, PersonJsonData} from '../../models/people-model';
+import type {Person, PersonJsonData} from '../../models/people-model';
 import sosedkin from '../../assets/img/sosedkin.jpg';
 import scott from '../../assets/img/scott.jpg';
 import lamzin from '../../assets/img/lamzin.jpg';
@@ -13,7 +13,6 @@ import lamzincv from '../../data/cv/Lamzin.json';
 import panovcv from '../../data/cv/Panov.json';
 import naberezhnayacv from '../../data/cv/Naberezhnaya.json';
 import altermancv from '../../data/cv/Alterman.json';
-import boikovcv from '../../data/cv/Boikov.json';
 import klushincv from '../../data/cv/Klushin.json';
 import shabalincv from '../../data/cv/Shabalin.json';
 
@@ -29,13 +28,12 @@ const jsonDataMap: Record<number, PersonJsonData> = {
 	4: asPersonJsonData(panovcv),
 	5: asPersonJsonData(naberezhnayacv),
 	6: asPersonJsonData(altermancv),
-	7: asPersonJsonData(boikovcv),
-	8: asPersonJsonData(klushincv),
-	9: asPersonJsonData(shabalincv)
+	7: asPersonJsonData(klushincv),
+	8: asPersonJsonData(shabalincv)
 	
 };
 
-export const people: peopleProps[] = [
+export const people: Person[] = [
 	{
 		id: 1,
 		title: 'Denis Sosedkin',
@@ -122,7 +120,7 @@ export const people: peopleProps[] = [
 	},
 ];
 
-export const getPersonById = (id: number): peopleProps | undefined => {
+export const getPersonById = (id: number): Person | undefined => {
 	return people.find(person => person.id === id);
 };
 

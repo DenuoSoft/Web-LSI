@@ -135,6 +135,7 @@ const revealed = (styles: ReturnType<typeof css>) => css`
 `;
 
 export const ButtonReveal = styled.div`
+    position: relative;
 	opacity: 0;
 	pointer-events: none;
 	transition: opacity 0.4s ease;
@@ -144,7 +145,7 @@ export const ButtonReveal = styled.div`
 		width: calc(var(--w) * 0.8);
 		height: calc(var(--w) * 0.8);
 		left: calc(var(--edge-x) - var(--w) * 0.4);
-		right: auto;
+		left: 10rem;
 		bottom: calc(var(--h) * 0.53);
 	}
 

@@ -49,7 +49,7 @@ export const Header = memo(() => {
 
 	const isHomePage = location.pathname === '/';
 	const isCapaView = location.pathname === '/capaview';
-	//const isPersonView = location.pathname === '/person';
+	const isPersonView = Boolean(useMatch('/person/:id'));
 
 	// Обработчик скролла
 	useEffect(() => {
@@ -93,7 +93,7 @@ export const Header = memo(() => {
 	];
 
 	return (
-		<HeaderBlock $isScrolled={isScrolled} $isCapaView={isCapaView}>
+		<HeaderBlock $isScrolled={isScrolled} $isCapaView={isCapaView} $isPersonView={isPersonView}>
 			<HeaderContainer $isHomePage={isHomePage} $isScrolled={isScrolled}>
 				<HeaderContact to="/">
 					<HeaderLogo>

@@ -74,11 +74,8 @@ export const ButtonBlock = styled.button<{$variant: ButtonVariant}>`
 			width: 8rem;
 			height: 8rem;
 			transform: translateZ(0);
-			bottom: 8rem;
-			left: 10.2rem;
 			${hoverLook}
 			
-
 			&:hover {
 				background: #d7ff23;
 				&::before {

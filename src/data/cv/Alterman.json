@@ -1,1394 +1,204 @@
 {
-  "source": "Julia Naberezhnaya.docx",
-  "conversion_date": "2026-08-13T12:58:53.175348",
-  "total_paragraphs": 16,
-  "total_tables": 2,
-  "has_hyperlinks": false,
-  "hyperlinks": {},
-  "content": [
+  "blocks": [
     {
-      "text": "CV",
-      "formatted_text": [
+      "type": "paragraph",
+      "text": "Maria Alterman focuses on advising clients on a wide range of general business law matters, including commercial and regulatory matters of doing business as well as M&A transactions.",
+      "runs": [
         {
-          "text": "CV",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        }
-      ],
-      "style": "CV - Heading",
-      "type": "paragraph"
-    },
-    {
-      "text": "Julia Naberezhnaya has13+ years of experience providing strategic tax advisory and tax compliance services for large multinational corporate clients, private companies across various sectors and high-net-worth individuals",
-      "formatted_text": [
-        {
-          "text": "Julia ",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        },
-        {
-          "text": "Naberezhnaya",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        },
-        {
-          "text": " ",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        },
-        {
-          "text": "h",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        },
-        {
-          "text": "as",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        },
-        {
-          "text": "13+ years of experience providing strategic tax advisory and tax compliance services for large multinational corporate clients, private companies across various sectors and high-net-worth individuals",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        }
-      ],
-      "style": "Normal",
-      "type": "paragraph"
-    },
-    {
-      "type": "list",
-      "list_type": "bullet",
-      "items": [
-        {
-          "level": 0,
-          "text": "Skilled in delivering high-level innovative, efficient and practical tax solutions for clients throughout the business lifecycle, focusing on full regulatory compliance and potential tax risk mitigation",
-          "formatted_text": [
-            {
-              "text": "Skilled in delivering high-level innovative, efficient and practical tax solutions for clients throughout the business lifecycle, focusing on full regulatory compliance and potential tax risk mitigation",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": null,
-                "color": null,
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "List Paragraph"
-        },
-        {
-          "level": 0,
-          "text": "Experienced project leader, well-versed in aligning client needs and cross-functional teams of various capacities and ensuring successful project planning, budgeting, execution and completion",
-          "formatted_text": [
-            {
-              "text": "Experienced project leader, well-versed in aligning client needs and cross-functional teams of various capacities and ensuring successful project planning, budgeting, execution and completion",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": null,
-                "color": null,
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "List Paragraph"
-        },
-        {
-          "level": 0,
-          "text": "Resourceful communicator, able to build productive relationships with senior clients from diverse backgrounds and present complex legal and financial information in a clear and understandable way",
-          "formatted_text": [
-            {
-              "text": "Resourceful communicator, able to build productive relationships with senior clients from diverse backgrounds and present complex legal and financial information in a clear and understandable way",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": null,
-                "color": null,
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "List Paragraph"
-        },
-        {
-          "level": 0,
-          "text": "Successfully passed the UAE Corporate Tax exam and is now registered as a UAE Tax Agent",
-          "formatted_text": [
-            {
-              "text": "S",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": null,
-                "color": null,
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "uccessfully passed the UAE Corporate Tax exam and is now registered as a UAE Tax Agent",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": null,
-                "color": null,
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "List Paragraph"
+          "text": "Maria Alterman focuses on advising clients on a wide range of general business law matters, including commercial and regulatory matters of doing business as well as M&A transactions. "
         }
       ]
     },
     {
+      "type": "paragraph",
+      "text": "Maria represents clients in connection with the sale and purchase of business and assets, setting up the joint ventures and structuring the investments. Maria’s experience includes ongoing advice to clients on navigating through regulatory regimes for various consumer products, including safety, sales, marketing, and advertising regulations.",
+      "runs": [
+        {
+          "text": "Maria represents clients in connection with the sale and purchase of business and assets, setting up the joint ventures and structuring the investments. Maria’s experience includes ongoing advice to clients on navigating through regulatory regimes for various consumer products, including safety, sales, marketing, and advertising regulations."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "In the recent years, Maria has been focusing on assisting clients with setting up the business and corporate structures in the UAE, negotiating the appropriate corporate governance approach with international partners, and advising the multi-jurisdictional businesses on compliance with fast changing sanctions and countersanctions restrictions.",
+      "runs": [
+        {
+          "text": "In the recent years, Maria has been focusing on assisting clients with setting up the business and corporate structures in the UAE, negotiating the appropriate corporate governance approach with international partners, and advising the multi-jurisdictional businesses on compliance with fast changing sanctions and countersanctions restrictions. "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Maria has considerable experience in banking, FMCG and pharmaceuticals sectors.",
+      "runs": [
+        {
+          "text": "Maria has considerable experience in banking, FMCG and pharmaceuticals sectors. "
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 6,
+      "text": "Education",
+      "runs": [
+        {
+          "text": "         Education"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "St Petersburg State University, Faculty of Law, Master of International Law, 2011",
+      "runs": [
+        {
+          "text": "St Petersburg State University, Faculty of Law, Master of International Law, 2011"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 6,
+      "text": "Languages",
+      "runs": [
+        {
+          "text": "         Languages"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "English",
+      "runs": [
+        {
+          "text": " English"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Russian",
+      "runs": [
+        {
+          "text": " Russian"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
       "text": "Experience",
-      "formatted_text": [
+      "runs": [
         {
-          "text": "Experience",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        }
-      ],
-      "style": "CV - Head",
-      "type": "paragraph"
-    },
-    {
-      "text": "Julia's selected experience includes:",
-      "formatted_text": [
-        {
-          "text": "Julia's selected experience includes",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        },
-        {
-          "text": ":",
-          "formatting": {
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strike": false,
-            "font_name": null,
-            "font_size": null,
-            "color": null,
-            "superscript": false
-          },
-          "hyperlink": null
-        }
-      ],
-      "style": "Normal",
-      "type": "paragraph"
-    },
-    {
-      "type": "list",
-      "list_type": "bullet",
-      "items": [
-        {
-          "level": 0,
-          "text": "supporting of a key international sportswear supplier on restructuring its business, including the development of a new product logistics chain with the UAE, which required a detailed tax analysis of CIT and VAT implications in the UAE",
-          "formatted_text": [
-            {
-              "text": "s",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "upport",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "ing",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": " ",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "of",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": " a key international sportswear supplier on restructuring its business, including the development of a new product logistics chain with the UAE, which required a detailed tax analysis of CIT and VAT implications in the UAE",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "CV - Head"
-        },
-        {
-          "level": 0,
-          "text": "advising a major CIS bank on the redomiciliation of the group’s holding company from Cyprus to the Abu Dhabi Global Market (ADGM) zone",
-          "formatted_text": [
-            {
-              "text": "a",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "dvis",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "ing",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": " a major CIS bank on the redomiciliation of the group’s holding company from Cyprus to the Abu Dhabi Global Market (ADGM) zone",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "CV - Head"
-        },
-        {
-          "level": 0,
-          "text": "providing support to a Luxembourg investor in the redomiciliation process from Luxembourg to ADGM and assisted with legal, tax and regulatory considerations throughout the transition",
-          "formatted_text": [
-            {
-              "text": "p",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "rovid",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "ing",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": " support to a Luxembourg investor in the redomiciliation process from Luxembourg to ADGM and assisted with legal, tax and regulatory considerations throughout the transition",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "CV - Head"
-        },
-        {
-          "level": 0,
-          "text": "providing guidance on VAT implications for sales transactions between Turkey and Saudi Arabia, specifically regarding the sale of an aircraft located in the UAE, which triggered the risk of tax obligations under UAE's VAT regulations",
-          "formatted_text": [
-            {
-              "text": "p",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "rovid",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "ing",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": " guidance on VAT implications for sales transactions between Turkey and Saudi Arabia, specifically regarding the sale of an aircraft located in the UAE, which triggered the risk of tax obligations under UAE's VAT regulations ",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "CV - Head"
-        },
-        {
-          "level": 0,
-          "text": "supporting foreign investors in analysing the need for VAT registration in the UAE following the acquisition of real estate in the UAE and its subsequent rental, with the complexity arising from the involvement of multiple parties on the investor's side",
-          "formatted_text": [
-            {
-              "text": "s",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "upport",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "ing",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": " foreign investors in analysing the need for VAT registration in the UAE following the acquisition of real estate in the UAE and its subsequent rental, with the complexity arising from the involvement of multiple parties on the investor's side",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "CV - Head"
-        },
-        {
-          "level": 0,
-          "text": "providing comprehensive support in the relocation of one of the world's leading IT companies from Russia to jurisdictions in both Europe and the UAE, including the establishment of new entities, development of the group's organisational structure and a thorough assessment of potential tax risks and burdens",
-          "formatted_text": [
-            {
-              "text": "p",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "rovid",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": "ing",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            },
-            {
-              "text": " comprehensive support in the relocation of one of the world's leading IT companies from Russia to jurisdictions in both Europe and the UAE, including the establishment of new entities, development of the group's organisational structure and a thorough assessment of potential tax risks and burdens",
-              "formatting": {
-                "bold": false,
-                "italic": false,
-                "underline": false,
-                "strike": false,
-                "font_name": null,
-                "font_size": 10.0,
-                "color": "28272D",
-                "superscript": false
-              },
-              "hyperlink": null
-            }
-          ],
-          "style": "CV - Head"
+          "text": "Experience"
         }
       ]
     },
     {
-      "type": "list",
-      "list_type": "numbered",
-      "items": [
+      "type": "paragraph",
+      "text": "Maria’s selected experience includes:",
+      "runs": [
         {
-          "level": 0,
-          "text": "",
-          "formatted_text": "",
-          "style": "CV - Bullet"
+          "text": "Maria’s selected experience includes:"
         }
       ]
     },
     {
-      "type": "table",
-      "data": [
-        [
-          [
-            {
-              "text": "",
-              "formatted_text": [],
-              "style": null
-            }
-          ],
-          [
-            {
-              "text": "Julia Naberezhnaya",
-              "formatted_text": [
-                {
-                  "text": "Julia Naberezhnaya",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "CV - Name"
-            },
-            {
-              "text": "Legal Director",
-              "formatted_text": [
-                {
-                  "text": "Legal Director",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "CV - Position"
-            }
-          ],
-          [
-            {
-              "text": "Julia Naberezhnaya",
-              "formatted_text": [
-                {
-                  "text": "Julia Naberezhnaya",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "CV - Name"
-            },
-            {
-              "text": "Legal Director",
-              "formatted_text": [
-                {
-                  "text": "Legal Director",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "CV - Position"
-            }
-          ]
-        ],
-        [
-          [
-            {
-              "text": "",
-              "formatted_text": [],
-              "style": null
-            }
-          ],
-          [
-            {
-              "text": "",
-              "formatted_text": [],
-              "style": null
-            }
-          ],
-          [
-            {
-              "text": "julia.naberezhnaya@denuo.legal",
-              "formatted_text": [
-                {
-                  "text": "julia.naberezhnaya",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                },
-                {
-                  "text": "@",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                },
-                {
-                  "text": "denuo",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                },
-                {
-                  "text": ".",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                },
-                {
-                  "text": "legal",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "CV - Address"
-            }
-          ]
-        ]
+      "type": "paragraph",
+      "text": "representing the private investor in connection with setting up a joint venture in the UAE in the natural resources sector;",
+      "runs": [
+        {
+          "text": "representing the private investor in connection with setting up a joint venture in the UAE in the natural resources sector; "
+        }
       ]
     },
     {
-      "type": "table",
-      "data": [
-        [
-          [
-            {
-              "text": "Credentials",
-              "formatted_text": [
-                {
-                  "text": "Credentials",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Head"
-            },
-            {
-              "text": "Education",
-              "formatted_text": [
-                {
-                  "text": "Education",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Subhead"
-            },
-            {
-              "text": "UAE Corporate Tax Diploma | PwC Academy | 2024",
-              "formatted_text": [
-                {
-                  "text": "UAE Corporate Tax Diploma | PwC Academy | 2024",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "UAE VAT | PwC Academy | 2024",
-              "formatted_text": [
-                {
-                  "text": "UAE VAT | PwC Academy | 2024",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "Master & Bachelor of Laws | St Petersburg State University | 2011",
-              "formatted_text": [
-                {
-                  "text": "Master & Bachelor of Laws | St Petersburg State University | 2011",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "Languages",
-              "formatted_text": [
-                {
-                  "text": "Languages",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Subhead"
-            },
-            {
-              "text": "English",
-              "formatted_text": [
-                {
-                  "text": "English",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "Russian",
-              "formatted_text": [
-                {
-                  "text": "Russian",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            }
-          ]
-        ],
-        [
-          [
-            {
-              "text": "Credentials",
-              "formatted_text": [
-                {
-                  "text": "Credentials",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Head"
-            },
-            {
-              "text": "Education",
-              "formatted_text": [
-                {
-                  "text": "Education",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Subhead"
-            },
-            {
-              "text": "UAE Corporate Tax Diploma | PwC Academy | 2024",
-              "formatted_text": [
-                {
-                  "text": "UAE Corporate Tax Diploma | PwC Academy | 2024",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "UAE VAT | PwC Academy | 2024",
-              "formatted_text": [
-                {
-                  "text": "UAE VAT | PwC Academy | 2024",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "Master & Bachelor of Laws | St Petersburg State University | 2011",
-              "formatted_text": [
-                {
-                  "text": "Master & Bachelor of Laws | St Petersburg State University | 2011",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "Languages",
-              "formatted_text": [
-                {
-                  "text": "Languages",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Subhead"
-            },
-            {
-              "text": "English",
-              "formatted_text": [
-                {
-                  "text": "English",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "Russian",
-              "formatted_text": [
-                {
-                  "text": "Russian",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            }
-          ]
-        ],
-        [
-          [
-            {
-              "text": "Credentials",
-              "formatted_text": [
-                {
-                  "text": "Credentials",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Head"
-            },
-            {
-              "text": "Education",
-              "formatted_text": [
-                {
-                  "text": "Education",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Subhead"
-            },
-            {
-              "text": "UAE Corporate Tax Diploma | PwC Academy | 2024",
-              "formatted_text": [
-                {
-                  "text": "UAE Corporate Tax Diploma | PwC Academy | 2024",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "UAE VAT | PwC Academy | 2024",
-              "formatted_text": [
-                {
-                  "text": "UAE VAT | PwC Academy | 2024",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "Master & Bachelor of Laws | St Petersburg State University | 2011",
-              "formatted_text": [
-                {
-                  "text": "Master & Bachelor of Laws | St Petersburg State University | 2011",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "Languages",
-              "formatted_text": [
-                {
-                  "text": "Languages",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Subhead"
-            },
-            {
-              "text": "English",
-              "formatted_text": [
-                {
-                  "text": "English",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            },
-            {
-              "text": "Russian",
-              "formatted_text": [
-                {
-                  "text": "Russian",
-                  "formatting": {
-                    "bold": false,
-                    "italic": false,
-                    "underline": false,
-                    "strike": false,
-                    "font_name": null,
-                    "font_size": null,
-                    "color": null,
-                    "superscript": false
-                  },
-                  "hyperlink": null
-                }
-              ],
-              "style": "Credentials - Bullet"
-            }
-          ]
-        ]
+      "type": "paragraph",
+      "text": "representing the private investor in connection with structuring of the investment in the IT sector in the UAE;",
+      "runs": [
+        {
+          "text": "representing the private investor in connection with structuring of the investment in the IT sector in the UAE; "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "representing the FMCG seller in negotiations with the UAE partner in connection with setting up the joint venture in the UAE;",
+      "runs": [
+        {
+          "text": "representing the FMCG seller in negotiations with the UAE partner in connection with setting up the joint venture in the UAE; "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "advising the food products manufacturer regarding the corporate governance of its business in the UAE;",
+      "runs": [
+        {
+          "text": "advising the food products manufacturer regarding the corporate governance of its business in the UAE; "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "advising global FMCG manufacturer on setting up the UAE structure to hold the IP assets of the group;",
+      "runs": [
+        {
+          "text": "advising global FMCG manufacturer on setting up the UAE structure to hold the IP assets of the group;"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "advising a European banking group on corporate and commercial matters, including structuring the payouts under various financial instruments and dividend payments for different shareholder groups;",
+      "runs": [
+        {
+          "text": "advising a European banking group on corporate and commercial matters, including structuring the payouts under various financial instruments and dividend payments for different shareholder groups; "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "providing complex legal support to a global tobacco company on launching and expanding next generation product business, including advice on commercial and regulatory matters in various jurisdictions;",
+      "runs": [
+        {
+          "text": "providing complex legal support to a global tobacco company on launching and expanding next generation product business, including advice on commercial and regulatory matters in various jurisdictions; "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "advising international clients on navigating through international sanctions and countersanctions regimes.",
+      "runs": [
+        {
+          "text": "advising international clients on navigating through international sanctions and countersanctions regimes. "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Career",
+      "runs": [
+        {
+          "text": "Career"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2022-present, legal director, Denuo (Dubai)",
+      "runs": [
+        {
+          "text": "2022-present, legal director, Denuo (Dubai) "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2010-2022, associate, senior associate, DLA Piper (St Petersburg)",
+      "runs": [
+        {
+          "text": "2010-2022, associate, senior associate, DLA Piper (St Petersburg)"
+        }
       ]
     }
   ]

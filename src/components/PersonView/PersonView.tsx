@@ -1,6 +1,10 @@
 import {useParams, useNavigate} from 'react-router-dom';
-import React from 'react';
+import React, {useRef} from 'react';
 import {getPersonById} from '../PeopleView/people-data';
+import {useScrollProgress} from '../../hooks/useScrollProgress';
+import { useReachedHeader } from '../../hooks/useReachedHeader';
+import { useReachedViewportRatio } from '../../hooks/useReachedViewportRatio';
+import {useScrolled} from '../../hooks/useScrolled';
 import {
 	BulletList,
 	DocH1,
@@ -11,8 +15,8 @@ import {
 	DocH6,
 	DocSection,
 	InfoBlock,
-	ItemBadge,
-	ItemBadgeWrap,
+//	ItemBadge,
+//	ItemBadgeWrap,
 	ItemTitle,
 	ListItem,
 	NavBack,
@@ -21,9 +25,14 @@ import {
 	Paragraph,
 	PersonBlock,
 	PersonEmail,
+	PersonEmailUnder,
+	PersonHead,
+	PersonHeadText,
 	PersonImg,
 	PersonImgWrap,
 	PersonItem,
+	PersonPosition,
+	PersonTitle,
 	PersonWrap,
 	PositionTitle,
 	Run,
@@ -180,7 +189,13 @@ const renderSection = (section?: SectionData): React.ReactNode => {
 export const PersonView = () => {
 	const {id} = useParams();
 	const navigate = useNavigate();
-	//const [visible, setVisible] = useState(false);
+	const personItemRef = useRef<HTMLDivElement>(null);
+	const experienceRef = useRef<HTMLDivElement>(null);
+	const reached = useReachedHeader(experienceRef, 15, [id]); // текст в липком блоке
+	const filled = useReachedViewportRatio(experienceRef, 0.5, [id]); // фон
+	const scrolled = useScrolled(10)
+	useScrollProgress(personItemRef, 0.5, [id]);
+	
 
 	// все хуки вызываются до раннего return
 	const {activeId, handleClick} = useScrollSpy(menuLinks, {
@@ -188,10 +203,7 @@ export const PersonView = () => {
 		resetKey: id, // при переходе к другому человеку страница прокручивается наверх
 	});
 	const menuVisible = useRevealOnScroll('experience', 0.5);
-	/* useEffect(() => {
-		const raf = requestAnimationFrame(() => setVisible(true));
-		return () => cancelAnimationFrame(raf);
-	}, []); */
+	
 
 	const person = getPersonById(Number(id));
 
@@ -227,17 +239,26 @@ export const PersonView = () => {
 			</NavBack>
 
 			<PersonWrap>
-				<PersonItem>
-					<PersonImgWrap>
-						<PersonImg src={person.img} />
-					</PersonImgWrap>
-
-					<PersonEmail>{person.email}</PersonEmail>
-					<ItemBadgeWrap>
+				<PersonItem ref={personItemRef}>
+					<PersonHead>
+						<PersonImgWrap>
+							<PersonImg src={person.img} />
+							
+						</PersonImgWrap>
+						
+						<PersonHeadText $visible={reached}>
+							<PersonTitle>{person.title}</PersonTitle>
+							<PersonPosition>{person.position}</PersonPosition>
+							<PersonEmail>{person.email}</PersonEmail>
+							
+						</PersonHeadText>
+					</PersonHead>
+					<PersonEmailUnder $hidden={scrolled}>{person.email}</PersonEmailUnder>
+					{/* <ItemBadgeWrap>
 						{person.badge.map((badge: string, index: number) => (
 							<ItemBadge key={index}>{badge}</ItemBadge>
 						))}
-					</ItemBadgeWrap>
+					</ItemBadgeWrap> */}
 					{menuVisible && (
 						<LeftMenu
 							links={links}
@@ -246,7 +267,6 @@ export const PersonView = () => {
 						/>
 					)}
 				</PersonItem>
-
 				<InfoBlock>
 					{/* Ряд: первая основная секция слева, карточки (h6) колонкой справа */}
 					<ItemTitle id="summary">{person.title}</ItemTitle>
@@ -260,7 +280,7 @@ export const PersonView = () => {
 
 					{/* Остальные основные секции — ниже, в колонку */}
 					{mainSections.length > 1 && (
-						<SectionsGroup id="experience">
+						<SectionsGroup id="experience" ref={experienceRef} $filled={filled}>
 							{mainSections.slice(1).map(renderSection)}
 						</SectionsGroup>
 					)}

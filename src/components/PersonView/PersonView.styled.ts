@@ -25,13 +25,61 @@ export const PersonWrap = styled.div`
 	}
 `;
 export const PersonItem = styled.div`
+	position: sticky;
+	top: 13rem; 
+	align-self: flex-start; 
+	flex-shrink: 0;
+	width: 40rem; /* фиксированная ширина, чтобы InfoBlock не "прыгал" при сжатии аватара */
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+	z-index: 2;
+	//background: var(--background, #fff); /* на мобилке блок перекрывает контент */
+
+	@media (max-width: ${breakpoints.lg}) {
+		width: 100%;
+	}
 `;
-export const PersonImgWrap = styled.div`
+export const PersonHead = styled.div`
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 1.6rem;
+`;
+
+export const PersonHeadText = styled.div<{$visible?: boolean}>`
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	transition:
+		opacity 0.3s ease,
+		visibility 0.3s ease;
+
+	${({$visible}) =>
+		$visible
+			? css`
+					opacity: 1;
+					visibility: visible;
+				`
+			: css`
+					/* вне потока, чтобы не занимать место рядом с большим аватаром */
+					position: absolute;
+					left: 0;
+					opacity: 0;
+					visibility: hidden;
+					pointer-events: none;
+				`}
+`;
+export const PersonImgWrap = styled.div<{
+	$compact?: boolean;
+	
+}>`
+	--avatar-size: 30rem;
 	flex-shrink: 0;
-	width: var(--avatar-size, 30rem);
+	/* --p (0..1) выставляет useScrollProgress на PersonItem */
+	width: calc(var(--avatar-size) + (120px - var(--avatar-size)) * var(--p, 0));
 	aspect-ratio: 1 / 1;
 	border-radius: 50%;
 	overflow: hidden;
@@ -49,16 +97,33 @@ export const PersonImg = styled.img`
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
-	/* box-shadow: rgba(85, 90, 105, 0.25) 0px 1.9rem 3.8rem,
-		rgba(85, 90, 105, 0.22) 0px 1.5rem 1.2rem; */
-	@media (max-width: ${breakpoints.lg}) {
+	/* @media (max-width: ${breakpoints.lg}) {
 		width: 25rem;
 		height: 25rem;
 	}
 	@media (max-width: ${breakpoints.md}) {
 		width: 20rem;
 		height: 20rem;
-	}
+	} */
+`;
+export const PersonTitle = styled.h6`
+	${fluidTypography({max: 27, min: 16})}
+	overflow-wrap: anywhere;
+`;
+export const PersonEmail = styled.h6`
+	${fluidTypography({max: 21, min: 12})}
+	font-weight: normal;
+`;
+export const PersonEmailUnder = styled(PersonEmail)<{$hidden?: boolean}>`
+	opacity: ${({$hidden}) => ($hidden ? 0 : 1)};
+	visibility: ${({$hidden}) => ($hidden ? 'hidden' : 'visible')};
+	transition: opacity 0.25s ease, visibility 0.25s ease;
+    color: var(--text);
+	`;
+export const PersonPosition = styled.h6`
+	${fluidTypography({max: 21, min: 12})}
+	font-weight: normal;
+	overflow-wrap: anywhere;
 `;
 export const InfoBlock = styled.div`
 	flex: 1;
@@ -74,13 +139,13 @@ export const InfoBlock = styled.div`
 `;
 export const ItemTitle = styled.h1`
 	display: flex;
-	${fluidTypography({ max: 64, min: 16 })}
+	${fluidTypography({max: 64, min: 16})}
 	font-weight: normal;
 	color: #28282d;
 `;
-export const PersonEmail = styled.h6``;
+
 export const PositionTitle = styled.h6`
-		${fluidTypography({ max: 21, min: 12 })}
+	${fluidTypography({max: 21, min: 12})}
 	font-weight: normal;
 `;
 
@@ -163,14 +228,29 @@ const headingBase = css`
 		margin-top: 0;
 	}
 `;
-export const SectionsGroup = styled.div<{$direction?: 'row' | 'column'}>`
+export const SectionsGroup = styled.div<{
+	$direction?: 'row' | 'column';
+	$filled?: boolean;
+}>`
+	position: relative;
 	width: 100%;
 	display: flex;
 	flex-direction: ${({$direction = 'column'}) => $direction};
 	align-items: flex-start;
 	gap: ${({$direction = 'column'}) =>
 		$direction === 'row' ? '4rem' : '2.4rem'};
-
+	padding-top: 3rem;
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0 -100vmax;
+		clip-path: inset(0 -100vmax);
+		z-index: -1;
+		background-color: #fff;
+		pointer-events: none;
+		opacity: ${({$filled}) => ($filled ? 1 : 0)};
+		transition: opacity 0.3s ease;
+	}
 	/* равные колонки только в ряду */
 	${({$direction}) =>
 		$direction === 'row' &&
@@ -181,6 +261,7 @@ export const SectionsGroup = styled.div<{$direction?: 'row' | 'column'}>`
 			& > :first-child {
 				flex: 3 1 0; /* основная секция: 3 части */
 			}
+
 			& > :last-child {
 				flex: 1 1 0; /* колонка карточек: 2 части */
 			}
@@ -251,7 +332,6 @@ export const Run = styled.span<{
 `;
 
 // Списки. Маркеры и нумерация меняются с глубиной вложенности
-const BULLET_STYLES = ['disc', 'circle', 'square'] as const;
 const NUMBER_STYLES = ['decimal', 'lower-alpha', 'lower-roman'] as const;
 
 const listBase = css<{$depth: number}>`
@@ -259,11 +339,39 @@ const listBase = css<{$depth: number}>`
 	margin: ${({$depth}) => ($depth === 0 ? '0.8rem 0 1.2rem' : '0.4rem 0 0')};
 	list-style-position: outside;
 `;
+export const ListItem = styled.li`
+	position: relative; /* точка отсчёта для ::before */
+	line-height: 1.6;
+	white-space: pre-line;
 
+	& + & {
+		margin-top: 0.4rem;
+	}
+`;
 export const BulletList = styled.ul<{$depth: number}>`
 	${listBase}
-	list-style-type: ${({$depth}) =>
-		BULLET_STYLES[$depth % BULLET_STYLES.length]};
+	${listBase}
+	list-style: none; /* стандартный маркер отключаем */
+
+	& > ${ListItem}::before {
+		content: '';
+		position: absolute;
+		top: 10px;
+		left: -26.5px;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background-color: rgb(200, 210, 230);
+	}
+	& > ${ListItem}:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		top: 15px;
+		left: -19.8px;
+		width: 1px;
+		height: 100%;
+		background-color: rgb(200, 210, 230);
+	}	
 `;
 
 export const NumberedList = styled.ol<{$depth: number}>`
@@ -272,11 +380,4 @@ export const NumberedList = styled.ol<{$depth: number}>`
 		NUMBER_STYLES[$depth % NUMBER_STYLES.length]};
 `;
 
-export const ListItem = styled.li`
-	line-height: 1.6;
-	white-space: pre-line;
 
-	& + & {
-		margin-top: 0.4rem;
-	}
-`;

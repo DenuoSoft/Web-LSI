@@ -21,7 +21,7 @@ export const MenuList = styled.ul`
 	}
 `;
 
-export const MenuItem = styled.li<{$active?: boolean}>`
+/* export const MenuItem = styled.li<{$active?: boolean}>`
 	position: relative;
 	padding-bottom: 2rem;
 	${fluidTypography({max: 20, min: 16})}
@@ -43,8 +43,31 @@ export const MenuItem = styled.li<{$active?: boolean}>`
 				background: #d7ff23;
 			}
 		`}
-`;
+`; */
 
+export const MenuItem = styled.li<{$active?: boolean}>`
+	position: relative;
+	padding-bottom: 2rem;
+	${fluidTypography({max: 20, min: 16})}
+	color: var(--text);
+
+	${({$active}) =>
+		$active &&
+		css`
+			font-weight: bold;
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: calc(var(--slide-gap, 2rem) * -1);
+				top: calc(var(--accent-height, 2.4rem) - 1rem);
+				transform: translateY(-50%) skew(-22deg);
+				width: var(--accent-width, 0.8rem);
+				height: var(--accent-height, 2.4rem);
+				background: #d7ff23;
+			}
+		`}
+`;
 export const MenuButton = styled.button`
 	padding: 0;
 	background: none;

@@ -1,28 +1,15 @@
 import {useParams, useNavigate} from 'react-router-dom';
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import {getPersonById} from '../PeopleView/people-data';
 import {useScrollProgress} from '../../hooks/useScrollProgress';
-import { useReachedHeader } from '../../hooks/useReachedHeader';
-import { useReachedViewportRatio } from '../../hooks/useReachedViewportRatio';
+import {useReachedHeader} from '../../hooks/useReachedHeader';
+import {useReachedViewportRatio} from '../../hooks/useReachedViewportRatio';
 import {useScrolled} from '../../hooks/useScrolled';
 import {
-	BulletList,
-	DocH1,
-	DocH2,
-	DocH3,
-	DocH4,
-	DocH5,
-	DocH6,
-	DocSection,
 	InfoBlock,
-//	ItemBadge,
-//	ItemBadgeWrap,
 	ItemTitle,
-	ListItem,
 	NavBack,
 	NavBackText,
-	NumberedList,
-	Paragraph,
 	PersonBlock,
 	PersonEmail,
 	PersonEmailUnder,
@@ -35,175 +22,40 @@ import {
 	PersonTitle,
 	PersonWrap,
 	PositionTitle,
-	Run,
 	SectionsGroup,
 } from './PersonView.styled';
 import {ArrowLeft} from '../../shared/arrow-left';
 import {ItemIcon} from '../../styles/shared';
-import type {
-	ContentBlock,
-	ListBlock,
-	TextNode,
-} from '../../models/people-model';
 import LeftMenu, {type MenuLink} from '../../shared/Nav/LeftMenu';
 import {useScrollSpy} from '../../hooks/useScrollSpy';
 import {useRevealOnScroll} from '../../hooks/useRevealOnScroll';
+import {CARD_LEVEL, splitIntoSections} from './docSection';
+import {DocSectionView} from './DocContent';
 
 const menuLinks: MenuLink[] = [
 	{id: 'summary', label: 'Summary profile'},
 	{id: 'experience', label: 'Experience'},
 ];
 
-const HEADINGS = [DocH1, DocH2, DocH3, DocH4, DocH5, DocH6] as const;
-
-type SectionData = {
-	key: string;
-	title?: string; // текст заголовка секции (если секция начинается с заголовка)
-	level?: number; // уровень заголовка, с которого начинается секция
-	blocks: ContentBlock[]; // включая сам заголовок
-};
-
-const CARD_LEVEL = 6;
-
-// Делит плоский список блоков на секции.
-// Новая секция начинается на каждом заголовке самого верхнего уровня,
-// который есть в документе, а также на каждом заголовке h6 (карточки).
-// Контент до первого заголовка — отдельная секция без title.
-const splitIntoSections = (blocks: ContentBlock[] = []): SectionData[] => {
-	const levels = blocks.flatMap((block) =>
-		block.type === 'heading' ? [block.level || 1] : [],
-	);
-
-	if (!levels.length) {
-		return blocks.length ? [{key: 'section-0', blocks}] : [];
-	}
-
-	const splitLevel = Math.min(...levels);
-	const sections: SectionData[] = [];
-	let current: SectionData | null = null;
-
-	for (const block of blocks) {
-		if (
-			block.type === 'heading' &&
-			((block.level || 1) <= splitLevel || block.level === CARD_LEVEL)
-		) {
-			current = {
-				key: `section-${sections.length}`,
-				title: block.text,
-				level: block.level || 1,
-				blocks: [block],
-			};
-			sections.push(current);
-			continue;
-		}
-
-		if (!current) {
-			current = {key: `section-${sections.length}`, blocks: []};
-			sections.push(current);
-		}
-
-		current.blocks.push(block);
-	}
-
-	return sections;
-};
-
-// Текст блока с inline-форматированием (bold / italic / underline)
-const renderRuns = ({text, runs}: TextNode): React.ReactNode => {
-	if (!runs?.length) {
-		return text;
-	}
-
-	return runs.map((run, index) => {
-		const {bold, italic, underline} = run;
-
-		if (!bold && !italic && !underline) {
-			return run.text;
-		}
-
-		return (
-			<Run key={index} $bold={bold} $italic={italic} $underline={underline}>
-				{run.text}
-			</Run>
-		);
-	});
-};
-
-// Список рекурсивно: вложенные списки лежат в children пункта
-const renderList = (
-	list: ListBlock,
-	depth: number,
-	key: string,
-): React.ReactNode => {
-	const List = list.ordered ? NumberedList : BulletList;
-
-	return (
-		<List key={key} $depth={depth}>
-			{list.items.map((item, itemIndex) => (
-				<ListItem key={`${key}-${itemIndex}`}>
-					{renderRuns(item)}
-					{item.children?.map((child, childIndex) =>
-						renderList(child, depth + 1, `${key}-${itemIndex}-${childIndex}`),
-					)}
-				</ListItem>
-			))}
-		</List>
-	);
-};
-
-const renderBlock = (block: ContentBlock, index: number): React.ReactNode => {
-	switch (block.type) {
-		case 'heading': {
-			const level = Math.min(Math.max(block.level || 1, 1), 6);
-			const Heading = HEADINGS[level - 1];
-
-			return <Heading key={`heading-${index}`}>{renderRuns(block)}</Heading>;
-		}
-
-		case 'paragraph':
-			return (
-				<Paragraph key={`paragraph-${index}`}>{renderRuns(block)}</Paragraph>
-			);
-
-		case 'list':
-			return renderList(block, 0, `list-${index}`);
-
-		default:
-			return null;
-	}
-};
-
-// Одна секция — один независимый блок
-const renderSection = (section?: SectionData): React.ReactNode => {
-	if (!section) {
-		return null;
-	}
-
-	return (
-		<DocSection key={section.key}>
-			{section.blocks.map((block, index) => renderBlock(block, index))}
-		</DocSection>
-	);
-};
-
 export const PersonView = () => {
 	const {id} = useParams();
 	const navigate = useNavigate();
 	const personItemRef = useRef<HTMLDivElement>(null);
 	const experienceRef = useRef<HTMLDivElement>(null);
-	const reached = useReachedHeader(experienceRef, 15, [id]); // текст в липком блоке
-	const filled = useReachedViewportRatio(experienceRef, 0.5, [id]); // фон
-	const scrolled = useScrolled(10)
-	useScrollProgress(personItemRef, 0.5, [id]);
-	
 
 	// все хуки вызываются до раннего return
+	const reached = useReachedHeader(experienceRef, 50, [id]); // текст в липком блоке
+	const filled = useReachedViewportRatio(experienceRef, 0.5, [id]); // фон
+	const scrolled = useScrolled(10);
+	useScrollProgress(personItemRef, 0.5, [id]);
+
 	const {activeId, handleClick} = useScrollSpy(menuLinks, {
 		offset: 0.2,
-		resetKey: id, // при переходе к другому человеку страница прокручивается наверх
+		resetKey: id,
+		topOffset: 130,
 	});
+
 	const menuVisible = useRevealOnScroll('experience', 0.5);
-	
 
 	const person = getPersonById(Number(id));
 
@@ -243,22 +95,24 @@ export const PersonView = () => {
 					<PersonHead>
 						<PersonImgWrap>
 							<PersonImg src={person.img} />
-							
 						</PersonImgWrap>
-						
+
 						<PersonHeadText $visible={reached}>
 							<PersonTitle>{person.title}</PersonTitle>
 							<PersonPosition>{person.position}</PersonPosition>
 							<PersonEmail>{person.email}</PersonEmail>
-							
 						</PersonHeadText>
 					</PersonHead>
+
+					{/* под аватаром: виден до скролла, скрывается с его началом */}
 					<PersonEmailUnder $hidden={scrolled}>{person.email}</PersonEmailUnder>
+
 					{/* <ItemBadgeWrap>
 						{person.badge.map((badge: string, index: number) => (
 							<ItemBadge key={index}>{badge}</ItemBadge>
 						))}
 					</ItemBadgeWrap> */}
+
 					{menuVisible && (
 						<LeftMenu
 							links={links}
@@ -267,21 +121,29 @@ export const PersonView = () => {
 						/>
 					)}
 				</PersonItem>
+
 				<InfoBlock>
-					{/* Ряд: первая основная секция слева, карточки (h6) колонкой справа */}
 					<ItemTitle id="summary">{person.title}</ItemTitle>
 					{person.position && <PositionTitle>{person.position}</PositionTitle>}
+
+					{/* Ряд: первая основная секция слева, карточки (h6) колонкой справа */}
 					<SectionsGroup $direction="row">
-						{renderSection(mainSections[0])}
+						<DocSectionView section={mainSections[0]} />
 						{cardSections.length > 0 && (
-							<SectionsGroup>{cardSections.map(renderSection)}</SectionsGroup>
+							<SectionsGroup>
+								{cardSections.map((section) => (
+									<DocSectionView key={section.key} section={section} />
+								))}
+							</SectionsGroup>
 						)}
 					</SectionsGroup>
 
 					{/* Остальные основные секции — ниже, в колонку */}
 					{mainSections.length > 1 && (
 						<SectionsGroup id="experience" ref={experienceRef} $filled={filled}>
-							{mainSections.slice(1).map(renderSection)}
+							{mainSections.slice(1).map((section) => (
+								<DocSectionView key={section.key} section={section} />
+							))}
 						</SectionsGroup>
 					)}
 				</InfoBlock>

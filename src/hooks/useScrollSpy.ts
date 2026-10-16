@@ -8,12 +8,13 @@ type Options = {
 	/** Запасной таймаут разблокировки для браузеров без scrollend, мс */
 	lockTimeout?: number;
 	/** Прокручивать наверх при смене значения (например, id сервиса) */
-	resetKey?: unknown;
+    resetKey?: unknown;
+    topOffset?: number;
 };
 
 export const useScrollSpy = (
 	items: readonly ScrollSpyItem[],
-	{offset = 0.35, lockTimeout = 1000, resetKey}: Options = {},
+	{offset = 0.35, lockTimeout = 1000, resetKey, topOffset = 0}: Options = {},
 ) => {
 	const [activeId, setActiveId] = useState(items[0]?.id ?? '');
 	// пока идёт скролл по клику, scroll-spy не должен перебивать выбор
@@ -68,26 +69,34 @@ export const useScrollSpy = (
 	useEffect(() => () => window.clearTimeout(timerRef.current), []);
 
 	const handleClick = useCallback(
-		(id: string) => {
-			const el = document.getElementById(id);
-			if (!el) return;
+	(id: string) => {
+		const el = document.getElementById(id);
+		if (!el) return;
 
-			lockRef.current = true;
-			setActiveId(id);
-			el.scrollIntoView({behavior: 'smooth', block: 'start'});
+		lockRef.current = true;
+		setActiveId(id);
 
+		// первый пункт — это начало страницы, а не позиция его заголовка
+		if (id === items[0]?.id) {
+			window.scrollTo({top: 0, behavior: 'smooth'});
+		} else {
+			const top =
+				el.getBoundingClientRect().top + window.scrollY - topOffset;
+			window.scrollTo({top, behavior: 'smooth'});
+		}
+
+		window.clearTimeout(timerRef.current);
+
+		const unlock = () => {
 			window.clearTimeout(timerRef.current);
-
-			const unlock = () => {
-				window.clearTimeout(timerRef.current);
-				lockRef.current = false;
-				window.dispatchEvent(new Event('scroll')); // пересчитать активный пункт
-			};
-			window.addEventListener('scrollend', unlock, {once: true});
-			timerRef.current = window.setTimeout(unlock, lockTimeout); // запасной вариант
-		},
-		[lockTimeout],
-	);
+			lockRef.current = false;
+			window.dispatchEvent(new Event('scroll'));
+		};
+		window.addEventListener('scrollend', unlock, {once: true});
+		timerRef.current = window.setTimeout(unlock, lockTimeout);
+	},
+	[items, lockTimeout, topOffset],
+);
 
 	return {activeId, handleClick};
 };

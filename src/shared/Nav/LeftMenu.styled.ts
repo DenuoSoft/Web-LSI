@@ -21,30 +21,6 @@ export const MenuList = styled.ul`
 	}
 `;
 
-/* export const MenuItem = styled.li<{$active?: boolean}>`
-	position: relative;
-	padding-bottom: 2rem;
-	${fluidTypography({max: 20, min: 16})}
-	color: var(--text);
-
-	${({$active}) =>
-		$active &&
-		css`
-			font-weight: bold;
-
-			&::before {
-				content: '';
-				position: absolute;
-				left: calc(var(--slide-gap) * -1);
-				top: calc(var(--accent-height) - 1rem);
-				transform: translateY(-50%) skew(-22deg);
-				width: var(--accent-width);
-				height: var(--accent-height);
-				background: #d7ff23;
-			}
-		`}
-`; */
-
 export const MenuItem = styled.li<{$active?: boolean}>`
 	position: relative;
 	padding-bottom: 2rem;

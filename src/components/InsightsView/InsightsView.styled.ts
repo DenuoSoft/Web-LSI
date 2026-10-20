@@ -103,6 +103,7 @@ export const InsightPageTitle = styled.div`
 	flex-direction: column;
 	gap: 2rem;
 	position: relative;
+	color: var(--text);
 	&::before {
 		content: '';
 		position: absolute;
@@ -123,7 +124,7 @@ export const InsightPageTitle = styled.div`
 `
 export const InsightPageContent = styled.div`
     display: flex;
-   
+    color: var(--text);
 `;
 export const NavBack = styled.div`
 	display: flex;
@@ -131,7 +132,7 @@ export const NavBack = styled.div`
 	gap: 1.2rem;
 	height: 3rem;
 	cursor: pointer;
-	color: #c8d2e6; 
+	color: var(--text); 
 	 ${ItemIcon} {
     color: inherit;
   }
@@ -142,16 +143,16 @@ export const NavBack = styled.div`
   }
 
   &:hover {
-    color: #d7ff23;
+    color: #a0b9be;
   }
  
   &:hover ${ItemIcon} {
-    color: #d7ff23;
-    border-color: #d7ff23;
+    color: #a0b9be;
+    border-color: #a0b9be;
   }
 
   &:hover svg path {
-    fill: #d7ff23;
+    fill: #a0b9be;
   }
 `;
 export const NavBackText = styled.span`

@@ -62,7 +62,8 @@ export const router = createBrowserRouter(
 				},
 				{
 					path: '/insights/:id',
-					element: <InsightPage />
+					element: <InsightPage />,
+					handle: { theme: "light" }
 				},
 				{
 					path: '/events/:id',

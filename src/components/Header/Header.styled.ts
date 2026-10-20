@@ -7,6 +7,7 @@ export const HeaderBlock = styled.header<{
 	$isScrolled?: boolean;
 	$isCapaView?: boolean;
 	$isPersonView?: boolean;
+	$isInsightView?: boolean;
 }>`
 	grid-area: header;
 	position: fixed;
@@ -21,10 +22,10 @@ export const HeaderBlock = styled.header<{
 	transition:
 		background-color 0.3s ease,
 		box-shadow 0.3s ease;
-	${({ $isScrolled, $isCapaView, $isPersonView }) =>
+	${({ $isScrolled, $isCapaView, $isPersonView, $isInsightView }) =>
 	$isScrolled &&
 	css`
-		background-color: ${$isCapaView || $isPersonView
+		background-color: ${$isCapaView || $isPersonView || $isInsightView
 			? '#fff'
 			: 'rgba(85, 90, 105, 0.92)'};
 	`}

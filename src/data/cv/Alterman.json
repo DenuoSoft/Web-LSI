@@ -94,88 +94,78 @@
       ]
     },
     {
-      "type": "paragraph",
-      "text": "Maria’s selected experience includes:",
-      "runs": [
+      "type": "list",
+      "ordered": false,
+      "items": [
         {
-          "text": "Maria’s selected experience includes:"
+          "text": "representing the private investor in connection with setting up a joint venture in the UAE in the natural resources sector;",
+          "runs": [
+            {
+              "text": "representing the private investor in connection with setting up a joint venture in the UAE in the natural resources sector; "
+            }
+          ]
+        },
+        {
+          "text": "representing the private investor in connection with structuring of the investment in the IT sector in the UAE;",
+          "runs": [
+            {
+              "text": "representing the private investor in connection with structuring of the investment in the IT sector in the UAE; "
+            }
+          ]
+        },
+        {
+          "text": "representing the FMCG seller in negotiations with the UAE partner in connection with setting up the joint venture in the UAE;",
+          "runs": [
+            {
+              "text": "representing the FMCG seller in negotiations with the UAE partner in connection with setting up the joint venture in the UAE; "
+            }
+          ]
+        },
+        {
+          "text": "advising the food products manufacturer regarding the corporate governance of its business in the UAE;",
+          "runs": [
+            {
+              "text": "advising the food products manufacturer regarding the corporate governance of its business in the UAE; "
+            }
+          ]
+        },
+        {
+          "text": "advising global FMCG manufacturer on setting up the UAE structure to hold the IP assets of the group;",
+          "runs": [
+            {
+              "text": "advising global FMCG manufacturer on setting up the UAE structure to hold the IP assets of the group;"
+            }
+          ]
+        },
+        {
+          "text": "advising a European banking group on corporate and commercial matters, including structuring the payouts under various financial instruments and dividend payments for different shareholder groups;",
+          "runs": [
+            {
+              "text": "advising a European banking group on corporate and commercial matters, including structuring the payouts under various financial instruments and dividend payments for different shareholder groups; "
+            }
+          ]
+        },
+        {
+          "text": "providing complex legal support to a global tobacco company on launching and expanding next generation product business, including advice on commercial and regulatory matters in various jurisdictions;",
+          "runs": [
+            {
+              "text": "providing complex legal support to a global tobacco company on launching and expanding next generation product business, including advice on commercial and regulatory matters in various jurisdictions; "
+            }
+          ]
+        },
+        {
+          "text": "advising international clients on navigating through international sanctions and countersanctions regimes.",
+          "runs": [
+            {
+              "text": "advising international clients on navigating through international sanctions and countersanctions regimes. "
+            }
+          ]
         }
       ]
     },
     {
-      "type": "paragraph",
-      "text": "representing the private investor in connection with setting up a joint venture in the UAE in the natural resources sector;",
-      "runs": [
-        {
-          "text": "representing the private investor in connection with setting up a joint venture in the UAE in the natural resources sector; "
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "representing the private investor in connection with structuring of the investment in the IT sector in the UAE;",
-      "runs": [
-        {
-          "text": "representing the private investor in connection with structuring of the investment in the IT sector in the UAE; "
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "representing the FMCG seller in negotiations with the UAE partner in connection with setting up the joint venture in the UAE;",
-      "runs": [
-        {
-          "text": "representing the FMCG seller in negotiations with the UAE partner in connection with setting up the joint venture in the UAE; "
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "advising the food products manufacturer regarding the corporate governance of its business in the UAE;",
-      "runs": [
-        {
-          "text": "advising the food products manufacturer regarding the corporate governance of its business in the UAE; "
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "advising global FMCG manufacturer on setting up the UAE structure to hold the IP assets of the group;",
-      "runs": [
-        {
-          "text": "advising global FMCG manufacturer on setting up the UAE structure to hold the IP assets of the group;"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "advising a European banking group on corporate and commercial matters, including structuring the payouts under various financial instruments and dividend payments for different shareholder groups;",
-      "runs": [
-        {
-          "text": "advising a European banking group on corporate and commercial matters, including structuring the payouts under various financial instruments and dividend payments for different shareholder groups; "
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "providing complex legal support to a global tobacco company on launching and expanding next generation product business, including advice on commercial and regulatory matters in various jurisdictions;",
-      "runs": [
-        {
-          "text": "providing complex legal support to a global tobacco company on launching and expanding next generation product business, including advice on commercial and regulatory matters in various jurisdictions; "
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "advising international clients on navigating through international sanctions and countersanctions regimes.",
-      "runs": [
-        {
-          "text": "advising international clients on navigating through international sanctions and countersanctions regimes. "
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
+      "type": "heading",
+      "level": 4,
       "text": "Career",
       "runs": [
         {
@@ -184,20 +174,24 @@
       ]
     },
     {
-      "type": "paragraph",
-      "text": "2022-present, legal director, Denuo (Dubai)",
-      "runs": [
+      "type": "list",
+      "ordered": false,
+      "items": [
         {
-          "text": "2022-present, legal director, Denuo (Dubai) "
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "2010-2022, associate, senior associate, DLA Piper (St Petersburg)",
-      "runs": [
+          "text": "2022-present, legal director, Denuo (Dubai)",
+          "runs": [
+            {
+              "text": "2022-present, legal director, Denuo (Dubai) "
+            }
+          ]
+        },
         {
-          "text": "2010-2022, associate, senior associate, DLA Piper (St Petersburg)"
+          "text": "2010-2022, associate, senior associate, DLA Piper (St Petersburg)",
+          "runs": [
+            {
+              "text": "2010-2022, associate, senior associate, DLA Piper (St Petersburg)"
+            }
+          ]
         }
       ]
     }

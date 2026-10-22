@@ -69,15 +69,18 @@ export const CapaView = () => {
 							{service.description && (
 								<CapaText>{service.description}</CapaText>
 							)}
+							
+						</CapaTextBlock>
+
+						<CapaKeyBlock id="key-facts">Key title</CapaKeyBlock>
+						<CapaServiceBlock id="services">
+							<CapaTitle>Services</CapaTitle>
 							<CapaList>
 								{service.list.map((item) => (
 									<li key={item}>{item}</li>
 								))}
 							</CapaList>
-						</CapaTextBlock>
-
-						<CapaKeyBlock id="key-facts">Key title</CapaKeyBlock>
-						<CapaServiceBlock id="services">Service</CapaServiceBlock>
+						</CapaServiceBlock>
 					</CapaSections>
 				</CapaContentBlock>
 			</CapaInfo>

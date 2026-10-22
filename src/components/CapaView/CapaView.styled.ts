@@ -101,9 +101,11 @@ export const CapaBack = styled.button`
 
 export const CapaTitle = styled.h1`
 	margin: 0;
+	margin-bottom: 5rem;
 	${fluidTypography({max: 48, min: 32})};
 	font-weight: 400;
 	color: #28282d;
+
 `;
 
 export const CapaContentBlock = styled.div`

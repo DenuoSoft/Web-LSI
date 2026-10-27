@@ -8,6 +8,7 @@ import {useScrolled} from '../../hooks/useScrolled';
 import {
 	InfoBlock,
 	ItemTitle,
+	MembershipGroup,
 	NavBack,
 	NavBackText,
 	PersonBlock,
@@ -29,19 +30,46 @@ import {ItemIcon} from '../../styles/shared';
 import LeftMenu, {type MenuLink} from '../../shared/Nav/LeftMenu';
 import {useScrollSpy} from '../../hooks/useScrollSpy';
 import {useRevealOnScroll} from '../../hooks/useRevealOnScroll';
-import {CARD_LEVEL, splitIntoSections} from './docSection';
+import {CARD_LEVEL, splitIntoSections, type SectionData} from './docSection';
 import {DocSectionView} from './DocContent';
 
 const menuLinks: MenuLink[] = [
 	{id: 'summary', label: 'Summary profile'},
 	{id: 'experience', label: 'Experience'},
+	{id: 'membership', label: 'Professional memberships'},
 ];
+
+const MEMBERSHIP_TITLE = 'professional memberships';
+
+const isMembershipSection = (section: SectionData) =>
+	section.title?.trim().replace(/:$/, '').toLowerCase() === MEMBERSHIP_TITLE;
 
 export const PersonView = () => {
 	const {id} = useParams();
 	const navigate = useNavigate();
 	const personItemRef = useRef<HTMLDivElement>(null);
 	const experienceRef = useRef<HTMLDivElement>(null);
+
+	const person = getPersonById(Number(id));
+	const sections = splitIntoSections(person?.jsonData?.blocks);
+
+	const cardSections = sections.filter((s) => s.level === CARD_LEVEL);
+	const mainSections = sections.filter((s) => s.level !== CARD_LEVEL);
+
+	const [summarySection, ...restSections] = mainSections;
+	const membershipSection = restSections.find(isMembershipSection);
+	const experienceSections = restSections.filter(
+		(s) => !isMembershipSection(s),
+	);
+
+	const hasExperience = experienceSections.length > 0;
+	const hasMembership = Boolean(membershipSection);
+
+	const links = menuLinks.filter((link) => {
+		if (link.id === 'experience') return hasExperience;
+		if (link.id === 'membership') return hasMembership;
+		return true;
+	});
 
 	// все хуки вызываются до раннего return
 	const reached = useReachedHeader(experienceRef, 50, [id]); // текст в липком блоке
@@ -55,31 +83,16 @@ export const PersonView = () => {
 		topOffset: 130,
 	});
 
-	const menuVisible = useRevealOnScroll('experience', 0.5);
+	const menuVisible = useRevealOnScroll(
+		hasExperience ? 'experience' : 'membership',
+		0.5,
+	);
 
-	const person = getPersonById(Number(id));
+	//const person = getPersonById(Number(id));
 
 	if (!person) {
 		return <div>Person not found</div>;
 	}
-
-	// JSON-данные приходят из people-data.ts (person.jsonData = jsonDataMap[id]),
-	// формат docx_to_json.py: {blocks: [...]}
-	const {jsonData} = person;
-	const sections = splitIntoSections(jsonData?.blocks);
-
-	// Карточки (h6) и основные секции (всё остальное)
-	const cardSections = sections.filter(
-		(section) => section.level === CARD_LEVEL,
-	);
-	const mainSections = sections.filter(
-		(section) => section.level !== CARD_LEVEL,
-	);
-
-	// пункт Experience показываем, только если соответствующий блок отрисован
-	const links = menuLinks.filter(
-		(link) => link.id !== 'experience' || mainSections.length > 1,
-	);
 
 	return (
 		<PersonBlock>
@@ -104,14 +117,7 @@ export const PersonView = () => {
 						</PersonHeadText>
 					</PersonHead>
 
-					{/* под аватаром: виден до скролла, скрывается с его началом */}
 					<PersonEmailUnder $hidden={scrolled}>{person.email}</PersonEmailUnder>
-
-					{/* <ItemBadgeWrap>
-						{person.badge.map((badge: string, index: number) => (
-							<ItemBadge key={index}>{badge}</ItemBadge>
-						))}
-					</ItemBadgeWrap> */}
 
 					{menuVisible && (
 						<LeftMenu
@@ -126,9 +132,8 @@ export const PersonView = () => {
 					<ItemTitle id="summary">{person.title}</ItemTitle>
 					{person.position && <PositionTitle>{person.position}</PositionTitle>}
 
-					{/* Ряд: первая основная секция слева, карточки (h6) колонкой справа */}
 					<SectionsGroup $direction="row">
-						<DocSectionView section={mainSections[0]} />
+						{summarySection && <DocSectionView section={summarySection} />}
 						{cardSections.length > 0 && (
 							<SectionsGroup>
 								{cardSections.map((section) => (
@@ -138,13 +143,23 @@ export const PersonView = () => {
 						)}
 					</SectionsGroup>
 
-					{/* Остальные основные секции — ниже, в колонку */}
-					{mainSections.length > 1 && (
-						<SectionsGroup id="experience" ref={experienceRef} $filled={filled}>
-							{mainSections.slice(1).map((section) => (
+					{hasExperience && (
+						<SectionsGroup
+							id="experience"
+							ref={experienceRef}
+							$filled={filled}
+							$extendBottom={!hasMembership}
+						>
+							{experienceSections.map((section) => (
 								<DocSectionView key={section.key} section={section} />
 							))}
 						</SectionsGroup>
+					)}
+
+					{membershipSection && (
+						<MembershipGroup id="membership">
+							<DocSectionView section={membershipSection} />
+						</MembershipGroup>
 					)}
 				</InfoBlock>
 			</PersonWrap>

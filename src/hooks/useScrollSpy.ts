@@ -8,8 +8,8 @@ type Options = {
 	/** Запасной таймаут разблокировки для браузеров без scrollend, мс */
 	lockTimeout?: number;
 	/** Прокручивать наверх при смене значения (например, id сервиса) */
-    resetKey?: unknown;
-    topOffset?: number;
+	resetKey?: unknown;
+	topOffset?: number;
 };
 
 export const useScrollSpy = (
@@ -38,20 +38,21 @@ export const useScrollSpy = (
 		const update = () => {
 			if (lockRef.current) return;
 
-			// «линия чтения»
-			const line = window.innerHeight * offset;
-			let current = ids[0];
+			const existing = ids.filter((id) => document.getElementById(id));
+			if (!existing.length) return;
 
-			for (const id of ids) {
+			const line = window.innerHeight * offset;
+			let current = existing[0];
+
+			for (const id of existing) {
 				const el = document.getElementById(id);
 				if (el && el.getBoundingClientRect().top <= line) current = id;
 			}
 
-			// дошли до низа страницы — последний раздел может быть коротким
 			const atBottom =
 				window.innerHeight + window.scrollY >=
 				document.documentElement.scrollHeight - 2;
-			if (atBottom) current = ids[ids.length - 1];
+			if (atBottom) current = existing[existing.length - 1];
 
 			setActiveId(current);
 		};
@@ -69,34 +70,33 @@ export const useScrollSpy = (
 	useEffect(() => () => window.clearTimeout(timerRef.current), []);
 
 	const handleClick = useCallback(
-	(id: string) => {
-		const el = document.getElementById(id);
-		if (!el) return;
+		(id: string) => {
+			const el = document.getElementById(id);
+			if (!el) return;
 
-		lockRef.current = true;
-		setActiveId(id);
+			lockRef.current = true;
+			setActiveId(id);
 
-		// первый пункт — это начало страницы, а не позиция его заголовка
-		if (id === items[0]?.id) {
-			window.scrollTo({top: 0, behavior: 'smooth'});
-		} else {
-			const top =
-				el.getBoundingClientRect().top + window.scrollY - topOffset;
-			window.scrollTo({top, behavior: 'smooth'});
-		}
+			// первый пункт — это начало страницы, а не позиция его заголовка
+			if (id === items[0]?.id) {
+				window.scrollTo({top: 0, behavior: 'smooth'});
+			} else {
+				const top = el.getBoundingClientRect().top + window.scrollY - topOffset;
+				window.scrollTo({top, behavior: 'smooth'});
+			}
 
-		window.clearTimeout(timerRef.current);
-
-		const unlock = () => {
 			window.clearTimeout(timerRef.current);
-			lockRef.current = false;
-			window.dispatchEvent(new Event('scroll'));
-		};
-		window.addEventListener('scrollend', unlock, {once: true});
-		timerRef.current = window.setTimeout(unlock, lockTimeout);
-	},
-	[items, lockTimeout, topOffset],
-);
+
+			const unlock = () => {
+				window.clearTimeout(timerRef.current);
+				lockRef.current = false;
+				window.dispatchEvent(new Event('scroll'));
+			};
+			window.addEventListener('scrollend', unlock, {once: true});
+			timerRef.current = window.setTimeout(unlock, lockTimeout);
+		},
+		[items, lockTimeout, topOffset],
+	);
 
 	return {activeId, handleClick};
 };

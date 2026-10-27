@@ -162,38 +162,6 @@
           ]
         }
       ]
-    },
-    {
-      "type": "heading",
-      "level": 4,
-      "text": "Career",
-      "runs": [
-        {
-          "text": "Career"
-        }
-      ]
-    },
-    {
-      "type": "list",
-      "ordered": false,
-      "items": [
-        {
-          "text": "2022-present, legal director, Denuo (Dubai)",
-          "runs": [
-            {
-              "text": "2022-present, legal director, Denuo (Dubai) "
-            }
-          ]
-        },
-        {
-          "text": "2010-2022, associate, senior associate, DLA Piper (St Petersburg)",
-          "runs": [
-            {
-              "text": "2010-2022, associate, senior associate, DLA Piper (St Petersburg)"
-            }
-          ]
-        }
-      ]
     }
   ]
 }

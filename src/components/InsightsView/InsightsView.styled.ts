@@ -64,9 +64,9 @@ export const InsightsItem = styled.div`
 export const InsightPageBlock = styled.div`
 	display: flex;
 	width: 100%;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: flex-start;
-	gap: 5rem;
+	gap: 12rem;
 	color: #c8d2e6;
 	z-index: 1;
 	h2 {
@@ -83,15 +83,15 @@ export const InsightPageWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 85%;
+  width: 80%;
   @media (max-width: ${breakpoints.xxl}) {
-		width: 80%;
-	}
-	@media (max-width: ${breakpoints.xl}) {
 		width: 75%;
 	}
-	@media (max-width: ${breakpoints.lg}) {
+	@media (max-width: ${breakpoints.xl}) {
 		width: 70%;
+	}
+	@media (max-width: ${breakpoints.lg}) {
+		width: 65%;
 	}	
 	@media (max-width: ${breakpoints.md}) {
 		width: 100%;

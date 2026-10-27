@@ -93,7 +93,7 @@ export const people: Person[] = [
 		img: alterman,
 		badge: ['Corporate', 'Regulatory & Compliance'],
 		about: 'Maria Alterman focuses on advising clients on a wide range of general business law matters, including commercial and regulatory questions. Maria represents clients in connection with the sale and purchase of business and assets as well as with setting up the joint ventures. Maria also advises clients on the matters arising in connection with structuring the investment. Maria has considerable experience in FMCG and pharmaceuticals sectors. Maria was lead lawyer of the team advising on the launch of a novel consumer product category in the Eastern Europe markets, starting from identifying the applicable regulatory treatment, arranging for the import and sales contractual set-up, leading the negotiations with both offline and e-commerce sales operators, up to supporting the client in administrative and court disputes arising in connection with the product expansion.',
-		position: 'Legal director',
+		position: 'Legal Director',
 		email: "maria.alterman@denuo.legal",
 		jsonData: jsonDataMap[6]
 	},

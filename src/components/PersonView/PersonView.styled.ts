@@ -43,7 +43,7 @@ export const PersonItem = styled.div`
 export const PersonHead = styled.div`
 	position: relative;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	gap: 1.6rem;
 `;
 
@@ -52,7 +52,8 @@ export const PersonHeadText = styled.div<{$visible?: boolean}>`
 	min-width: 0;
 	display: flex;
 	flex-direction: column;
-	gap: 0.4rem;
+	gap: 1rem;
+	margin-bottom: 5rem;
 	transition:
 		opacity 0.3s ease,
 		visibility 0.3s ease;
@@ -231,6 +232,7 @@ const headingBase = css`
 export const SectionsGroup = styled.div<{
 	$direction?: 'row' | 'column';
 	$filled?: boolean;
+	$extendBottom?: boolean;
 }>`
 	position: relative;
 	width: 100%;
@@ -243,7 +245,7 @@ export const SectionsGroup = styled.div<{
 	&::before {
 		content: '';
 		position: absolute;
-		inset: 0 -100vmax;
+		inset: 0 -100vmax ${({$extendBottom}) => ($extendBottom ? '-3rem' : '0')};
 		clip-path: inset(0 -100vmax);
 		z-index: -1;
 		background-color: #fff;
@@ -275,6 +277,20 @@ export const SectionsGroup = styled.div<{
 			flex: none;
 			width: 100%;
 		}
+	}
+`;
+
+export const MembershipGroup = styled(SectionsGroup)`
+	padding: 3rem 0;
+
+	&::after {
+		content: '';
+		position: absolute;
+		/* сверху перекрываем gap InfoBlock (2.4rem), снизу row-gap LayoutBlock (3rem) */
+		inset: -2.4rem -100vmax -3rem;
+		z-index: -1;
+		background-color: #f4f6fa;
+		pointer-events: none;
 	}
 `;
 export const DocH1 = styled.h1`

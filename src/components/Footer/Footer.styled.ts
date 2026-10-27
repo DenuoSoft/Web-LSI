@@ -12,6 +12,7 @@ export const FooterBlock = styled.footer`
 	align-items: center;
 	background-color: #fff;
 	color: #555a69;
+	border-top: 1px solid #c8d2e6;
 	z-index: 5;
 	height 100%;
 `;

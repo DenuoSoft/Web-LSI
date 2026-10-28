@@ -4,6 +4,7 @@ import {services} from '../ServiceView/services-data';
 import image from '../../assets/img/regulatory.jpg';
 import {
 	CapaBack,
+	CapaBackBlock,
 	CapaContentBlock,
 	CapaImage,
 	CapaInfo,
@@ -19,6 +20,8 @@ import {
 } from './CapaView.styled';
 import LeftMenu, {type MenuLink} from '../../shared/Nav/LeftMenu';
 import {useScrollSpy} from '../../hooks/useScrollSpy';
+import {ItemIcon} from '../../styles/shared';
+import {ArrowLeft} from '../../shared/arrow-left';
 
 const menuLinks: MenuLink[] = [
 	{id: 'about', label: 'About'},
@@ -48,9 +51,15 @@ export const CapaView = () => {
 		<CapaPage $visible={visible}>
 			<CapaInfo>
 				<CapaTitleBlock>
-					<CapaBack type="button" onClick={() => navigate(-1)}>
-						Back to capabilities
-					</CapaBack>
+					<CapaBackBlock onClick={() => navigate(-1)}>
+						<ItemIcon>
+							<ArrowLeft />
+						</ItemIcon>
+						<CapaBack>
+							Back to capabilities
+						</CapaBack>
+					</CapaBackBlock>
+
 					<CapaTitle>
 						<span>Our</span> {service.title}
 					</CapaTitle>
@@ -69,7 +78,6 @@ export const CapaView = () => {
 							{service.description && (
 								<CapaText>{service.description}</CapaText>
 							)}
-							
 						</CapaTextBlock>
 
 						<CapaKeyBlock id="key-facts">Key title</CapaKeyBlock>

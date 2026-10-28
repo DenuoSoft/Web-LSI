@@ -48,10 +48,10 @@ export const EventsItem = styled.div`
 	}
 
 	h2 {
-		${fluidTypography({max: 20, min: 16})}
+		${fluidTypography({max: 28, min: 16})}
 	}
 	p {
-		${fluidTypography({max: 16, min: 14})}
+		${fluidTypography({max: 21, min: 14})}
 	}
 
 	@media (max-width: ${breakpoints.xxl}) {
@@ -93,9 +93,9 @@ export const SelectedItem = styled.div`
 		content: '';
 		position: absolute;
 		top: 0;
-		left: 0;
-		width: var(--marker-width);
-		height: var(--marker-height);
+		left: -3rem;
+		width: 2rem;
+		height: 6rem;
 		background: #d7ff23;
 		transform: skew(-22deg);
 		pointer-events: none;
@@ -146,6 +146,7 @@ export const NavBack = styled.div`
 export const NavBackText = styled.span`
 	color: inherit;
 	font-size: clamp(1.4rem, 0.388vw + 1.654rem, 1.8rem);
+	text-transform: uppercase;
 `;
 
 export const EventPageBlock = styled.div`
@@ -160,10 +161,14 @@ export const EventPageBlock = styled.div`
 	z-index: 1;
 
 	h2 {
-		${fluidTypography({max: 20, min: 16})}
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	font-weight: 300;
+		${fluidTypography({max: 63, min: 16})}
 	}
 	p {
-		${fluidTypography({max: 16, min: 14})}
+		${fluidTypography({max: 21, min: 14})}
 	}
 
 	@media (max-width: ${breakpoints.md}) {

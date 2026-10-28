@@ -189,6 +189,7 @@ export const NavBack = styled.button`
 `;
 export const NavBackText = styled.span`
 	color: inherit;
+	text-transform: uppercase;
 	font-size: clamp(1.4rem, 0.388vw + 1.654rem, 1.8rem);
 `;
 

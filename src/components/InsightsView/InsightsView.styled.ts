@@ -46,10 +46,10 @@ export const InsightsItem = styled.div`
 	}
 
 	h2 {
-		${fluidTypography({max: 20, min: 16})}
+		${fluidTypography({max: 28, min: 16})}
 	}
 	p {
-		${fluidTypography({max: 16, min: 14})}
+		${fluidTypography({max: 21, min: 12})}
 	}
 	@media (max-width: ${breakpoints.xl}) {
 		width: calc((100% - 4rem) / 3);
@@ -107,9 +107,10 @@ export const InsightPageTitle = styled.div`
 	&::before {
 		content: '';
 		position: absolute;
-		left: -3rem;
-		width: 0.8rem;
-		height: 2.6rem;
+		left: -5rem;
+		top: 0;
+		width: 2rem;
+		height: 6rem;
 		-webkit-transform: skew(-22deg) scale(0);
 		-ms-transform: skew(-22deg) scale(0);
 		transform: skew(-22deg) scale(1);
@@ -121,10 +122,23 @@ export const InsightPageTitle = styled.div`
 	}		
 	}
 	}
+	h2 {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	font-weight: 300;
+	${fluidTypography({max: 63, min: 16})}
+	}
+	p {
+	${fluidTypography({max: 21, min: 12})}
+	}
 `
 export const InsightPageContent = styled.div`
     display: flex;
     color: var(--text);
+	p {
+	${fluidTypography({max: 21, min: 12})}
+	}
 `;
 export const NavBack = styled.div`
 	display: flex;
@@ -132,7 +146,8 @@ export const NavBack = styled.div`
 	gap: 1.2rem;
 	height: 3rem;
 	cursor: pointer;
-	color: var(--text); 
+	color: var(--text);
+	text-transform: uppercase; 
 	 ${ItemIcon} {
     color: inherit;
   }
@@ -158,6 +173,6 @@ export const NavBack = styled.div`
 export const NavBackText = styled.span`
 	color: inherit;
 	font-size: clamp(1.4rem, 0.388vw + 1.654rem, 1.8rem);
-	
+	text-transform: uppercase;
 `;
 export const HeadingTag = styled.div``;

@@ -1,6 +1,7 @@
 import styled, {css} from 'styled-components';
 import {fluidTypography} from '../../styles/fluidTypography';
 import {breakpoints} from '../../styles/breakpoints';
+import {ItemIcon} from '../../styles/shared';
 
 const sectionAnchor = css`
 	scroll-margin-top: calc(var(--header-height, 15rem) + 2rem);
@@ -67,36 +68,54 @@ export const CapaInfo = styled.section`
 	display: flex;
 	flex-direction: column;
 	gap: 2.5rem;
-	
 `;
 
 export const CapaTitleBlock = styled.div`
 	display: flex;
-	align-content: flex-start;
+	align-items: flex-start;
 	gap: 22rem;
 	margin-bottom: 2rem;
 `;
-
-export const CapaBack = styled.button`
+export const CapaBackBlock = styled.div`
 	display: flex;
-	align-self: flex-start;
 	align-items: center;
-	position: relative;
-	gap: 2rem;
-	padding: 0;
-	background: none;
-	border: none;
-	text-transform: uppercase;
+	gap: 1.2rem;
+	height: 3rem;
 	cursor: pointer;
 	${fluidTypography({max: 20, min: 12})};
 	font-weight: 300;
 	color: var(--text);
 	transition: color 0.3s ease;
-
 	&:hover,
 	&:focus-visible {
 		color: #a0b9be;
 	}
+	${ItemIcon} {
+		color: inherit;
+	}
+
+	svg path {
+		fill: currentColor;
+		transition: fill 0.2s ease;
+	}
+
+	&:hover {
+		color: #a0b9be;
+	}
+
+	&:hover ${ItemIcon} {
+		color: #a0b9be;
+		border-color: #a0b9be;
+	}
+
+	&:hover svg path {
+		fill: #a0b9be;
+	}
+`;
+export const CapaBack = styled.span`
+	color: inherit;
+	font-size: clamp(1.4rem, 0.388vw + 1.654rem, 1.8rem);
+	text-transform: uppercase;
 `;
 
 export const CapaTitle = styled.h1`
@@ -105,7 +124,6 @@ export const CapaTitle = styled.h1`
 	${fluidTypography({max: 48, min: 32})};
 	font-weight: 400;
 	color: #28282d;
-
 `;
 
 export const CapaContentBlock = styled.div`

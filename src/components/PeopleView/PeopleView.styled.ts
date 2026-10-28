@@ -35,7 +35,7 @@ export const PeopleTitle = styled.div`
 	&::before {
 		content: '';
 		position: absolute;
-		top: 0;
+		top: -.5rem;
 		left: 0;
 		width: clamp(0.8rem, 0.65vw, 1.2rem);
 		height: clamp(3.4rem, 2.6vw, 5rem);

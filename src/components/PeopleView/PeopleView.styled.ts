@@ -144,11 +144,17 @@ export const ButtonReveal = styled.div`
 	& > button {
 		width: calc(var(--w) * 0.8);
 		height: calc(var(--w) * 0.8);
-		left: calc(var(--edge-x) - var(--w) * 0.4);
+		//left: calc(var(--edge-x) - var(--w) / 2);
 		left: 10rem;
 		bottom: calc(var(--h) * 0.53);
 	}
-
+    @media (max-width: ${breakpoints.xxl}) {
+		     
+	& > button {
+		left: 8rem;
+		
+	}
+	}
 	${revealed(css`
 		opacity: 1;
 		pointer-events: auto;

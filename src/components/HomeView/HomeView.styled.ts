@@ -235,7 +235,7 @@ export const NavigationDots = styled.div`
 	gap: 12px;
 	position: absolute;
 	z-index: 10;
-	bottom: clamp(3rem, 18vh, 18rem);
+	bottom: clamp(3rem, 20vh, 18rem);
 	left: clamp(1.6rem, 4vw, 6rem);
 	
 	@media (max-width: ${breakpoints.xxl}) {

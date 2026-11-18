@@ -17,6 +17,7 @@ export const HeaderBlock = styled.header<{
 	justify-content: center;
 	align-items: flex-end;
 	z-index: 5;
+	left: 0;
 	padding: 0 3rem;
 	background: transparent;
 	transition:

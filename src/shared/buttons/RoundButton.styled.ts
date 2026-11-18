@@ -82,6 +82,8 @@ export const ButtonBlock = styled.button<{$variant: ButtonVariant}>`
 					transform: none;
 				}
 			}
+			
+	
 		`}
 `;
 

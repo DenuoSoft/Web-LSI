@@ -184,7 +184,16 @@ export const TabsCta = styled.div`
 	left: 50%;
 	bottom: 2rem;
 	transform: translateX(-50%);
-	z-index: 6;
+	z-index: 6; 
+	@media (max-width: ${breakpoints.xxl}) {
+		left: 53%;
+	}
+	@media (max-width: ${breakpoints.xl}) {
+		left: 39%;
+	}
+    @media (max-width: ${breakpoints.lg}) {
+		left: 17%;
+	}
 `;
 
 export const TabsAkkut = styled.div<{

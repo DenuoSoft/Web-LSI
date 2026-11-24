@@ -186,7 +186,7 @@ export const TabsCta = styled.div`
 	transform: translateX(-50%);
 	z-index: 6; 
 	@media (max-width: ${breakpoints.xxl}) {
-		left: 53%;
+		left: 51%;
 	}
 	@media (max-width: ${breakpoints.xl}) {
 		left: 39%;

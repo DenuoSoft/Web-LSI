@@ -41,7 +41,7 @@ export const AboutBlock = styled.div<{ $visible: boolean }>`
 	}
     @media (max-width: ${breakpoints.xxl}) {
 		&::after {
-        right: calc(var(--slide-base) - 25rem);
+        right: calc(var(--slide-base) - 28rem);
         }
 	}
     @media (max-width: ${breakpoints.xl}) {

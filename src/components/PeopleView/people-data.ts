@@ -7,15 +7,16 @@ import naberezhnaya from '../../assets/img/naberezhnaya.jpg';
 import alterman from '../../assets/img/alterman.jpg';
 import klushin from '../../assets/img/klushin.jpg';
 import shabalin from '../../assets/img/shabalin.jpg';
+import vasutin from '../../assets/img/vasutin.jpg';
 import sosedkincv from '../../data/cv/Sosedkin.json';
-import scottcv from '../../data/cv/Scott.json';
-import lamzincv from '../../data/cv/Lamzin.json';
-import panovcv from '../../data/cv/Panov.json';
+import scottcv from '../../data/cv/antel.json';
+import lamzincv from '../../data/cv/lamzin.json';
+import panovcv from '../../data/cv/panov.json';
 import naberezhnayacv from '../../data/cv/Naberezhnaya.json';
 import altermancv from '../../data/cv/Alterman.json';
 import klushincv from '../../data/cv/Klushin.json';
-import shabalincv from '../../data/cv/Shabalin.json';
-
+import shabalincv from '../../data/cv/shabalin.json';
+import vasutincv from '../../data/cv/vasutin.json'
 
 const asPersonJsonData = (data: unknown): PersonJsonData => {
 	return data as PersonJsonData;
@@ -29,7 +30,8 @@ const jsonDataMap: Record<number, PersonJsonData> = {
 	5: asPersonJsonData(naberezhnayacv),
 	6: asPersonJsonData(altermancv),
 	7: asPersonJsonData(klushincv),
-	8: asPersonJsonData(shabalincv)
+	8: asPersonJsonData(shabalincv),
+	9: asPersonJsonData(vasutincv)
 	
 };
 
@@ -118,6 +120,16 @@ export const people: Person[] = [
 		email: "nikita.shabalin@denuo.legal",
 		jsonData: jsonDataMap[8]
 	},
+	{
+		id: 9,
+		title: 'Ruslan Vasutin',
+		img: vasutin,
+		badge: ['Tax'],
+		about: 'Ruslan advises on transaction structuring and the reorganisation of companies; he possesses international expertise in the field of cross-border tax planning and international tax planning and participates in the resolution of tax disputes, including on Russian domestic and international transfer pricing issues.',
+		position: 'Partner',
+		email: "ruslan.vasutin@denuo.legal",
+		jsonData: jsonDataMap[9]
+	}
 ];
 
 export const getPersonById = (id: number): Person | undefined => {
